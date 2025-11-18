@@ -8,6 +8,7 @@ import taxRoutes from './tax.routes.js';
 import varrientRoutes from './varrient.routes.js';
 import warehouseRoutes from './warehouse.routes.js';
 import WarrantyRoutes from './warrenty.routes.js';
+import BarcodeRoutes from "./barcode.routes.js";
 
 const router = express.Router();
 
@@ -20,5 +21,6 @@ router.use('/tax', taxRoutes);
 router.use("/varrient", varrientRoutes);
 router.use("/warehouse", warehouseRoutes);
 router.use("/warranty", WarrantyRoutes);
+router.use("/barcode", BarcodeRoutes);
 
 export default router;

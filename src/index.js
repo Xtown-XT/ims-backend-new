@@ -4,6 +4,7 @@ import morgan from 'morgan';
 import helmet from 'helmet';
 import {responseHelper } from './middleware/index.js';
 import path from "path";
+import bwipjs from "bwip-js";
 
 import "./associations/index.js";
 
@@ -40,6 +41,47 @@ app.get('/api/data', (req, res) => {
 
 app.get('/api/error', (req, res) => {
   res.sendError('Something went wrong', 422, [{ field: 'email', message: 'Invalid' }]);
+});
+
+
+
+// =============================
+// ✅ BARCODE API (ADDED HERE)
+// =============================
+app.get('/ims_api/v1/barcode', (req, res) => {
+  const {
+    text = '0000000000',
+    type = 'code128',
+    scale = '3',
+    height = '40',
+    includetext = 'true',
+    textxalign = 'center',
+  } = req.query;
+
+  const options = {
+    bcid: type,
+    text: text,
+    scale: parseInt(scale),
+    height: parseInt(height),
+    includetext: includetext === 'true',
+    textxalign: textxalign,
+    paddingwidth: 10,
+    paddingheight: 10,
+    backgroundcolor: 'FFFFFF',
+  };
+
+  bwipjs.toBuffer(options, (err, png) => {
+    if (err) {
+      return res.status(400).json({
+        success: false,
+        message: "Barcode generation failed",
+        error: err.message,
+      });
+    }
+
+    res.set("Content-Type", "image/png");
+    res.send(png);
+  });
 });
 
 //routes
