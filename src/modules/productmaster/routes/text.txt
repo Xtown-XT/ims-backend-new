@@ -1,0 +1,320 @@
+// import { Router } from "express";
+// import subcategoryController from "../controller/subcategory.controller.js";
+// import { verifyToken, authorizeRole } from "../../../middleware/index.js";
+// import { validate } from "../../../middleware/validate.js";
+// import { upload } from "../../../middleware/upload.js";
+
+
+// import {
+//     createSubcategorySchema,
+//     updateSubcategorySchema,
+//     subcategoryIdSchema,
+// } from "../dto/subcategory.zod.js";
+
+// const router = Router();
+
+// // // Public / Authenticated routes
+// // router.post(
+// //     "/subcategories/create",
+// //     verifyToken,
+// //     authorizeRole(["admin", "superadmin", "user"]),
+// //     validate(createSubcategorySchema),
+// //     subcategoryController.createSubcategory
+// // );
+
+
+// // IMPORTANT: uploadSingle comes FIRST so req.body and req.file are populated
+// router.post(
+//   "/subcategories/create",verifyToken,
+//    authorizeRole(["admin", "superadmin", "user"]),
+//   upload("image", "subcategories"),        // <-- multer parses multipart/form-data
+//   validate(createSubcategorySchema),            // <-- now req.body has values
+//   subcategoryController.createSubcategory
+// );
+// router.get(
+//     "/subcategories/all",
+//     verifyToken,
+//     authorizeRole(["admin", "superadmin", "user"]),
+//     subcategoryController.getAllSubcategories
+// );
+
+// router.get(
+//     "/subcategories/:id",
+//     verifyToken,
+//     authorizeRole(["admin", "superadmin", "user"]),
+//     validate(subcategoryIdSchema),
+//     subcategoryController.getSubcategoryById
+// );
+
+// router.put(
+//     "/subcategories/:id",
+//     verifyToken,
+//     authorizeRole(["admin", "superadmin", "user"]),
+//     validate(subcategoryIdSchema),
+//     validate(updateSubcategorySchema),
+//     subcategoryController.updateSubcategory
+// );
+
+// router.delete(
+//     "/subcategories/:id",
+//     verifyToken,
+//     authorizeRole(["admin", "superadmin", "user"]),
+//     validate(subcategoryIdSchema),
+//     subcategoryController.deleteSubcategory
+// );
+
+// export default router;
+
+// routes/subcategory.routes.js
+
+// import { Op } from "sequelize";
+// import Category from "../models/categories.js"; // path to your category model
+// import BaseService from "../../../services/service.js";
+
+// const categoryService = new BaseService(Category);
+
+// // =======
+// // Create Category
+// export const createCategory = async (req, res) => {
+//   try {
+//     const data = req.body;
+//     const newCategory = await categoryService.create(data);
+
+//     return res.status(201).json({
+//       message: "Category created successfully",
+//       data: newCategory,
+//     });
+//   } catch (error) {
+//     console.error("Error creating category:", error);
+//     return res.status(500).json({
+//       message: "Failed to create category",
+//       error: error.message,
+//     });
+//   }
+// };
+
+// // Get All Categories
+// export const getAllCategories = async (req, res) => {
+//   try {
+//     const result = await categoryService.getAll({
+//       searchFields: ["name", "description", "status"], // adjust fields according to your model
+//     });
+//     return res.status(200).json(result);
+//   } catch (error) {
+//     return res.status(500).json({
+//       message: "Failed to fetch categories",
+//       error: error.message,
+//     });
+//   }
+// };
+
+// // Get Category by ID
+// export const getCategoryById = async (req, res) => {
+//   try {
+//     const { id } = req.params;
+//     const record = await categoryService.getById(id);
+//     return res.status(200).json(record);
+//   } catch (error) {
+//     return res.status(404).json({ message: "Category not found" });
+//   }
+// };
+
+// // Update Category
+// export const updateCategory = async (req, res) => {
+//   try {
+//     const { id } = req.params;
+//     const updated = await categoryService.update(id, req.body);
+
+//     return res.status(200).json({
+//       message: "Category updated successfully",
+//       data: updated,
+//     });
+//   } catch (error) {
+//     return res.status(500).json({
+//       message: "Failed to update category",
+//       error: error.message,
+//     });
+//   }
+// };
+
+// // Delete Category
+// export const deleteCategory = async (req, res) => {
+//   try {
+//     const { id } = req.params;
+//     const result = await categoryService.delete(id);
+
+//     return res.status(200).json({
+//       message: "Category deleted successfully",
+//       data: result,
+//     });
+//   } catch (error) {
+//     return res.status(500).json({
+//       message: "Failed to delete category",
+//       error: error.message,
+//     });
+//   }
+// };
+
+// export default {
+//   createCategory,
+//   getAllCategories,
+//   getCategoryById,
+//   updateCategory,
+//   deleteCategory,
+// };
+// // Create Category
+// export const createCategory = async (req, res) => {
+//   console.log("REQ.BODY:", req.body); // debug input
+//   if (!req.body.category_name) {
+//     return res.status(400).json({ message: "category_name is required" });
+//   }
+
+//   try {
+//     const newCategory = await categoryService.create(req.body);
+//     return res.status(201).json({
+//       message: "Category created successfully",
+//       data: newCategory,
+//     });
+//   } catch (error) {
+//     console.error("Error creating category:", error);
+//     return res.status(500).json({
+//       message: "Failed to create category",
+//       error: error.message,
+//     });
+//   }
+// };
+
+
+// Create Subcategory
+// export const createSubcategory = async (req, res) => {
+//   try {
+
+//        console.log("REQ.BODY:", req.body);
+//     console.log("REQ.FILE:", req.file);
+
+//     const data = req.body;
+
+//     // ✅ Fix: use req.file correctly
+//     const image = req.file ? `/uploads/subcategories/${req.file.filename}` : null;
+
+//     // ✅ Include image field before creating the record
+//     const newRecord = await subcategoryService.create({
+//       ...data,
+//       image_url: image, // ensure matches model column name
+//     });
+
+//     return res.status(201).json({
+//       message: "Subcategory created successfully",
+//       data: newRecord,
+//     });
+//   } catch (error) {
+//     console.error("Error creating subcategory:", error);
+//     return res.status(500).json({
+//       message: "Failed to create subcategory",
+//       error: error.message,
+//     });
+//   }
+// };
+
+
+// export const createSubcategory = async (req, res) => {
+//   try {
+//     console.log("REQ.BODY:", req.body);
+//     console.log("REQ.FILE:", req.file);
+
+//     const data = { ...req.body };
+//     if (req.file) data.image = `/uploads/subcategories/${req.file.filename}`;
+
+//     // extra safety: validate required fields server-side too
+//     if (!data.subcategory_name) return res.status(400).json({ message: "subcategory_name is required" });
+//     if (!data.category_id) return res.status(400).json({ message: "category_id is required" });
+
+//     const newRecord = await subcategoryService.create(data);
+//     return res.status(201).json({ message: "Subcategory created successfully", data: newRecord });
+//   } catch (error) {
+//     console.error("Error creating subcategory:", error);
+//     return res.status(500).json({ message: "Failed to create subcategory", error: error.message });
+//   }
+// };
+
+
+// export const createSubcategory = async (req, res) => {
+//   try {
+//     console.log("REQ.BODY:", req.body);
+//     console.log("REQ.FILE:", req.file);
+
+//     const data = { ...req.body };
+
+//     // Save ONLY filename — no directory prefix
+//     if (req.file) data.image = req.file.filename;
+
+//     // Validate required fields
+//     if (!data.subcategory_name) {
+//       return res.status(400).json({ message: "subcategory_name is required" });
+//     }
+
+//     if (!data.category_id) {
+//       return res.status(400).json({ message: "category_id is required" });
+//     }
+
+//     const newRecord = await subcategoryService.create(data);
+
+//     return res.status(201).json({
+//       message: "Subcategory created successfully",
+//       data: newRecord,
+//     });
+
+//   } catch (error) {
+//     console.error("Error creating subcategory:", error);
+//     return res.status(500).json({
+//       message: "Failed to create subcategory",
+//       error: error.message,
+//     });
+//   }
+// };
+// export const updateSubcategory = async (req, res) => {
+//   try {
+//     const { id } = req.params;
+//     const updated = await subcategoryService.update(id, req.body);
+
+//     return res.status(200).json({
+//       message: "Subcategory updated successfully",
+//       data: updated,
+//     });
+//   } catch (error) {
+//     return res.status(500).json({
+//       message: "Failed to update subcategory",
+//       error: error.message,
+//     });
+//   }
+// };
+
+
+// // Get All Subcategories
+// export const getAllSubcategories = async (req, res) => {
+//   try {
+//     const result = await subcategoryService.getAll({
+//       searchFields: ["subcategory_name", "category_code", "description"],
+//     });
+//     return res.status(200).json(result);
+//   } catch (error) {
+//     return res.status(500).json({
+//       message: "Failed to fetch subcategories",
+//       error: error.message,
+//     });
+//   }
+// };
+
+// // Get Subcategory by ID
+// export const getSubcategoryById = async (req, res) => {
+//   try {
+//     const { id } = req.params;
+//     const record = await subcategoryService.getById(id);
+//     return res.status(200).json(record);
+//   } catch (error) {
+//     return res.status(404).json({ message: "Subcategory not found" });
+//   }
+// };
+
+
+
