@@ -9,6 +9,7 @@ import varrientRoutes from './varrient.routes.js';
 import warehouseRoutes from './warehouse.routes.js';
 import WarrantyRoutes from './warrenty.routes.js';
 import BarcodeRoutes from "./barcode.routes.js";
+import qrcodeRoutes from "./qr.routes.js";
 
 const router = express.Router();
 
@@ -22,5 +23,6 @@ router.use("/varrient", varrientRoutes);
 router.use("/warehouse", warehouseRoutes);
 router.use("/warranty", WarrantyRoutes);
 router.use("/barcode", BarcodeRoutes);
+router.use("/qrcode", qrcodeRoutes);
 
 export default router;
