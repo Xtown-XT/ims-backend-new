@@ -1,13 +1,13 @@
-// import{Router} from "express";
+import{Router} from "express";
 
-// import expenses from "../controllers/expenses.controllers.js";
+import expensescontrollers from "../controllers/expenses.controllers.js";
 
-// const router = Router();
+const router = Router();
 
-// router.get("/getAllexpenses",expenses.getAllexpenses);
-// router.get("/getExpenseById/:id",expenses.getExpenseById);
-// router.post("/createexpenses",expenses.createexpenses);
-// router.put("/updateexpenses/:id",expenses.updateexpenses);
-// router.delete("/deleteexpenses/:id",expenses.deleteexpenses);
+router.get("/getAllexpenses",expensescontrollers.getAllexpenses);
+router.get("/getExpenseById/:id",expensescontrollers.getExpenseById);
+// router.post("/createexpenses",expensescontrollers.createexpenses);
+router.put("/updateexpenses/:id",expensescontrollers.updateexpenses);
+// router.delete("/deleteexpenses/:id",expensescontrollers.deleteexpenses);
 
-// export default router
+export default router

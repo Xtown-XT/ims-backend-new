@@ -11,7 +11,7 @@ const router = Router();
 
 // ✅ Create Store
 router.post(
-  "/store/create",
+  "/createStore",
   verifyEmployeeToken,
   validate(createStoreSchema),
   storeController.createStore
@@ -19,14 +19,14 @@ router.post(
 
 // ✅ Get All Stores
 router.get(
-  "/store/all",
+  "/getAllStores",
  verifyEmployeeToken,
   storeController.getAllStores
 );
 
 // ✅ Get Store by ID
 router.get(
-  "/store/:id",
+  "/getStoreById/:id",
 verifyEmployeeToken,
   validate(storeIdSchema, "params"),
   storeController.getStoreById
@@ -34,7 +34,7 @@ verifyEmployeeToken,
 
 // ✅ Update Store
 router.put(
-  "/store/:id",
+  "/updateStore/:id",
  verifyEmployeeToken,
   validate(updateStoreSchema),
   storeController.updateStore
@@ -42,7 +42,7 @@ router.put(
 
 // ✅ Delete Store
 router.delete(
-  "/store/:id",
+  "/deleteStore/:id",
  verifyEmployeeToken,
   validate(storeIdSchema, "params"),
   storeController.deleteStore
