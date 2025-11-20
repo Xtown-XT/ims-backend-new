@@ -13,6 +13,7 @@ import userRoutes from './modules/user/routes/index.js';
 import userManagementRoutes from './modules/employee/routes/index.js'
 import productRoutes from './modules/productmaster/routes/index.js';
 import financeRoutes from "./modules/finance/routes/index.js";
+import peoplesmasterRoutes from "./modules/peoplesmaster/Routes/index.js";
 
 
 
@@ -91,7 +92,9 @@ app.use('/ims_api/v1', userManagementRoutes);
 
 app.use('/ims_api/v1', productRoutes);
 
-app.use("/ims_api/v1", financeRoutes)
+app.use("/ims_api/v1", financeRoutes);
+
+app.use("/ims_api/v1", peoplesmasterRoutes);
 
 
 

@@ -123,8 +123,12 @@ export const getExpenseById = async (req,res)=>{
             });
         }
     }
-    
-
+     export default{
+        createexpense,
+        getAllexpenses,
+        getExpenseById,
+        updateexpenses
+    }
 
 
 

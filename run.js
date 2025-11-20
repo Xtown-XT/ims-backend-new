@@ -31,7 +31,7 @@ app.listen(port, host, async () => {
   try {
     
     // await imsSequelize.sync();     
-     await imsSequelize.sync({alert : true});   
+     await imsSequelize.sync({});   
 
     console.log(`Server is running on http://${host}:${port}`);
   } catch (err) {

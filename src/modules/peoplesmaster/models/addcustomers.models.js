@@ -1,62 +1,90 @@
 import { DataTypes } from "sequelize";
 import { sequelize } from "../../../db/index.js";
 
-const warehouse = sequelize.define(
-  "Warehouse",
+const Customer = sequelize.define(
+  "customers",
   {
     id: {
       type: DataTypes.UUID,
       defaultValue: DataTypes.UUIDV4,
       primaryKey: true,
-    },
-    warehouse_name: {
-      type: DataTypes.STRING,
       allowNull: false,
-      unique: true,
     },
-    Contact_person: {
+
+    first_name: {
       type: DataTypes.STRING,
       allowNull: false,
     },
+
+    last_name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+
     email: {
       type: DataTypes.STRING,
       allowNull: false,
-      validate: { isEmail: true },
+      unique: true,
+      validate: {
+        isEmail: true,
+      },
     },
-    phone_number: {
+
+    phone: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    phone_work: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
+
     address: {
       type: DataTypes.STRING,
       allowNull: false,
     },
+
     city: {
       type: DataTypes.STRING,
       allowNull: false,
     },
+
     state: {
       type: DataTypes.STRING,
       allowNull: false,
     },
+
     country: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    deletedAt: {               // ✅ REQUIRED FOR PARANOID
-      type: DataTypes.DATE,
+
+    postal_code: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+
+    image: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+
+    status: {
+      type: DataTypes.ENUM("active", "inactive"),
+      defaultValue: "active",
+    },
+
+    created_by: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+
+    updated_by: {
+      type: DataTypes.STRING,
       allowNull: true,
     },
   },
   {
     timestamps: true,
-    tableName: "warehouse",
-    paranoid: true,
+    tableName: "customers",
+    paranoid: true, 
   }
 );
 
-export default warehouse;
+export default Customer;

@@ -22,7 +22,50 @@ export const createwarehouse = async (req, res)=>{
     // get all warehouse
 
     export const getAllwarehouse = async (req,res)=>{
- try {
+//  try {
+//     const {
+//       search = "",
+//       page = 1,
+//       limit = 10,
+//       orderBy = "createdAt",
+//       order = "ASC"
+//     } = req.query;
+
+//     // 🔥 Convert to proper types
+//     const pageNumber = Number(page);
+//     const limitNumber = Number(limit);
+
+//     // 🔍 Validate order direction
+//     const sortOrder = ["ASC", "DESC"].includes(order.toUpperCase())
+//       ? order.toUpperCase()
+//       : "ASC";
+
+//     // 🔐 Only allow safe columns to be used for sorting
+//     const allowedOrderBy = ["createdAt", "updatedAt", "warehouse_name", "city", "state", "country"];
+//     const sortField = allowedOrderBy.includes(orderBy) ? orderBy : "createdAt";
+
+//     const result = await warehouseService.getAll({
+//       search,
+//       page: pageNumber,
+//       limit: limitNumber,
+//       orderBy: sortField,
+//       order: sortOrder,
+//       searchFields: ["warehouse_name", "city", "state", "country"],
+//     });
+
+//     res.status(200).json({
+//       message: "Warehouses fetched successfully",
+//       data: result,
+//     });
+
+//   } catch (error) {
+//     console.error("Error fetching warehouses:", error);
+//     res.status(500).json({ message: "Internal server error", error: error.message });
+//   }
+// };
+
+
+try {
     const {
       search = "",
       page = 1,
@@ -31,17 +74,22 @@ export const createwarehouse = async (req, res)=>{
       order = "ASC"
     } = req.query;
 
-    // 🔥 Convert to proper types
     const pageNumber = Number(page);
     const limitNumber = Number(limit);
 
-    // 🔍 Validate order direction
     const sortOrder = ["ASC", "DESC"].includes(order.toUpperCase())
       ? order.toUpperCase()
       : "ASC";
 
-    // 🔐 Only allow safe columns to be used for sorting
-    const allowedOrderBy = ["createdAt", "updatedAt", "warehouse_name", "city", "state", "country"];
+    const allowedOrderBy = [
+      "createdAt",
+      "updatedAt",
+      "warehouse_name",
+      "city",
+      "state",
+      "country",
+    ];
+
     const sortField = allowedOrderBy.includes(orderBy) ? orderBy : "createdAt";
 
     const result = await warehouseService.getAll({
@@ -51,16 +99,20 @@ export const createwarehouse = async (req, res)=>{
       orderBy: sortField,
       order: sortOrder,
       searchFields: ["warehouse_name", "city", "state", "country"],
+      paranoid: false, // ❗ Prevent deletedAt from being used
     });
 
-    res.status(200).json({
+    return res.status(200).json({
       message: "Warehouses fetched successfully",
       data: result,
     });
 
   } catch (error) {
     console.error("Error fetching warehouses:", error);
-    res.status(500).json({ message: "Internal server error", error: error.message });
+    return res.status(500).json({
+      message: "Internal server error",
+      error: error.message,
+    });
   }
 };
 

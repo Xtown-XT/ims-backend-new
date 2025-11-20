@@ -4,6 +4,13 @@ import { sequelize } from "../../../db/index.js";
 const Store = sequelize.define(
   "Store",
   {
+
+    id: {
+      type: DataTypes.UUID,
+      defaultValue: DataTypes.UUIDV4,
+      primaryKey: true,
+      allowNull: false,
+    },
     store_name: {
       type: DataTypes.STRING,
       allowNull: false,
