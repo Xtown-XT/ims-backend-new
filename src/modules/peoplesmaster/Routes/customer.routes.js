@@ -11,6 +11,7 @@ import {
   updateCustomerSchema,
 } from "../dto/addcustomer.zod.js";
 
+
 const router = express.Router();
 
 /* -----------------------------
@@ -18,7 +19,7 @@ const router = express.Router();
 ------------------------------ */
 router.post(
   "/createcustomer",
-  verifyEmployeeToken,
+  verifyEmployeeToken, 
   uploadSingle("image", "customers"),
   validate({ body: createCustomerSchema }),
   peoplesmasterController.customercreate
@@ -29,7 +30,7 @@ router.post(
 ------------------------------ */
 router.get(
   "/getallcustomers",
-  verifyEmployeeToken,
+  verifyEmployeeToken, 
   peoplesmasterController.getAllCustomers
 );
 
@@ -38,7 +39,7 @@ router.get(
 ------------------------------ */
 router.put(
   "/updateCustomerById/:id",
-  verifyEmployeeToken,
+  verifyEmployeeToken, 
   uploadSingle("image", "customers"),
   validate({ params: idParamSchema, body: updateCustomerSchema }),
   peoplesmasterController.updateCustomerById
@@ -59,7 +60,7 @@ router.get(
 ------------------------------ */
 router.delete(
   "/deleteCustomerById/:id",
-  verifyEmployeeToken,
+
   validate({ params: deleteCustomerSchema }),
   peoplesmasterController.deleteCustomerById
 );

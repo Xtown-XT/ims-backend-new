@@ -31,7 +31,10 @@ const Warranty = sequelize.define("Warranty", {
 }, {
   tableName: "warranties",
   timestamps: true,
-   paranoid : true
+   paranoid : true,
+    deletedAt: "deleted_at",       // custom delete column name
+    updatedAt: "updated_at",       // custom updated column name
+  
 });
 
 export default Warranty;

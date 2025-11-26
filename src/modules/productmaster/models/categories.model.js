@@ -15,6 +15,11 @@ const Categories = sequelize.define(
       allowNull: false,
       unique: true,
     },
+    category_code:{
+      type: DataTypes.STRING,
+      allowNull: true,
+      unique: true,
+    },
     category_slug: {
       type: DataTypes.TEXT,
       allowNull: true,

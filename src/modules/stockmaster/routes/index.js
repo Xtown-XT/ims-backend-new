@@ -1,6 +1,6 @@
 import express from "express";
 import managestockRoutes from "./managestock.routes.js";
-import stockadjustmentRoutes from "../routes/stockadjustment.js";
+import stockadjustmentRoutes from "../routes/stockadjustment.routes.js";
 import stocktransferRoutes from "../routes/stocktransfer.routes.js";
 
 const router = express.Router();

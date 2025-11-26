@@ -1,11 +1,11 @@
-import { Op } from "sequelize";
+// import { Op } from "sequelize";
 import BaseService from "../../../services/service.js";
-import StockAdjustmentModel from "../models/stockadjustment.js";
+import StockAdjustmentModel from "../models/stockadjustment.js";   // ✔️ Correct import
 import { formatDates } from "../../../utils/dataFormatter.js";
 
 const stockAdjustmentService = new BaseService(StockAdjustmentModel);
 
-// ✅ Create Stock Adjustment
+// Create Stock Adjustment
 export const createStockAdjustment = async (req, res) => {
   try {
     const data = req.body;

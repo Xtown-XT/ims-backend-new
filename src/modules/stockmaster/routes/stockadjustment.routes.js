@@ -1,52 +1,48 @@
 import {Router } from "express";
 import stockadjustmentController from "../controller/stockadjustment.controller.js";
-import { verifyToken, authorizeRole } from "../../../middleware/index.js";
+
 import { validate } from "../../../middleware/validate.js";
 import {
     createStockAdjustmentSchema,
     updateStockAdjustmentSchema,
     stockAdjustmentIdSchema,    
 } from "../dto/stockadjustment.dto.js";
+import { verifyEmployeeToken } from "../../../middleware/empAuth.js";
 
 const router = Router();
 
 // Public / Authenticated routes
 router.post(
-    "/stockadjustment/create",
-    verifyToken,
-    authorizeRole(["admin", "superadmin", "user"]),
+    "/createStockAdjustment", verifyEmployeeToken,
+    
     validate(createStockAdjustmentSchema),
     stockadjustmentController.createStockAdjustment
 );
 
 router.get(
-    "/stockadjustment/all",
-    verifyToken,
-    authorizeRole(["admin", "superadmin", "user"]),
+    "/getAllStockAdjustments",
+    verifyEmployeeToken,
     stockadjustmentController.getAllStockAdjustments
 );
 
 router.get(
-    "/stockadjustment/:id",
-    verifyToken,
-    authorizeRole(["admin", "superadmin", "user"]),
+    "/getStockAdjustmentById/:id",
+   verifyEmployeeToken,
     validate(stockAdjustmentIdSchema),
     stockadjustmentController.getStockAdjustmentById
 );
 
 router.put(
-    "/stockadjustment/:id",
-    verifyToken,
-    authorizeRole(["admin", "superadmin", "user"]),
+    "/updateStockAdjustment/:id",
+   verifyEmployeeToken,
     validate(stockAdjustmentIdSchema),
     validate(updateStockAdjustmentSchema),
     stockadjustmentController.updateStockAdjustment
 );
 
 router.delete(
-    "/stockadjustment/:id",
-    verifyToken,
-    authorizeRole(["admin", "superadmin", "user"]),
+    "/deleteStockAdjustment/:id",
+   verifyEmployeeToken,
     validate(stockAdjustmentIdSchema),
     stockadjustmentController.deleteStockAdjustment
 );

@@ -1,7 +1,7 @@
 // src/modules/index.js  (or wherever your module index lives)
 
 import express from "express";
-import addcustomerRoutes from "./addsuppiler.routes.js";    // adjust path if needed
+import addcustomerRoutes from "./customer.routes.js";    // adjust path if needed
 import addsupplierRoutes from "./addsuppiler.routes.js"  // <--- fixed import
 
 const router = express.Router();
