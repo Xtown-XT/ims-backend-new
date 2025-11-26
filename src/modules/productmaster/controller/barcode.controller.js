@@ -43,7 +43,7 @@ export const createBarcode = async (req, res) => {
     const fileName = `barcode_${Date.now()}.png`;
     fs.writeFileSync(path.join(uploadDir, fileName), png);
 
-    const imageUrl = `/uploads/barcodes/${fileName}`;
+    const imageUrl = `${fileName}`;
 
     // Save to DB
     const record = await barcodeService.create({

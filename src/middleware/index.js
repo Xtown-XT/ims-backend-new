@@ -4,12 +4,13 @@ import { authorizeRole } from "./authenticateRole.js";
 import { verifyToken } from "./auth.js"
 import {  verifyEmployeeToken } from "./empAuth.js" 
 import {  uploadSingle } from "./upload.js" 
-
+import {  uploadMultiple } from "./uploadMultiple.js" 
 export {
     responseHelper,
     validate,
     authorizeRole,
     verifyToken,
     verifyEmployeeToken,
-    uploadSingle
+    uploadSingle,
+    uploadMultiple
 }

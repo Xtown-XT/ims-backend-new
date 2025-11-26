@@ -13,7 +13,7 @@ const router = Router();
 
 // NOTE: order matters: verifyToken -> authorizeRole -> uploadSingle -> validate -> controller
 router.post(
-  "/subcategories/create",
+  "/subcategories/createSubcategory",
  verifyEmployeeToken,
   uploadSingle("image", "subcategories"), // multer runs here and populates req.file and req.body
   validate(createSubcategorySchema),
@@ -21,20 +21,20 @@ router.post(
 );
 
 router.get(
-  "/subcategories/all",
+  "/subcategories/getAllSubcategories",
  verifyEmployeeToken,
   subcategoryController.getAllSubcategories
 );
 
 router.get(
-  "/subcategories/:id",
+  "/subcategories/getSubcategoryById/:id",
  verifyEmployeeToken,
   validate(subcategoryIdSchema),
   subcategoryController.getSubcategoryById
 );
 
 router.put(
-  "/subcategories/:id",
+  "/subcategories/updateSubcategory/:id",
  verifyEmployeeToken,
   uploadSingle("image", "subcategories"), // multer runs here and populates req.file and req.body
   validate(subcategoryIdSchema),
@@ -43,7 +43,7 @@ router.put(
 );
 
 router.delete(
-  "/subcategories/:id",
+  "/subcategories/deleteSubcategory/:id",
  verifyEmployeeToken,
   validate(subcategoryIdSchema),
   subcategoryController.deleteSubcategory
