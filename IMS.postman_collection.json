@@ -4,7 +4,7 @@
 		"name": "IMS",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "20198225",
-		"_collection_link": "https://universal-flare-78184.postman.co/workspace/1920dba9-15b0-4b06-b383-f797d76a55fc/collection/42616668-e98ad2ec-c1f2-4f8b-a5e1-45fe693a515a?action=share&source=collection_link&creator=20198225"
+		"_collection_link": "https://universal-flare-78184.postman.co/workspace/IMS-API~1920dba9-15b0-4b06-b383-f797d76a55fc/collection/42616668-e98ad2ec-c1f2-4f8b-a5e1-45fe693a515a?action=share&source=collection_link&creator=20198225"
 	},
 	"item": [
 		{
@@ -23,7 +23,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n\"identifier\": \"jothi@gmail.com\",\r\n  \"password\": \"Jothi@123\"\r\n  \r\n}",
+							"raw": "{\r\n\"identifier\": \"saravanan@gmail.com\",\r\n  \"password\": \"1234ss\"\r\n  \r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -31,13 +31,13 @@
 							}
 						},
 						"url": {
-							"raw": "http://192.168.1.24:3000/ims_api/v1/user/user/login",
+							"raw": "http://192.168.1.10:3000/ims_api/v1/user/user/login",
 							"protocol": "http",
 							"host": [
 								"192",
 								"168",
 								"1",
-								"24"
+								"10"
 							],
 							"port": "3000",
 							"path": [
@@ -64,7 +64,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"role\": \"Admin\",\r\n  \"username\": \"Jothi\",\r\n  \"email\": \"jothi@gmail.com\",\r\n  \"password\": \"Jothi@123\",\r\n  \"phone\": \"7010856620\"\r\n}",
+							"raw": "{\r\n  \"role\": \"Admin\",\r\n  \"username\": \"sivakumar\",\r\n  \"email\": \"saravanan@gmail.com\",\r\n  \"password\": \"1234ss\",\r\n  \"phone\": \"1234567890\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -72,13 +72,13 @@
 							}
 						},
 						"url": {
-							"raw": "http://192.168.1.24:3000/ims_api/v1/user/user/register",
+							"raw": "http://192.168.1.10:3000/ims_api/v1/user/user/register",
 							"protocol": "http",
 							"host": [
 								"192",
 								"168",
 								"1",
-								"24"
+								"10"
 							],
 							"port": "3000",
 							"path": [
@@ -307,7 +307,7 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjNjNTlkMTc5LTBmMTktNDY2Ni1iODMxLTUyZDBhZDFlYTFmZSIsInVzZXJuYW1lIjoiSm90aGkiLCJlbWFpbCI6ImpvdGhpQGdtYWlsLmNvbSIsInBob25lIjoiNzAxMDg1NjYyMCIsInJvbGUiOiJhZG1pbiIsImlzX2FjdGl2ZSI6dHJ1ZSwiaWF0IjoxNzYzNzE3ODk0LCJleHAiOjE3NjM3MjUwOTR9.-b19Gun1lDqndx2_VBL7dzidaH6PRmeDWBagI1LTXdQ",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjJiMDY5ZWEzLWI0OGEtNDE5OC1iMTFjLTNmZTBlMmU4OTRjNSIsInVzZXJuYW1lIjoic2l2YWt1bWFyIiwiZW1haWwiOiJzYXJhdmFuYW5AZ21haWwuY29tIiwicGhvbmUiOiIxMjM0NTY3ODkwIiwicm9sZSI6ImFkbWluIiwiaXNfYWN0aXZlIjp0cnVlLCJpYXQiOjE3NjQxMzQ2MjMsImV4cCI6MTc2NDE0MTgyM30.tM3v5-v3Pwiggyp0ToWRAE5nXu435WVBEI8cT8UxhJ0",
 										"type": "text"
 									}
 								],
@@ -321,13 +321,13 @@
 									}
 								},
 								"url": {
-									"raw": "http://192.168.1.24:3000/ims_api/v1/role/createRole",
+									"raw": "http://192.168.1.10:3000/ims_api/v1/role/createRole",
 									"protocol": "http",
 									"host": [
 										"192",
 										"168",
 										"1",
-										"24"
+										"10"
 									],
 									"port": "3000",
 									"path": [
@@ -497,18 +497,18 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MTk0OTFhLTZhNTMtNDZkMC04NWUyLTA4NmVjNjZjMDQ1NiIsInVzZXJuYW1lIjoiU2FuZHkiLCJlbWFpbCI6InZwb29uam90aGkwNjEyQGdtYWlsLmNvbSIsInBob25lIjoiNzAxMDg1NjYyMCIsInJvbGUiOiJhZG1pbiIsImlzX2FjdGl2ZSI6dHJ1ZSwiaWF0IjoxNzYzNjk5MDA0LCJleHAiOjE3NjM3MDYyMDR9.W8IJdjoAxNtkJnpKrq-McOD-zLVrNHjPQOq1kVUEAGM",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjJiMDY5ZWEzLWI0OGEtNDE5OC1iMTFjLTNmZTBlMmU4OTRjNSIsInVzZXJuYW1lIjoic2l2YWt1bWFyIiwiZW1haWwiOiJzYXJhdmFuYW5AZ21haWwuY29tIiwicGhvbmUiOiIxMjM0NTY3ODkwIiwicm9sZSI6ImFkbWluIiwiaXNfYWN0aXZlIjp0cnVlLCJpYXQiOjE3NjQxMzQ2MjMsImV4cCI6MTc2NDE0MTgyM30.tM3v5-v3Pwiggyp0ToWRAE5nXu435WVBEI8cT8UxhJ0",
 										"type": "text"
 									}
 								],
 								"url": {
-									"raw": "http://192.168.1.24:3000/ims_api/v1/employee/getAllEmployees",
+									"raw": "http://192.168.1.10:3000/ims_api/v1/employee/getAllEmployees",
 									"protocol": "http",
 									"host": [
 										"192",
 										"168",
 										"1",
-										"24"
+										"10"
 									],
 									"port": "3000",
 									"path": [
@@ -528,7 +528,7 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjNjNTlkMTc5LTBmMTktNDY2Ni1iODMxLTUyZDBhZDFlYTFmZSIsInVzZXJuYW1lIjoiSm90aGkiLCJlbWFpbCI6ImpvdGhpQGdtYWlsLmNvbSIsInBob25lIjoiNzAxMDg1NjYyMCIsInJvbGUiOiJhZG1pbiIsImlzX2FjdGl2ZSI6dHJ1ZSwiaWF0IjoxNzYzNzE3ODk0LCJleHAiOjE3NjM3MjUwOTR9.-b19Gun1lDqndx2_VBL7dzidaH6PRmeDWBagI1LTXdQ",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjJiMDY5ZWEzLWI0OGEtNDE5OC1iMTFjLTNmZTBlMmU4OTRjNSIsInVzZXJuYW1lIjoic2l2YWt1bWFyIiwiZW1haWwiOiJzYXJhdmFuYW5AZ21haWwuY29tIiwicGhvbmUiOiIxMjM0NTY3ODkwIiwicm9sZSI6ImFkbWluIiwiaXNfYWN0aXZlIjp0cnVlLCJpYXQiOjE3NjQxMzQ2MjMsImV4cCI6MTc2NDE0MTgyM30.tM3v5-v3Pwiggyp0ToWRAE5nXu435WVBEI8cT8UxhJ0",
 										"type": "text"
 									}
 								],
@@ -557,24 +557,24 @@
 										},
 										{
 											"key": "role_id",
-											"value": "59522afb-38eb-4d8a-bcff-373d7628fa13",
+											"value": "019e10ab-e2c8-41ee-9985-7edaf9c19985",
 											"type": "text"
 										},
 										{
 											"key": "profile_picture",
 											"type": "file",
-											"src": "/C:/Users/HP/Pictures/user6.jpeg"
+											"src": "/C:/Users/Admin/OneDrive/Pictures/lord-hanuman-8k-3840x2160-14689.jpg"
 										}
 									]
 								},
 								"url": {
-									"raw": "http://192.168.1.24:3000/ims_api/v1/employee/createEmployee",
+									"raw": "http://192.168.1.10:3000/ims_api/v1/employee/createEmployee",
 									"protocol": "http",
 									"host": [
 										"192",
 										"168",
 										"1",
-										"24"
+										"10"
 									],
 									"port": "3000",
 									"path": [
@@ -728,7 +728,7 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQ1NzFlMDAyLTg4ZmMtNGIyZi05MjZjLTg5YTkzM2Y5NzI1NyIsInVzZXJuYW1lIjoiUHJha2FzaCIsImVtYWlsIjoicHJla3pAZ21haWwuY29tIiwicGhvbmUiOiI5ODc2NTQzMjEwIiwicm9sZSI6InVzZXIiLCJpc19hY3RpdmUiOnRydWUsImlhdCI6MTc2MzU0MTc2NiwiZXhwIjoxNzYzNTQ4OTY2fQ.-a0RXvaQ_EaF3QH3ChiQuuAakXNcpce_nBfsWyj8itoeyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjkyZDI1MmFhLTQ5MTEtNDk2MS1hNzcxLTA3MDYxMTJjNGQ4YSIsInVzZXJuYW1lIjoicHJhYmhhIiwiZW1haWwiOiJwcmFiaGFAZ21haWwuY29tIiwicGhvbmUiOiI2MzgzMDYxMTE3Iiwicm9sZSI6ImFkbWluIiwiaXNfYWN0aXZlIjp0cnVlLCJpYXQiOjE3NjM3MDY2NTEsImV4cCI6MTc2MzcxMzg1MX0.a8PhHjRWHZxdgNz10YdLCEI6jiVSI3NWAx8cZIx7USA",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjJiMDY5ZWEzLWI0OGEtNDE5OC1iMTFjLTNmZTBlMmU4OTRjNSIsInVzZXJuYW1lIjoic2l2YWt1bWFyIiwiZW1haWwiOiJzYXJhdmFuYW5AZ21haWwuY29tIiwicGhvbmUiOiIxMjM0NTY3ODkwIiwicm9sZSI6ImFkbWluIiwiaXNfYWN0aXZlIjp0cnVlLCJpYXQiOjE3NjQxMzQ2MjMsImV4cCI6MTc2NDE0MTgyM30.tM3v5-v3Pwiggyp0ToWRAE5nXu435WVBEI8cT8UxhJ0",
 										"type": "text"
 									}
 								],
@@ -742,13 +742,13 @@
 									}
 								},
 								"url": {
-									"raw": "http://192.168.1.24:3000/ims_api/v1/employee/login",
+									"raw": "http://192.168.1.10:3000/ims_api/v1/employee/login",
 									"protocol": "http",
 									"host": [
 										"192",
 										"168",
 										"1",
-										"24"
+										"10"
 									],
 									"port": "3000",
 									"path": [
@@ -1463,7 +1463,7 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ0M2JmZWRmLTZmM2ItNGVjMC1hMWFjLTQ3MDBiNDkzY2NmYSIsInVzZXJuYW1lIjoic2FuamF5Iiwicm9sZSI6IjU5NTIyYWZiLTM4ZWItNGQ4YS1iY2ZmLTM3M2Q3NjI4ZmExMyIsImlhdCI6MTc2MzcxODIxMiwiZXhwIjoxNzYzODA0NjEyfQ.XelNm7YU42bBjrx1G7hYJ_NnT3N0DudDJ2lcJ4lSjYo",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijg4ZGRlMGFhLTE3NTctNDI0Ni05MzgyLWQ1ZjhjMzU1ZTRjMyIsInVzZXJuYW1lIjoic2FuamF5Iiwicm9sZSI6IjAxOWUxMGFiLWUyYzgtNDFlZS05OTg1LTdlZGFmOWMxOTk4NSIsImlhdCI6MTc2NDEzNDk4NywiZXhwIjoxNzY0MjIxMzg3fQ.G1BjxlCbUrjJZOwdnXzwN9Zz0x-edFIHG5b9y0HaJcc",
 										"type": "text"
 									}
 								],
@@ -1477,13 +1477,13 @@
 									}
 								},
 								"url": {
-									"raw": "http://192.168.1.24:3000/ims_api/v1/categories/categories/create",
+									"raw": "http://192.168.1.10:3000/ims_api/v1/categories/categories/create",
 									"protocol": "http",
 									"host": [
 										"192",
 										"168",
 										"1",
-										"24"
+										"10"
 									],
 									"port": "3000",
 									"path": [
@@ -1560,7 +1560,7 @@
 									"raw": ""
 								},
 								"url": {
-									"raw": "http://192.168.1.7:3000/ims_api/v1/categories/categories/7f679bda-3f8f-4c3e-9c5b-750ae2640d3b",
+									"raw": "http://192.168.1.7:3000/ims_api/v1/categories/getCategoryById/7f679bda-3f8f-4c3e-9c5b-750ae2640d3b",
 									"protocol": "http",
 									"host": [
 										"192",
@@ -1573,7 +1573,7 @@
 										"ims_api",
 										"v1",
 										"categories",
-										"categories",
+										"getCategoryById",
 										"7f679bda-3f8f-4c3e-9c5b-750ae2640d3b"
 									]
 								}
@@ -1669,7 +1669,7 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImM5NTJhYmYxLWUxYWQtNGU4ZS04ZGNkLTgzNGQ3OThmNmM4NSIsInVzZXJuYW1lIjoiSm90aGkiLCJyb2xlIjoiMGExYjU1YzUtNTc0My00N2IxLWI0ZmQtODFmNTc0NDY5ZTY5IiwiaWF0IjoxNzYzNDQxMjMyLCJleHAiOjE3NjM1Mjc2MzJ9.tY0texx60zXm4yNowsjgMm2m8Op3i5jvvFiTdS0jxn4",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijg4ZGRlMGFhLTE3NTctNDI0Ni05MzgyLWQ1ZjhjMzU1ZTRjMyIsInVzZXJuYW1lIjoic2FuamF5Iiwicm9sZSI6IjAxOWUxMGFiLWUyYzgtNDFlZS05OTg1LTdlZGFmOWMxOTk4NSIsImlhdCI6MTc2NDEzNDk4NywiZXhwIjoxNzY0MjIxMzg3fQ.G1BjxlCbUrjJZOwdnXzwN9Zz0x-edFIHG5b9y0HaJcc",
 										"type": "text"
 									}
 								],
@@ -1678,12 +1678,12 @@
 									"formdata": [
 										{
 											"key": "subcategory_name",
-											"value": "Laptop New Model11",
+											"value": "Laptop New Model",
 											"type": "text"
 										},
 										{
 											"key": "category_id",
-											"value": "e022636b-7b93-49f5-b6a9-63f85ccdffb1",
+											"value": "73953845-90e6-4e78-b6f6-43f81c33d7c0",
 											"type": "text"
 										},
 										{
@@ -1704,13 +1704,13 @@
 									]
 								},
 								"url": {
-									"raw": "http://192.168.1.11:3000/ims_api/v1/subcategories/subcategories/create",
+									"raw": "http://192.168.1.10:3000/ims_api/v1/subcategories/subcategories/createSubcategory",
 									"protocol": "http",
 									"host": [
 										"192",
 										"168",
 										"1",
-										"11"
+										"10"
 									],
 									"port": "3000",
 									"path": [
@@ -1718,7 +1718,7 @@
 										"v1",
 										"subcategories",
 										"subcategories",
-										"create"
+										"createSubcategory"
 									]
 								}
 							},
@@ -1727,11 +1727,11 @@
 						{
 							"name": "updae",
 							"request": {
-								"method": "PUT",
+								"method": "POST",
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImM5NTJhYmYxLWUxYWQtNGU4ZS04ZGNkLTgzNGQ3OThmNmM4NSIsInVzZXJuYW1lIjoiSm90aGkiLCJyb2xlIjoiMGExYjU1YzUtNTc0My00N2IxLWI0ZmQtODFmNTc0NDY5ZTY5IiwiaWF0IjoxNzYzNDQxMjMyLCJleHAiOjE3NjM1Mjc2MzJ9.tY0texx60zXm4yNowsjgMm2m8Op3i5jvvFiTdS0jxn4",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ0M2JmZWRmLTZmM2ItNGVjMC1hMWFjLTQ3MDBiNDkzY2NmYSIsInVzZXJuYW1lIjoic2FuamF5Iiwicm9sZSI6IjU5NTIyYWZiLTM4ZWItNGQ4YS1iY2ZmLTM3M2Q3NjI4ZmExMyIsImlhdCI6MTc2NDA0NjUyNiwiZXhwIjoxNzY0MTMyOTI2fQ.srVy1tO3xkibdJpL1MO1gXYQclle5qCbaCLgKXHWl6E",
 										"type": "text"
 									}
 								],
@@ -1740,17 +1740,17 @@
 									"formdata": [
 										{
 											"key": "subcategory_name",
-											"value": "Laptop New Model11",
+											"value": "Laptop New Model",
 											"type": "text"
 										},
 										{
 											"key": "category_id",
-											"value": "e022636b-7b93-49f5-b6a9-63f85ccdffb1",
+											"value": "b6f22ba8-efd9-497d-a960-7cd94d1785f7",
 											"type": "text"
 										},
 										{
 											"key": "category_code",
-											"value": "ELEC udsmj kjd",
+											"value": "",
 											"type": "text"
 										},
 										{
@@ -1766,13 +1766,13 @@
 									]
 								},
 								"url": {
-									"raw": "http://192.168.1.11:3000/ims_api/v1/subcategories/subcategories/03d75f79-8ec5-473b-aa6b-f007f451f65a",
+									"raw": "http://192.168.1.10:3000/ims_api/v1/subcategories/subcategories/createSubcategory",
 									"protocol": "http",
 									"host": [
 										"192",
 										"168",
 										"1",
-										"11"
+										"10"
 									],
 									"port": "3000",
 									"path": [
@@ -1780,7 +1780,7 @@
 										"v1",
 										"subcategories",
 										"subcategories",
-										"03d75f79-8ec5-473b-aa6b-f007f451f65a"
+										"createSubcategory"
 									]
 								}
 							},
@@ -1793,18 +1793,18 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImM5NTJhYmYxLWUxYWQtNGU4ZS04ZGNkLTgzNGQ3OThmNmM4NSIsInVzZXJuYW1lIjoiSm90aGkiLCJyb2xlIjoiMGExYjU1YzUtNTc0My00N2IxLWI0ZmQtODFmNTc0NDY5ZTY5IiwiaWF0IjoxNzYzNDQxMjMyLCJleHAiOjE3NjM1Mjc2MzJ9.tY0texx60zXm4yNowsjgMm2m8Op3i5jvvFiTdS0jxn4",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJhMmM5M2M1LWRlMjgtNDExZi05YmM0LTE3ZGMwZWY4Y2FmOCIsInVzZXJuYW1lIjoia2F2aXlhIiwicm9sZSI6ImQ5YWE3MWE4LThlMGItNGVhNi1iMWFlLTFiYTZkMjdmYTBlMCIsImlhdCI6MTc2Mzk3MzEyMiwiZXhwIjoxNzY0MDU5NTIyfQ.DKGgaie_B2NrESfwkoZb8qGG-9AGlHB--oXC75fkUeI",
 										"type": "text"
 									}
 								],
 								"url": {
-									"raw": "http://192.168.1.11:3000/ims_api/v1/subcategories/subcategories/all",
+									"raw": "http://192.168.1.10:3000/ims_api/v1/subcategories/subcategories/all",
 									"protocol": "http",
 									"host": [
 										"192",
 										"168",
 										"1",
-										"11"
+										"10"
 									],
 									"port": "3000",
 									"path": [
@@ -1842,7 +1842,7 @@
 									}
 								},
 								"url": {
-									"raw": "http://192.168.1.11:3000/ims_api/v1/subcategories/subcategories/cedddaf5-1e3b-48ab-9e73-1ac380ac853c",
+									"raw": "http://192.168.1.11:3000/ims_api/v1/subcategories/getSubcategoryById/cedddaf5-1e3b-48ab-9e73-1ac380ac853c",
 									"protocol": "http",
 									"host": [
 										"192",
@@ -1855,7 +1855,7 @@
 										"ims_api",
 										"v1",
 										"subcategories",
-										"subcategories",
+										"getSubcategoryById",
 										"cedddaf5-1e3b-48ab-9e73-1ac380ac853c"
 									]
 								}
@@ -1883,7 +1883,7 @@
 									}
 								},
 								"url": {
-									"raw": "http://192.168.1.11:3000/ims_api/v1/subcategories/subcategories/cedddaf5-1e3b-48ab-9e73-1ac380ac853c",
+									"raw": "http://192.168.1.11:3000/ims_api/v1/subcategories/deleteSubcategory/cedddaf5-1e3b-48ab-9e73-1ac380ac853c",
 									"protocol": "http",
 									"host": [
 										"192",
@@ -1896,7 +1896,7 @@
 										"ims_api",
 										"v1",
 										"subcategories",
-										"subcategories",
+										"deleteSubcategory",
 										"cedddaf5-1e3b-48ab-9e73-1ac380ac853c"
 									]
 								}
@@ -1915,7 +1915,7 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjkyZDI1MmFhLTQ5MTEtNDk2MS1hNzcxLTA3MDYxMTJjNGQ4YSIsInVzZXJuYW1lIjoicHJhYmhhIiwiZW1haWwiOiJwcmFiaGFAZ21haWwuY29tIiwicGhvbmUiOiI2MzgzMDYxMTE3Iiwicm9sZSI6ImFkbWluIiwiaXNfYWN0aXZlIjp0cnVlLCJpYXQiOjE3NjMzNzIwODQsImV4cCI6MTc2MzM3OTI4NH0.jR1srHkWzF6yAfvnkEdRdXbf6fhz-CoHjWS4qUu_SHE",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijg4ZGRlMGFhLTE3NTctNDI0Ni05MzgyLWQ1ZjhjMzU1ZTRjMyIsInVzZXJuYW1lIjoic2FuamF5Iiwicm9sZSI6IjAxOWUxMGFiLWUyYzgtNDFlZS05OTg1LTdlZGFmOWMxOTk4NSIsImlhdCI6MTc2NDEzNDk4NywiZXhwIjoxNzY0MjIxMzg3fQ.G1BjxlCbUrjJZOwdnXzwN9Zz0x-edFIHG5b9y0HaJcc",
 										"type": "text"
 									}
 								],
@@ -1935,15 +1935,15 @@
 									]
 								},
 								"url": {
-									"raw": "http://192.168.1.18:5000/ims_api/v1/brands/brands/create",
+									"raw": "http://192.168.1.10:3000/ims_api/v1/brands/brands/create",
 									"protocol": "http",
 									"host": [
 										"192",
 										"168",
 										"1",
-										"18"
+										"10"
 									],
-									"port": "5000",
+									"port": "3000",
 									"path": [
 										"ims_api",
 										"v1",
@@ -2161,7 +2161,7 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImI3Y2FjNDQyLTBlM2ItNGViZC1iZjk1LTJjYWVkMzBjZDk0YyIsInVzZXJuYW1lIjoiam90aGkiLCJlbWFpbCI6ImFiaXJhbWlpaWlxcXFxcXNzQGdtYWlsLmNvbSIsInBob25lIjoiNjM4MzA2MTExNyIsInJvbGUiOiJhZG1pbiIsImlzX2FjdGl2ZSI6dHJ1ZSwiaWF0IjoxNzYzMTIwMDkyLCJleHAiOjE3NjMxMjcyOTJ9.4LtGJvnxvAi9CMk5h0Jzza56eZw48JpTjp6EVUArK2U",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijg4ZGRlMGFhLTE3NTctNDI0Ni05MzgyLWQ1ZjhjMzU1ZTRjMyIsInVzZXJuYW1lIjoic2FuamF5Iiwicm9sZSI6IjAxOWUxMGFiLWUyYzgtNDFlZS05OTg1LTdlZGFmOWMxOTk4NSIsImlhdCI6MTc2NDEzNDk4NywiZXhwIjoxNzY0MjIxMzg3fQ.G1BjxlCbUrjJZOwdnXzwN9Zz0x-edFIHG5b9y0HaJcc",
 										"type": "text"
 									}
 								],
@@ -2175,15 +2175,15 @@
 									}
 								},
 								"url": {
-									"raw": "http://192.168.1.9:5000/ims_api/v1/unit/create",
+									"raw": "http://192.168.1.10:3000/ims_api/v1/unit/create",
 									"protocol": "http",
 									"host": [
 										"192",
 										"168",
 										"1",
-										"9"
+										"10"
 									],
-									"port": "5000",
+									"port": "3000",
 									"path": [
 										"ims_api",
 										"v1",
@@ -2402,7 +2402,7 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ0M2JmZWRmLTZmM2ItNGVjMC1hMWFjLTQ3MDBiNDkzY2NmYSIsInVzZXJuYW1lIjoic2FuamF5Iiwicm9sZSI6IjU5NTIyYWZiLTM4ZWItNGQ4YS1iY2ZmLTM3M2Q3NjI4ZmExMyIsImlhdCI6MTc2MzcxODIxMiwiZXhwIjoxNzYzODA0NjEyfQ.XelNm7YU42bBjrx1G7hYJ_NnT3N0DudDJ2lcJ4lSjYo",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijg4ZGRlMGFhLTE3NTctNDI0Ni05MzgyLWQ1ZjhjMzU1ZTRjMyIsInVzZXJuYW1lIjoic2FuamF5Iiwicm9sZSI6IjAxOWUxMGFiLWUyYzgtNDFlZS05OTg1LTdlZGFmOWMxOTk4NSIsImlhdCI6MTc2NDEzNDk4NywiZXhwIjoxNzY0MjIxMzg3fQ.G1BjxlCbUrjJZOwdnXzwN9Zz0x-edFIHG5b9y0HaJcc",
 										"type": "text"
 									}
 								],
@@ -2416,13 +2416,53 @@
 									}
 								},
 								"url": {
-									"raw": "http://192.168.1.24:3000/ims_api/v1/store/createStore",
+									"raw": "http://192.168.1.10:3000/ims_api/v1/store/createStore",
 									"protocol": "http",
 									"host": [
 										"192",
 										"168",
 										"1",
-										"24"
+										"10"
+									],
+									"port": "3000",
+									"path": [
+										"ims_api",
+										"v1",
+										"store",
+										"createStore"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "poststore",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJhMmM5M2M1LWRlMjgtNDExZi05YmM0LTE3ZGMwZWY4Y2FmOCIsInVzZXJuYW1lIjoia2F2aXlhIiwicm9sZSI6ImQ5YWE3MWE4LThlMGItNGVhNi1iMWFlLTFiYTZkMjdmYTBlMCIsImlhdCI6MTc2Mzk3MzEyMiwiZXhwIjoxNzY0MDU5NTIyfQ.DKGgaie_B2NrESfwkoZb8qGG-9AGlHB--oXC75fkUeI",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"store_name\": \"Downtown Suparket 2\",\r\n  \"username\": \"downwn_store 2\",\r\n  \"password\": \"SecurePa123\",\r\n  \"email\": \"store@exple.com\",\r\n  \"phone\": \"+919876543110\"\r\n  \r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://192.168.1.10:3000/ims_api/v1/store/createStore",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"1",
+										"10"
 									],
 									"port": "3000",
 									"path": [
@@ -2510,7 +2550,7 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJhMmM5M2M1LWRlMjgtNDExZi05YmM0LTE3ZGMwZWY4Y2FmOCIsInVzZXJuYW1lIjoia2F2aXlhIiwicm9sZSI6ImQ5YWE3MWE4LThlMGItNGVhNi1iMWFlLTFiYTZkMjdmYTBlMCIsImlhdCI6MTc2MzYxNzgyOCwiZXhwIjoxNzYzNzA0MjI4fQ.wC0S1toTxA2Akj-XLfDJTzflKvE_xaROC8hRM1saP2E",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijg4ZGRlMGFhLTE3NTctNDI0Ni05MzgyLWQ1ZjhjMzU1ZTRjMyIsInVzZXJuYW1lIjoic2FuamF5Iiwicm9sZSI6IjAxOWUxMGFiLWUyYzgtNDFlZS05OTg1LTdlZGFmOWMxOTk4NSIsImlhdCI6MTc2NDEzNDk4NywiZXhwIjoxNzY0MjIxMzg3fQ.G1BjxlCbUrjJZOwdnXzwN9Zz0x-edFIHG5b9y0HaJcc",
 										"type": "text"
 									}
 								],
@@ -2524,15 +2564,15 @@
 									}
 								},
 								"url": {
-									"raw": "http://192.168.1.15:5000/ims_api/v1/warehouse/createwarehouse",
+									"raw": "http://192.168.1.10:3000/ims_api/v1/warehouse/createwarehouse",
 									"protocol": "http",
 									"host": [
 										"192",
 										"168",
 										"1",
-										"15"
+										"10"
 									],
-									"port": "5000",
+									"port": "3000",
 									"path": [
 										"ims_api",
 										"v1",
@@ -2628,7 +2668,7 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjAyMjdlM2VlLThhYWYtNDNmZC1iNzdlLWE5ZTY3MmZkMjA0YSIsInVzZXJuYW1lIjoiam90aGkiLCJlbWFpbCI6ImpvdGhpQGdtYWlsLmNvbSIsInBob25lIjoiNjM4MzA2MTExNyIsInJvbGUiOiJhZG1pbiIsImlzX2FjdGl2ZSI6dHJ1ZSwiaWF0IjoxNzYzMTk0MTkwLCJleHAiOjE3NjMyMDEzOTB9.A7HgZHkQ8tS8PDjFGmSEUcuHXQgVB4AJIrK41s4uoxA",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijg4ZGRlMGFhLTE3NTctNDI0Ni05MzgyLWQ1ZjhjMzU1ZTRjMyIsInVzZXJuYW1lIjoic2FuamF5Iiwicm9sZSI6IjAxOWUxMGFiLWUyYzgtNDFlZS05OTg1LTdlZGFmOWMxOTk4NSIsImlhdCI6MTc2NDEzNDk4NywiZXhwIjoxNzY0MjIxMzg3fQ.G1BjxlCbUrjJZOwdnXzwN9Zz0x-edFIHG5b9y0HaJcc",
 										"type": "text"
 									}
 								],
@@ -2642,15 +2682,15 @@
 									}
 								},
 								"url": {
-									"raw": "http://192.168.1.18:5000/ims_api/v1/warranty/createWarranty",
+									"raw": "http://192.168.1.10:3000/ims_api/v1/warranty/createWarranty",
 									"protocol": "http",
 									"host": [
 										"192",
 										"168",
 										"1",
-										"18"
+										"10"
 									],
-									"port": "5000",
+									"port": "3000",
 									"path": [
 										"ims_api",
 										"v1",
@@ -3043,7 +3083,7 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJhMmM5M2M1LWRlMjgtNDExZi05YmM0LTE3ZGMwZWY4Y2FmOCIsInVzZXJuYW1lIjoia2F2aXlhIiwicm9sZSI6ImQ5YWE3MWE4LThlMGItNGVhNi1iMWFlLTFiYTZkMjdmYTBlMCIsImlhdCI6MTc2MzcxNDcyNywiZXhwIjoxNzYzODAxMTI3fQ.v_JXIbfe1DkjH_xjXdVgqitXLZ8lUjS6gjIgd0Kw3KQ",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijg4ZGRlMGFhLTE3NTctNDI0Ni05MzgyLWQ1ZjhjMzU1ZTRjMyIsInVzZXJuYW1lIjoic2FuamF5Iiwicm9sZSI6IjAxOWUxMGFiLWUyYzgtNDFlZS05OTg1LTdlZGFmOWMxOTk4NSIsImlhdCI6MTc2NDEzNDk4NywiZXhwIjoxNzY0MjIxMzg3fQ.G1BjxlCbUrjJZOwdnXzwN9Zz0x-edFIHG5b9y0HaJcc",
 										"type": "text"
 									}
 								],
@@ -3057,15 +3097,15 @@
 									}
 								},
 								"url": {
-									"raw": "http://192.168.1.15:5000/ims_api/v1/barcode/createBarcode",
+									"raw": "http://192.168.1.10:3000/ims_api/v1/barcode/createBarcode",
 									"protocol": "http",
 									"host": [
 										"192",
 										"168",
 										"1",
-										"15"
+										"10"
 									],
-									"port": "5000",
+									"port": "3000",
 									"path": [
 										"ims_api",
 										"v1",
@@ -3245,45 +3285,154 @@
 					]
 				},
 				{
-					"name": "poststore",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NzAxZjI4LTQ2MTAtNGMwMi1iYjgzLTliNTk1MTQ4ZGZkOSIsInVzZXJuYW1lIjoiZGhhcnVuIiwicm9sZSI6Ijc4Y2QzNWRhLTgwMGMtNGM1YS05NGE5LTE0MWFjOWM5YTRhMyIsImlhdCI6MTc2MzUzNzc2NiwiZXhwIjoxNzYzNjI0MTY2fQ.GV1XqKWnZdQQcf3kzff6oYTl7p6lfklGb2oPMMsjUKs",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n  \"store_name\": \"Downtown Suparket 2\",\r\n  \"username\": \"downwn_store 2\",\r\n  \"password\": \"SecurePa123\",\r\n  \"email\": \"store@exple.com\",\r\n  \"phone\": \"+919876543110\"\r\n  \r\n}\r\n",
-							"options": {
-								"raw": {
-									"language": "json"
+					"name": "product",
+					"item": [
+						{
+							"name": "generate",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijg4ZGRlMGFhLTE3NTctNDI0Ni05MzgyLWQ1ZjhjMzU1ZTRjMyIsInVzZXJuYW1lIjoic2FuamF5Iiwicm9sZSI6IjAxOWUxMGFiLWUyYzgtNDFlZS05OTg1LTdlZGFmOWMxOTk4NSIsImlhdCI6MTc2NDEzNDk4NywiZXhwIjoxNzY0MjIxMzg3fQ.G1BjxlCbUrjJZOwdnXzwN9Zz0x-edFIHG5b9y0HaJcc",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://192.168.1.10:3000/ims_api/v1/product/generate?storeId=adfdf895-8bc3-4125-bcce-a94c478989b4&categoryId=73953845-90e6-4e78-b6f6-43f81c33d7c0",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"1",
+										"10"
+									],
+									"port": "3000",
+									"path": [
+										"ims_api",
+										"v1",
+										"product",
+										"generate"
+									],
+									"query": [
+										{
+											"key": "storeId",
+											"value": "adfdf895-8bc3-4125-bcce-a94c478989b4"
+										},
+										{
+											"key": "categoryId",
+											"value": "73953845-90e6-4e78-b6f6-43f81c33d7c0"
+										}
+									]
 								}
-							}
+							},
+							"response": []
 						},
-						"url": {
-							"raw": "http://192.168.1.15:5000/ims_api/v1/store/store/create",
-							"protocol": "http",
-							"host": [
-								"192",
-								"168",
-								"1",
-								"15"
-							],
-							"port": "5000",
-							"path": [
-								"ims_api",
-								"v1",
-								"store",
-								"store",
-								"create"
-							]
+						{
+							"name": "createFullProduct",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijg4ZGRlMGFhLTE3NTctNDI0Ni05MzgyLWQ1ZjhjMzU1ZTRjMyIsInVzZXJuYW1lIjoic2FuamF5Iiwicm9sZSI6IjAxOWUxMGFiLWUyYzgtNDFlZS05OTg1LTdlZGFmOWMxOTk4NSIsImlhdCI6MTc2NDEzNDk4NywiZXhwIjoxNzY0MjIxMzg3fQ.G1BjxlCbUrjJZOwdnXzwN9Zz0x-edFIHG5b9y0HaJcc",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "productInfo",
+											"value": "{\"store_id\":\"adfdf895-8bc3-4125-bcce-a94c478989b4\",\"warehouse_id\":\"af12cc3d-c305-4a41-b5c7-5b1127c7dd10\",\"product_name\":\"organic mulberries new\",\"slug\":\"\",\"sku\":\"HAR-MOB-000002\",\"category_id\":\"73953845-90e6-4e78-b6f6-43f81c33d7c0\",\"subcategory_id\":\"89758aba-a17a-42d7-bbe8-58d9ce4459c1\",\"brand_id\":\"d785bdce-8662-4757-a1bb-1ca949bb7db6\",\"unit_id\":\"bfbc4a56-696f-45db-83f2-bd02857ced4a\",\"barcode_symbology_id\":\"17dc398a-5665-45e6-b61e-d3a392925a47\",\"selling_type\":\"online\",\"description\":\"Fresh farm organic mulberries rich in antioxidants\"}\n",
+											"type": "text"
+										},
+										{
+											"key": "singleProduct",
+											"value": "{\"quantity\":100,\"quantity_alert\":10,\"price\":499.99,\"tax_id\":\"f5072d7c-5a74-4be5-8ed3-37d0eec7daed\",\"tax_type\":\"exclusive\",\"discount_type\":\"percentage\",\"discount_value\":5}\n",
+											"type": "text"
+										},
+										{
+											"key": "variantProducts",
+											"value": "null",
+											"type": "text"
+										},
+										{
+											"key": "customFields",
+											"value": "{\"warranty_id\":\"3c2ea2ff-cff0-457c-87dd-d911e08221e0\",\"manufacturer\":\"Nature Fresh Organics\",\"manufactured_date\":\"2025-01-10\",\"expiry_on\":\"2026-01-10\"}\n",
+											"type": "text"
+										},
+										{
+											"key": "images",
+											"type": "file",
+											"src": [
+												"/C:/Users/Admin/OneDrive/Pictures/Screenshots/2024-02-27.png",
+												"/C:/Users/Admin/OneDrive/Pictures/Screenshots/2024-02-28 (1).png",
+												"/C:/Users/Admin/OneDrive/Pictures/Screenshots/2024-02-28 (2).png",
+												"/C:/Users/Admin/OneDrive/Pictures/Screenshots/2024-02-28.png"
+											]
+										}
+									]
+								},
+								"url": {
+									"raw": "http://192.168.1.10:3000/ims_api/v1/product/createFullProduct",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"1",
+										"10"
+									],
+									"port": "3000",
+									"path": [
+										"ims_api",
+										"v1",
+										"product",
+										"createFullProduct"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getAllProducts",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijg4ZGRlMGFhLTE3NTctNDI0Ni05MzgyLWQ1ZjhjMzU1ZTRjMyIsInVzZXJuYW1lIjoic2FuamF5Iiwicm9sZSI6IjAxOWUxMGFiLWUyYzgtNDFlZS05OTg1LTdlZGFmOWMxOTk4NSIsImlhdCI6MTc2NDEzNDk4NywiZXhwIjoxNzY0MjIxMzg3fQ.G1BjxlCbUrjJZOwdnXzwN9Zz0x-edFIHG5b9y0HaJcc",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://192.168.1.10:3000/ims_api/v1/product/getAllProducts",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"1",
+										"10"
+									],
+									"port": "3000",
+									"path": [
+										"ims_api",
+										"v1",
+										"product",
+										"getAllProducts"
+									]
+								}
+							},
+							"response": []
 						}
-					},
-					"response": []
+					]
 				}
 			]
 		},
@@ -3297,7 +3446,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImI3Y2FjNDQyLTBlM2ItNGViZC1iZjk1LTJjYWVkMzBjZDk0YyIsInVzZXJuYW1lIjoiam90aGkiLCJlbWFpbCI6ImFiaXJhbWlpaWlxcXFxcXNzQGdtYWlsLmNvbSIsInBob25lIjoiNjM4MzA2MTExNyIsInJvbGUiOiJhZG1pbiIsImlzX2FjdGl2ZSI6dHJ1ZSwiaWF0IjoxNzYzMzY1NDI2LCJleHAiOjE3NjMzNzI2MjZ9.vd4GzOmzES9PK1spLM21sNoIFN2kOfy0lk1ABU-RwZ4",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijg4ZGRlMGFhLTE3NTctNDI0Ni05MzgyLWQ1ZjhjMzU1ZTRjMyIsInVzZXJuYW1lIjoic2FuamF5Iiwicm9sZSI6IjAxOWUxMGFiLWUyYzgtNDFlZS05OTg1LTdlZGFmOWMxOTk4NSIsImlhdCI6MTc2NDEzNDk4NywiZXhwIjoxNzY0MjIxMzg3fQ.G1BjxlCbUrjJZOwdnXzwN9Zz0x-edFIHG5b9y0HaJcc",
 								"type": "text"
 							}
 						],
@@ -3311,15 +3460,15 @@
 							}
 						},
 						"url": {
-							"raw": "http://192.168.1.18:5000/ims_api/v1/tax/createtax",
+							"raw": "http://192.168.1.10:3000/ims_api/v1/tax/createtax",
 							"protocol": "http",
 							"host": [
 								"192",
 								"168",
 								"1",
-								"18"
+								"10"
 							],
-							"port": "5000",
+							"port": "3000",
 							"path": [
 								"ims_api",
 								"v1",
@@ -4464,6 +4613,253 @@
 							"request": {
 								"method": "GET",
 								"header": []
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "adddiscountplan",
+					"item": [
+						{
+							"name": "create discount",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJhMmM5M2M1LWRlMjgtNDExZi05YmM0LTE3ZGMwZWY4Y2FmOCIsInVzZXJuYW1lIjoia2F2aXlhIiwicm9sZSI6ImQ5YWE3MWE4LThlMGItNGVhNi1iMWFlLTFiYTZkMjdmYTBlMCIsImlhdCI6MTc2NDA1MjgzNywiZXhwIjoxNzY0MTM5MjM3fQ.aA0mhg6h7ltQQlNFctrMig5_Qnaw2J7iAqVXmMjUxag",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"plan_name\": \"New Year Super Offer\",\r\n  \"customer\": \"members_only\",\r\n  \"status\": true\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://192.168.1.8:3000/ims_api/v1/discount/createDiscountplan",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"1",
+										"8"
+									],
+									"port": "3000",
+									"path": [
+										"ims_api",
+										"v1",
+										"discount",
+										"createDiscountplan"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getalldiscounst",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJhMmM5M2M1LWRlMjgtNDExZi05YmM0LTE3ZGMwZWY4Y2FmOCIsInVzZXJuYW1lIjoia2F2aXlhIiwicm9sZSI6ImQ5YWE3MWE4LThlMGItNGVhNi1iMWFlLTFiYTZkMjdmYTBlMCIsImlhdCI6MTc2NDA1MjgzNywiZXhwIjoxNzY0MTM5MjM3fQ.aA0mhg6h7ltQQlNFctrMig5_Qnaw2J7iAqVXmMjUxag",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"plan_name\": \"New Year Super Offer\",\r\n  \"customer\": \"members_only\",\r\n  \"status\": true\r\n}\r\n"
+								},
+								"url": {
+									"raw": "http://192.168.1.8:3000/ims_api/v1/discount/getAllDiscounts",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"1",
+										"8"
+									],
+									"port": "3000",
+									"path": [
+										"ims_api",
+										"v1",
+										"discount",
+										"getAllDiscounts"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "updatebyid",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"plan_name\": \"pongal offers\",\r\n  \"customer\": \"members_only\",\r\n  \"status\": true\r\n}\r\n"
+								},
+								"url": {
+									"raw": "http://192.168.1.8:3000/ims_api/v1/discount/updateDiscount/f55694e8-f67b-4949-bb22-62038278af89",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"1",
+										"8"
+									],
+									"port": "3000",
+									"path": [
+										"ims_api",
+										"v1",
+										"discount",
+										"updateDiscount",
+										"f55694e8-f67b-4949-bb22-62038278af89"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getbyid",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"plan_name\": \"pongal offers\",\r\n  \"customer\": \"members_only\",\r\n  \"status\": true\r\n}\r\n"
+								},
+								"url": {
+									"raw": "http://192.168.1.8:3000/ims_api/v1/discount/getDiscountById/f55694e8-f67b-4949-bb22-62038278af89",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"1",
+										"8"
+									],
+									"port": "3000",
+									"path": [
+										"ims_api",
+										"v1",
+										"discount",
+										"getDiscountById",
+										"f55694e8-f67b-4949-bb22-62038278af89"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "deletebyid",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"plan_name\": \"pongal offers\",\r\n  \"customer\": \"members_only\",\r\n  \"status\": true\r\n}\r\n"
+								},
+								"url": {
+									"raw": "http://192.168.1.8:3000/ims_api/v1/discount/deleteDiscount/f55694e8-f67b-4949-bb22-62038278af89",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"1",
+										"8"
+									],
+									"port": "3000",
+									"path": [
+										"ims_api",
+										"v1",
+										"discount",
+										"deleteDiscount",
+										"f55694e8-f67b-4949-bb22-62038278af89"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "createdicount",
+					"item": [
+						{
+							"name": "creatediscount",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"discount_name\": \"New Year Offer\",\r\n  \"discount_plan\": \"standard\",\r\n  \"applicable_for\": \"all_customers\",\r\n  \"valid_from\": \"2025-01-01\",\r\n  \"valid_till\": \"2025-01-31\",\r\n  \"discount_type\": \"percentage\",\r\n  \"valid_days\": [\"Monday\", \"Wednesday\", \"Friday\"],\r\n  \"status\": true\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://192.168.1.8:3000/ims_api/v1/adddiscount/Discountcreate",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"1",
+										"8"
+									],
+									"port": "3000",
+									"path": [
+										"ims_api",
+										"v1",
+										"adddiscount",
+										"Discountcreate"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getall",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"discount_name\": \"New Year Offer\",\r\n  \"discount_plan\": \"standard\",\r\n  \"applicable_for\": \"all_customers\",\r\n  \"valid_from\": \"2025-01-01\",\r\n  \"valid_till\": \"2025-01-31\",\r\n  \"discount_type\": \"percentage\",\r\n  \"valid_days\": [\"Monday\", \"Wednesday\", \"Friday\"],\r\n  \"status\": true\r\n}\r\n"
+								},
+								"url": {
+									"raw": "http://192.168.1.8:3000/ims_api/v1/adddiscount/getAllDiscounts",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"1",
+										"8"
+									],
+									"port": "3000",
+									"path": [
+										"ims_api",
+										"v1",
+										"adddiscount",
+										"getAllDiscounts"
+									]
+								}
 							},
 							"response": []
 						}
