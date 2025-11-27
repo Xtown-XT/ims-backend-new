@@ -4,13 +4,18 @@ import SequelizePkg from "sequelize";
 const Sequelize = SequelizePkg; // <-- fix here
 const { DataTypes, Op } = SequelizePkg;
 
-// Create Sequelize instance
+// //Create Sequelize instance
 const sequelize = new Sequelize("ims", "ramya", "ramya",  {
   host: "192.168.1.150",
   port: 3306,
   dialect: "mysql",
 });
 
+// const sequelize = new Sequelize("ims", "root", "jothi@2114",  {
+//   host: "127.0.0.1",
+//   port: 3306,
+//   dialect: "mysql",
+// });
 // Authenticate database connection inside async IIFE
 (async () => {
   try {

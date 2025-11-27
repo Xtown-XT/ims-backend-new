@@ -1,0 +1,302 @@
+// import { generateSKU } from "../../../utils/skuGenerator.js";
+// import ProductInfo from "../models/productInfo.model.js";
+// import SingleProduct from "../models/singleProduct.model.js";
+// import VariantProduct from "../models/variantProduct.model.js";
+// import ProductImage from "../models/productImage.model.js";
+// import CustomFields from "../models/customFields.model.js";
+// import { sequelize } from "../../../db/index.js";
+// import { generateSlug } from "../../../utils/slugGenerator.js";
+
+// const productController = {
+
+// async generateSKUController(req, res) {
+//   try {
+//     const { storeId, categoryId } = req.query;
+
+//     if (!storeId || !categoryId) {
+//       return res.status(400).json({ message: "storeId and categoryId are required" });
+//     }
+
+//     const sku = await generateSKU({ storeId, categoryId });
+
+//     return res.status(200).json({ sku });
+//   } catch (error) {
+//     return res.status(500).json({ message: error.message });
+//   }
+// },
+
+// // async createFullProduct(req, res) {
+// //   const t = await sequelize.transaction();
+// //   try {
+// //     const { productInfo, singleProduct, variantProducts, images, customFields } =
+// //       req.body;
+
+// //     const product = await ProductInfo.create(productInfo, { transaction: t });
+
+// //     if (singleProduct)
+// //       await SingleProduct.create(
+// //         { ...singleProduct, product_id: product.id },
+// //         { transaction: t }
+// //       );
+
+// //     if (variantProducts?.length > 0) {
+// //       for (let item of variantProducts) {
+// //         await VariantProduct.create(
+// //           { ...item, product_id: product.id },
+// //           { transaction: t }
+// //         );
+// //       }
+// //     }
+
+// //     if (images?.length > 0) {
+// //       for (let img of images) {
+// //         await ProductImage.create(
+// //           { product_id: product.id, image_url: img },
+// //           { transaction: t }
+// //         );
+// //       }
+// //     }
+
+// //     if (customFields)
+// //       await CustomFields.create(
+// //         { ...customFields, product_id: product.id },
+// //         { transaction: t }
+// //       );
+
+// //     await t.commit();
+// //     res.status(201).json({ message: "Product created successfully", product });
+// //   } catch (error) {
+// //     await t.rollback();
+// //     res.status(500).json({ message: error.message });
+// //   }
+// // },
+
+
+
+// async createFullProduct(req, res)  {
+//   const t = await sequelize.transaction();
+//   try {
+//     const parsedProductInfo = req.body.productInfo ? JSON.parse(req.body.productInfo) : {};
+//     const parsedSingleProduct = req.body.singleProduct ? JSON.parse(req.body.singleProduct) : null;
+//     const parsedVariantProducts = req.body.variantProducts ? JSON.parse(req.body.variantProducts) : null;
+//     const parsedCustomFields = req.body.customFields ? JSON.parse(req.body.customFields) : null;
+
+//     // Validation: only one must exist
+//     if (parsedSingleProduct && parsedVariantProducts) {
+//       return res.status(400).json({ message: "Provide either singleProduct OR variantProducts, not both." });
+//     }
+//     if (!parsedSingleProduct && !parsedVariantProducts) {
+//       return res.status(400).json({ message: "Either singleProduct or variantProducts is required." });
+//     }
+
+//     // Generate SKU if not provided
+//     if (!parsedProductInfo.sku) {
+//       parsedProductInfo.sku = await generateSKU({
+//         storeId: parsedProductInfo.store_id,
+//         categoryId: parsedProductInfo.category_id
+//       });
+//     }
+
+//     // Generate slug
+//     if (!parsedProductInfo.slug && parsedProductInfo.product_name) {
+//       parsedProductInfo.slug = generateSlug(parsedProductInfo.product_name);
+//     }
+
+//     // Create ProductInfo
+//     const product = await ProductInfo.create(parsedProductInfo, { transaction: t });
+
+//     // Save Single Product
+//     if (parsedSingleProduct) {
+//       await SingleProduct.create(
+//         { ...parsedSingleProduct, product_id: product.id },
+//         { transaction: t }
+//       );
+//     }
+
+//     // Save Variant Products
+//     if (parsedVariantProducts?.length > 0) {
+//       for (const v of parsedVariantProducts) {
+//         const variantSku = `${product.sku}-V${Math.floor(Math.random() * 9000) + 1000}`;
+//         await VariantProduct.create(
+//           { ...v, product_id: product.id, sku: variantSku },
+//           { transaction: t }
+//         );
+//       }
+//     }
+
+//     // Save Uploaded Images (files from multer)
+//     if (req.files && req.files.length > 0) {
+//       for (const file of req.files) {
+//         await ProductImage.create(
+//           { product_id: product.id, image_url: `/uploads/products/${file.filename}` },
+//           { transaction: t }
+//         );
+//       }
+//     }
+
+//     // Save Custom Fields
+//     if (parsedCustomFields) {
+//       await CustomFields.create({ ...parsedCustomFields, product_id: product.id }, { transaction: t });
+//     }
+
+//     await t.commit();
+//     res.status(201).json({ message: "Product created", product });
+//   } catch (error) {
+//     await t.rollback();
+//     res.status(500).json({ message: error.message });
+//   }
+// },
+
+
+// }
+
+
+
+
+
+// export default productController;
+
+  // async createFullProduct(req, res) {
+  //   const t = await sequelize.transaction();
+  //   try {
+  //     // ---------- Parse JSON values coming from form-data ----------
+  //     const productInfo = req.body.productInfo ? JSON.parse(req.body.productInfo) : {};
+  //     const singleProduct = req.body.singleProduct ? JSON.parse(req.body.singleProduct) : null;
+  //     const variantProducts = req.body.variantProducts ? JSON.parse(req.body.variantProducts) : null;
+  //     const customFields = req.body.customFields ? JSON.parse(req.body.customFields) : null;
+
+  //     // ---------- Validation: Must send either Single or Variant ----------
+  //     if (singleProduct && variantProducts) {
+  //       return res.status(400).json({ message: "Provide either singleProduct OR variantProducts, not both." });
+  //     }
+  //     if (!singleProduct && !variantProducts) {
+  //       return res.status(400).json({ message: "Either singleProduct or variantProducts is required." });
+  //     }
+
+  //     // ---------- SKU Auto generation ----------
+  //     if (!productInfo.sku) {
+  //       productInfo.sku = await generateSKU({
+  //         storeId: productInfo.store_id,
+  //         categoryId: productInfo.category_id
+  //       });
+  //     }
+
+  //     // ---------- Slug Auto generation ----------
+  //     if (!productInfo.slug && productInfo.product_name) {
+  //       productInfo.slug = generateSlug(productInfo.product_name);
+  //     }
+
+  //     // ---------- Create Main Product Info ----------
+  //     const product = await ProductInfo.create(productInfo, { transaction: t });
+
+  //     // ---------- Save Single Product ----------
+  //     if (singleProduct) {
+  //       await SingleProduct.create(
+  //         { ...singleProduct, product_id: product.id },
+  //         { transaction: t }
+  //       );
+  //     }
+
+  //     // ---------- Save Variant Products ----------
+  //     if (variantProducts?.length > 0) {
+  //       for (const v of variantProducts) {
+  //         const variantSku = `${product.sku}-V${Math.floor(Math.random() * 9000) + 1000}`;
+  //         await VariantProduct.create(
+  //           { ...v, product_id: product.id, sku: variantSku },
+  //           { transaction: t }
+  //         );
+  //       }
+  //     }
+
+  //     // ---------- Save Uploaded Images via multer ----------
+  //     if (req.files?.length > 0) {
+  //       for (const file of req.files) {
+  //         await ProductImage.create(
+  //           { product_id: product.id, image_url: `${file.filename}` },
+  //           { transaction: t }
+  //         );
+  //       }
+  //     }
+
+  //     // ---------- Save Custom Fields ----------
+  //     if (customFields) {
+  //       await CustomFields.create({ ...customFields, product_id: product.id }, { transaction: t });
+  //     }
+
+  //     await t.commit();
+  //     return res.status(201).json({ message: "Product created successfully", product });
+
+  //   } catch (error) {
+  //     await t.rollback();
+  //     return res.status(500).json({ message: error.message });
+  //   }
+  // },
+
+
+
+
+// async getProductById(req, res) {
+//   try {
+//     const { id } = req.params;
+
+//     const product = await ProductInfo.findOne({
+//       where: { id },
+//       include: [
+//         { model: Store, attributes: ["id", "store_name"] },
+//         { model: Warehouse, attributes: ["id", "warehouse_name"] },
+//         { model: Category, attributes: ["id", "category_name"] },
+//         { model: SubCategory, attributes: ["id", "subcategory_name"] },
+//         { model: Brand, attributes: ["id", "brand_name"] },
+//         { model: Unit, attributes: ["id", "unit_name"] },
+//         { model: Barcode, attributes: ["id", "barcode_name"] },
+//         { model: SingleProduct },
+//         { model: VariantProduct },
+//         { model: ProductImage },
+//         { model: CustomFields },
+//       ],
+//     });
+
+//     if (!product) return res.status(404).json({ message: "Product not found" });
+
+//     res.status(200).json({ message: "Success", product });
+
+//   } catch (error) {
+//     res.status(500).json({ message: error.message });
+//   }
+// },
+
+
+// async getAllProducts(req, res) {
+//   try {
+//     const products = await ProductInfo.findAll({
+//       include: [
+//         { model: Store, attributes: ["id", "store_name"] },
+//         { model: Warehouse, attributes: ["id", "warehouse_name"] },
+//         { model: Categories, attributes: ["id", "category_name"] },
+//         { model: Subcategory, attributes: ["id", "subcategory_name"] },
+//         { model: Brand, attributes: ["id", "brand_name"] },
+//         { model: Unit, attributes: ["id", "unit_name"] },
+//         { model: Barcode, attributes: ["id", "text" , "type" , "image_url"] },
+//         {
+//           model: SingleProduct,
+//           include: [
+//             {
+//               model: Tax,
+//               as: "tax",
+//               attributes: ["id", "tax_name", "tax_percentage", "tax_type", "description"]
+//             }
+//           ]
+//         },
+//         { model: VariantProduct },
+//         { model: ProductImage },
+//         { model: CustomFields },
+//       ],
+//       order: [["createdAt", "DESC"]],
+//     });
+
+//     res.status(200).json({ message: "Success", products });
+
+//   } catch (error) {
+//     res.status(500).json({ message: error.message });
+//   }
+// }

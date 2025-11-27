@@ -1,0 +1,4475 @@
+{
+	"info": {
+		"_postman_id": "e98ad2ec-c1f2-4f8b-a5e1-45fe693a515a",
+		"name": "IMS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20198225",
+		"_collection_link": "https://universal-flare-78184.postman.co/workspace/1920dba9-15b0-4b06-b383-f797d76a55fc/collection/42616668-e98ad2ec-c1f2-4f8b-a5e1-45fe693a515a?action=share&source=collection_link&creator=20198225"
+	},
+	"item": [
+		{
+			"name": "USER",
+			"item": [
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjkyZDI1MmFhLTQ5MTEtNDk2MS1hNzcxLTA3MDYxMTJjNGQ4YSIsInVzZXJuYW1lIjoicHJhYmhhIiwiZW1haWwiOiJwcmFiaGFAZ21haWwuY29tIiwicGhvbmUiOiI2MzgzMDYxMTE3Iiwicm9sZSI6ImFkbWluIiwiaXNfYWN0aXZlIjp0cnVlLCJpYXQiOjE3NjM1MjY0NzgsImV4cCI6MTc2MzUzMzY3OH0.kfJB14YdY7_U22ou-yKl2-esFi1u9lwmFJOYFbDIOkY",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"identifier\": \"jothi@gmail.com\",\r\n  \"password\": \"Jothi@123\"\r\n  \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://192.168.1.24:3000/ims_api/v1/user/user/login",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"1",
+								"24"
+							],
+							"port": "3000",
+							"path": [
+								"ims_api",
+								"v1",
+								"user",
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjkyZDI1MmFhLTQ5MTEtNDk2MS1hNzcxLTA3MDYxMTJjNGQ4YSIsInVzZXJuYW1lIjoicHJhYmhhIiwiZW1haWwiOiJwcmFiaGFAZ21haWwuY29tIiwicGhvbmUiOiI2MzgzMDYxMTE3Iiwicm9sZSI6ImFkbWluIiwiaXNfYWN0aXZlIjp0cnVlLCJpYXQiOjE3NjMxODkyNTAsImV4cCI6MTc2MzE5NjQ1MH0.bvKZhlDKmChN8ZN9Da7PtirwbrpVJ9571jcKTSev4tM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"role\": \"Admin\",\r\n  \"username\": \"Jothi\",\r\n  \"email\": \"jothi@gmail.com\",\r\n  \"password\": \"Jothi@123\",\r\n  \"phone\": \"7010856620\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://192.168.1.24:3000/ims_api/v1/user/user/register",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"1",
+								"24"
+							],
+							"port": "3000",
+							"path": [
+								"ims_api",
+								"v1",
+								"user",
+								"user",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "forgetpassword",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MTk0OTFhLTZhNTMtNDZkMC04NWUyLTA4NmVjNjZjMDQ1NiIsInVzZXJuYW1lIjoiU2FuZHkiLCJlbWFpbCI6InZwb29uam90aGkwNjEyQGdtYWlsLmNvbSIsInBob25lIjoiNzAxMDg1NjYyMCIsInJvbGUiOiJhZG1pbiIsImlzX2FjdGl2ZSI6dHJ1ZSwiaWF0IjoxNzYzNTQxNTMzLCJleHAiOjE3NjM1NDg3MzN9.Iwjbvd8ECZwjtNYFnh9ea-eCYceTNyUILoj_cAYYk4k",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"identifier\": \"vpoonjothi0612@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://192.168.1.15:5000/ims_api/v1/user/user/forgetpassword",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"1",
+								"15"
+							],
+							"port": "5000",
+							"path": [
+								"ims_api",
+								"v1",
+								"user",
+								"user",
+								"forgetpassword"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "verifyotp",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjkyZDI1MmFhLTQ5MTEtNDk2MS1hNzcxLTA3MDYxMTJjNGQ4YSIsInVzZXJuYW1lIjoicHJhYmhhIiwiZW1haWwiOiJwcmFiaGFAZ21haWwuY29tIiwicGhvbmUiOiI2MzgzMDYxMTE3Iiwicm9sZSI6ImFkbWluIiwiaXNfYWN0aXZlIjp0cnVlLCJpYXQiOjE3NjM1NDMzMjUsImV4cCI6MTc2MzU1MDUyNX0.xRgMowwJMJg2wZtONM4LRULv6NRcURw3OXO-BhEwjxo",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"identifier\": \"vpoonjothi0612@gmail.com\",\r\n \"otp\": \"725461\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://192.168.1.15:5000/ims_api/v1/user/user/verifyOTP",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"1",
+								"15"
+							],
+							"port": "5000",
+							"path": [
+								"ims_api",
+								"v1",
+								"user",
+								"user",
+								"verifyOTP"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "resetpassword",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjkyZDI1MmFhLTQ5MTEtNDk2MS1hNzcxLTA3MDYxMTJjNGQ4YSIsInVzZXJuYW1lIjoicHJhYmhhIiwiZW1haWwiOiJwcmFiaGFAZ21haWwuY29tIiwicGhvbmUiOiI2MzgzMDYxMTE3Iiwicm9sZSI6ImFkbWluIiwiaXNfYWN0aXZlIjp0cnVlLCJpYXQiOjE3NjM1NDMzMjUsImV4cCI6MTc2MzU1MDUyNX0.xRgMowwJMJg2wZtONM4LRULv6NRcURw3OXO-BhEwjxo",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"identifier\": \"vpoonjothi0612@gmail.com\",\r\n \"newPassword\":\"sandy@1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://192.168.1.15:5000/ims_api/v1/user/user/resetPassword",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"1",
+								"15"
+							],
+							"port": "5000",
+							"path": [
+								"ims_api",
+								"v1",
+								"user",
+								"user",
+								"resetPassword"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "changepassword",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ5M2JhZDZkLWQxNmItNGUwNC1hNDRmLTQ5ODI2MTcyOTg5MyIsInVzZXJuYW1lIjoiam90aGkiLCJlbWFpbCI6InByaXlhYUBleGFtcGxlLmNvbSIsInBob25lIjoiOTg3NjU0MzIxMCIsInJvbGUiOiJ1c2VyIiwiaXNfYWN0aXZlIjp0cnVlLCJpYXQiOjE3NjE2Mzc0MzgsImV4cCI6MTc2MTY0NDYzOH0.qcW7BVkfIb2GpMK1x0UgFYZGcRDbNR6JWQPDRSbxvAE",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n \"oldPassword\":\"sanjay\",\r\n \"newPassword\":\"sanjay12\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://192.168.1.15:5000/ims_api/v1/user/user/changePassword",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"1",
+								"15"
+							],
+							"port": "5000",
+							"path": [
+								"ims_api",
+								"v1",
+								"user",
+								"user",
+								"changePassword"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "logout",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ5M2JhZDZkLWQxNmItNGUwNC1hNDRmLTQ5ODI2MTcyOTg5MyIsInVzZXJuYW1lIjoiam90aGkiLCJlbWFpbCI6InByaXlhYUBleGFtcGxlLmNvbSIsInBob25lIjoiOTg3NjU0MzIxMCIsInJvbGUiOiJ1c2VyIiwiaXNfYWN0aXZlIjp0cnVlLCJpYXQiOjE3NjE2Mzc0MzgsImV4cCI6MTc2MTY0NDYzOH0.qcW7BVkfIb2GpMK1x0UgFYZGcRDbNR6JWQPDRSbxvAE",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n \"oldPassword\":\"sanjay\",\r\n \"newPassword\":\"sanjay12\"\r\n\r\n}"
+						},
+						"url": {
+							"raw": "http://192.168.1.7:3000/ims_api/v1/user/user/logout",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"1",
+								"7"
+							],
+							"port": "3000",
+							"path": [
+								"ims_api",
+								"v1",
+								"user",
+								"user",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "UserManagement",
+			"item": [
+				{
+					"name": "role",
+					"item": [
+						{
+							"name": "createRole",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjNjNTlkMTc5LTBmMTktNDY2Ni1iODMxLTUyZDBhZDFlYTFmZSIsInVzZXJuYW1lIjoiSm90aGkiLCJlbWFpbCI6ImpvdGhpQGdtYWlsLmNvbSIsInBob25lIjoiNzAxMDg1NjYyMCIsInJvbGUiOiJhZG1pbiIsImlzX2FjdGl2ZSI6dHJ1ZSwiaWF0IjoxNzYzNzE3ODk0LCJleHAiOjE3NjM3MjUwOTR9.-b19Gun1lDqndx2_VBL7dzidaH6PRmeDWBagI1LTXdQ",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"role_name\": \"admin\"\r\n \r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://192.168.1.24:3000/ims_api/v1/role/createRole",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"1",
+										"24"
+									],
+									"port": "3000",
+									"path": [
+										"ims_api",
+										"v1",
+										"role",
+										"createRole"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getAllRoles",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjkyZDI1MmFhLTQ5MTEtNDk2MS1hNzcxLTA3MDYxMTJjNGQ4YSIsInVzZXJuYW1lIjoicHJhYmhhIiwiZW1haWwiOiJwcmFiaGFAZ21haWwuY29tIiwicGhvbmUiOiI2MzgzMDYxMTE3Iiwicm9sZSI6ImFkbWluIiwiaXNfYWN0aXZlIjp0cnVlLCJpYXQiOjE3NjM0NTI5NTIsImV4cCI6MTc2MzQ2MDE1Mn0.z1FLuoOfSm17c7sVv7Fy16JwmJ_B1d_mShPOznknW7I",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://192.168.1.18:5000/ims_api/v1/role/getAllRoles",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"1",
+										"18"
+									],
+									"port": "5000",
+									"path": [
+										"ims_api",
+										"v1",
+										"role",
+										"getAllRoles"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getRoleById",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImYyOWQ5NDlhLTgzMzMtNGNhMi1iODIyLTE5ZTg2NjhlZTEwZSIsInVzZXJuYW1lIjoiam90aGkiLCJlbWFpbCI6ImpvdGhpQGdtYWlsLmNvbSIsInBob25lIjoiNjM4MzA2MTExNyIsInJvbGUiOiJhZG1pbiIsImlzX2FjdGl2ZSI6dHJ1ZSwiaWF0IjoxNzYxODA0MTAyLCJleHAiOjE3NjE4MTEzMDJ9.LkKY-1queST9GBvsKNKL3DOWjLY9d_TJT_tfOnj3iZo",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://192.168.1.17:5000/ims_api/v1/role/getRoleById/1d60baac-c16b-41a4-a54e-1bf6126190c8",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"1",
+										"17"
+									],
+									"port": "5000",
+									"path": [
+										"ims_api",
+										"v1",
+										"role",
+										"getRoleById",
+										"1d60baac-c16b-41a4-a54e-1bf6126190c8"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "updateRole",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImYyOWQ5NDlhLTgzMzMtNGNhMi1iODIyLTE5ZTg2NjhlZTEwZSIsInVzZXJuYW1lIjoiam90aGkiLCJlbWFpbCI6ImpvdGhpQGdtYWlsLmNvbSIsInBob25lIjoiNjM4MzA2MTExNyIsInJvbGUiOiJhZG1pbiIsImlzX2FjdGl2ZSI6dHJ1ZSwiaWF0IjoxNzYxODA0MTAyLCJleHAiOjE3NjE4MTEzMDJ9.LkKY-1queST9GBvsKNKL3DOWjLY9d_TJT_tfOnj3iZo",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"role_name\": \"Admin\"\r\n \r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://192.168.1.17:5000/ims_api/v1/role/updateRole/1d60baac-c16b-41a4-a54e-1bf6126190c8",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"1",
+										"17"
+									],
+									"port": "5000",
+									"path": [
+										"ims_api",
+										"v1",
+										"role",
+										"updateRole",
+										"1d60baac-c16b-41a4-a54e-1bf6126190c8"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "deleteRole",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImYyOWQ5NDlhLTgzMzMtNGNhMi1iODIyLTE5ZTg2NjhlZTEwZSIsInVzZXJuYW1lIjoiam90aGkiLCJlbWFpbCI6ImpvdGhpQGdtYWlsLmNvbSIsInBob25lIjoiNjM4MzA2MTExNyIsInJvbGUiOiJhZG1pbiIsImlzX2FjdGl2ZSI6dHJ1ZSwiaWF0IjoxNzYxODA0MTAyLCJleHAiOjE3NjE4MTEzMDJ9.LkKY-1queST9GBvsKNKL3DOWjLY9d_TJT_tfOnj3iZo",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"role_name\": \"Admin\"\r\n \r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://192.168.1.17:5000/ims_api/v1/role/deleteRole/2eba516d-3cb9-4c22-b5ae-f606b845864d",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"1",
+										"17"
+									],
+									"port": "5000",
+									"path": [
+										"ims_api",
+										"v1",
+										"role",
+										"deleteRole",
+										"2eba516d-3cb9-4c22-b5ae-f606b845864d"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "employee",
+					"item": [
+						{
+							"name": "getAllEmployees",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MTk0OTFhLTZhNTMtNDZkMC04NWUyLTA4NmVjNjZjMDQ1NiIsInVzZXJuYW1lIjoiU2FuZHkiLCJlbWFpbCI6InZwb29uam90aGkwNjEyQGdtYWlsLmNvbSIsInBob25lIjoiNzAxMDg1NjYyMCIsInJvbGUiOiJhZG1pbiIsImlzX2FjdGl2ZSI6dHJ1ZSwiaWF0IjoxNzYzNjk5MDA0LCJleHAiOjE3NjM3MDYyMDR9.W8IJdjoAxNtkJnpKrq-McOD-zLVrNHjPQOq1kVUEAGM",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://192.168.1.24:3000/ims_api/v1/employee/getAllEmployees",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"1",
+										"24"
+									],
+									"port": "3000",
+									"path": [
+										"ims_api",
+										"v1",
+										"employee",
+										"getAllEmployees"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "createEmployee",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjNjNTlkMTc5LTBmMTktNDY2Ni1iODMxLTUyZDBhZDFlYTFmZSIsInVzZXJuYW1lIjoiSm90aGkiLCJlbWFpbCI6ImpvdGhpQGdtYWlsLmNvbSIsInBob25lIjoiNzAxMDg1NjYyMCIsInJvbGUiOiJhZG1pbiIsImlzX2FjdGl2ZSI6dHJ1ZSwiaWF0IjoxNzYzNzE3ODk0LCJleHAiOjE3NjM3MjUwOTR9.-b19Gun1lDqndx2_VBL7dzidaH6PRmeDWBagI1LTXdQ",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "username",
+											"value": "sanjay",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "sanjay@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "phone",
+											"value": "8989798767",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "sanjay",
+											"type": "text"
+										},
+										{
+											"key": "role_id",
+											"value": "59522afb-38eb-4d8a-bcff-373d7628fa13",
+											"type": "text"
+										},
+										{
+											"key": "profile_picture",
+											"type": "file",
+											"src": "/C:/Users/HP/Pictures/user6.jpeg"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://192.168.1.24:3000/ims_api/v1/employee/createEmployee",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"1",
+										"24"
+									],
+									"port": "3000",
+									"path": [
+										"ims_api",
+										"v1",
+										"employee",
+										"createEmployee"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getEmployeeById",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQ2MDJkOTQ3LWU1ZDMtNGUxZC05MDY0LTgwYTQxNGE4YzQzZSIsInVzZXJuYW1lIjoiam90aGkiLCJlbWFpbCI6ImFiaXJhbWlpaWlxcXFAZ21haWwuY29tIiwicGhvbmUiOiI2MzgzMDYxMTE3Iiwicm9sZSI6ImFkbWluIiwiaXNfYWN0aXZlIjp0cnVlLCJpYXQiOjE3NjI1MTQzOTksImV4cCI6MTc2MjUyMTU5OX0.rPXptiJU4J91vQFgFDw6RAReIqEVNmRjzP15VJHuFYk",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://192.168.1.7:3000/ims_api/v1/employee/getEmployeeById/0933af2c-138e-4f16-ae56-d42e5bdd158c",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"1",
+										"7"
+									],
+									"port": "3000",
+									"path": [
+										"ims_api",
+										"v1",
+										"employee",
+										"getEmployeeById",
+										"0933af2c-138e-4f16-ae56-d42e5bdd158c"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "updateEmployee",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQ2MDJkOTQ3LWU1ZDMtNGUxZC05MDY0LTgwYTQxNGE4YzQzZSIsInVzZXJuYW1lIjoiam90aGkiLCJlbWFpbCI6ImFiaXJhbWlpaWlxcXFAZ21haWwuY29tIiwicGhvbmUiOiI2MzgzMDYxMTE3Iiwicm9sZSI6ImFkbWluIiwiaXNfYWN0aXZlIjp0cnVlLCJpYXQiOjE3NjI1MTQzOTksImV4cCI6MTc2MjUyMTU5OX0.rPXptiJU4J91vQFgFDw6RAReIqEVNmRjzP15VJHuFYk",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "username",
+											"value": "saravana",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "saravana123@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "phone",
+											"value": "908909890",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "saravana",
+											"type": "text"
+										},
+										{
+											"key": "role_id",
+											"value": "1d60baac-c16b-41a4-a54e-1bf6126190c8",
+											"type": "text"
+										},
+										{
+											"key": "profile_picture",
+											"type": "file",
+											"src": "/C:/Users/Admin/OneDrive/Pictures/lord-hanuman-8k-3840x2160-14689.jpg"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://192.168.1.7:3000/ims_api/v1/employee/updateEmployee/8a4db433-26d6-4db5-92cd-ee495e999cd9",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"1",
+										"7"
+									],
+									"port": "3000",
+									"path": [
+										"ims_api",
+										"v1",
+										"employee",
+										"updateEmployee",
+										"8a4db433-26d6-4db5-92cd-ee495e999cd9"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "deleteEmployee",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQ2MDJkOTQ3LWU1ZDMtNGUxZC05MDY0LTgwYTQxNGE4YzQzZSIsInVzZXJuYW1lIjoiam90aGkiLCJlbWFpbCI6ImFiaXJhbWlpaWlxcXFAZ21haWwuY29tIiwicGhvbmUiOiI2MzgzMDYxMTE3Iiwicm9sZSI6ImFkbWluIiwiaXNfYWN0aXZlIjp0cnVlLCJpYXQiOjE3NjI1MTQzOTksImV4cCI6MTc2MjUyMTU5OX0.rPXptiJU4J91vQFgFDw6RAReIqEVNmRjzP15VJHuFYk",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://192.168.1.7:3000/ims_api/v1/employee/deleteEmployee/8a4db433-26d6-4db5-92cd-ee495e999cd9",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"1",
+										"7"
+									],
+									"port": "3000",
+									"path": [
+										"ims_api",
+										"v1",
+										"employee",
+										"deleteEmployee",
+										"8a4db433-26d6-4db5-92cd-ee495e999cd9"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "login",
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {}
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQ1NzFlMDAyLTg4ZmMtNGIyZi05MjZjLTg5YTkzM2Y5NzI1NyIsInVzZXJuYW1lIjoiUHJha2FzaCIsImVtYWlsIjoicHJla3pAZ21haWwuY29tIiwicGhvbmUiOiI5ODc2NTQzMjEwIiwicm9sZSI6InVzZXIiLCJpc19hY3RpdmUiOnRydWUsImlhdCI6MTc2MzU0MTc2NiwiZXhwIjoxNzYzNTQ4OTY2fQ.-a0RXvaQ_EaF3QH3ChiQuuAakXNcpce_nBfsWyj8itoeyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjkyZDI1MmFhLTQ5MTEtNDk2MS1hNzcxLTA3MDYxMTJjNGQ4YSIsInVzZXJuYW1lIjoicHJhYmhhIiwiZW1haWwiOiJwcmFiaGFAZ21haWwuY29tIiwicGhvbmUiOiI2MzgzMDYxMTE3Iiwicm9sZSI6ImFkbWluIiwiaXNfYWN0aXZlIjp0cnVlLCJpYXQiOjE3NjM3MDY2NTEsImV4cCI6MTc2MzcxMzg1MX0.a8PhHjRWHZxdgNz10YdLCEI6jiVSI3NWAx8cZIx7USA",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"username\": \"sanjay\",\r\n  \"password\": \"sanjay\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://192.168.1.24:3000/ims_api/v1/employee/login",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"1",
+										"24"
+									],
+									"port": "3000",
+									"path": [
+										"ims_api",
+										"v1",
+										"employee",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "profile",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImEzODAzMzdiLTM5ZTctNGVmYy04YTlmLWVhZGI5MmZhZDIxYiIsInVzZXJuYW1lIjoic2FyYXZhbmEiLCJyb2xlIjoiODcxMTRlMTAtNGVmMS00OTgzLTkwZjAtODA5ZDhhM2IwNDlhIiwiaWF0IjoxNzYzMDM0MDUxLCJleHAiOjE3NjMxMjA0NTF9.Sn4P4f--FOxXiMIR81TZ0aw1r_arrNiGP2SVbmtSg3g",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"username\": \"saravana\",\r\n  \"password\": \"kaviya\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://192.168.1.18:3000/ims_api/v1/employee/profile",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"1",
+										"18"
+									],
+									"port": "3000",
+									"path": [
+										"ims_api",
+										"v1",
+										"employee",
+										"profile"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "logout",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImEzODAzMzdiLTM5ZTctNGVmYy04YTlmLWVhZGI5MmZhZDIxYiIsInVzZXJuYW1lIjoic2FyYXZhbmEiLCJyb2xlIjoiODcxMTRlMTAtNGVmMS00OTgzLTkwZjAtODA5ZDhhM2IwNDlhIiwiaWF0IjoxNzYzMDMzNjU5LCJleHAiOjE3NjMxMjAwNTl9.0iVv-hxJM0kFin4UwSG0IFfcET1CsYsQLMwttt_ja9A",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"username\": \"saravana\",\r\n  \"password\": \"kaviya\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://192.168.1.18:3000/ims_api/v1/employee/logout",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"1",
+										"18"
+									],
+									"port": "3000",
+									"path": [
+										"ims_api",
+										"v1",
+										"employee",
+										"logout"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "stockmaster",
+			"item": [
+				{
+					"name": "managestock",
+					"item": [
+						{
+							"name": "postmanagestock",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImI3Y2FjNDQyLTBlM2ItNGViZC1iZjk1LTJjYWVkMzBjZDk0YyIsInVzZXJuYW1lIjoiam90aGkiLCJlbWFpbCI6ImFiaXJhbWlpaWlxcXFxcXNzQGdtYWlsLmNvbSIsInBob25lIjoiNjM4MzA2MTExNyIsInJvbGUiOiJhZG1pbiIsImlzX2FjdGl2ZSI6dHJ1ZSwiaWF0IjoxNzYzMzc0MDg1LCJleHAiOjE3NjMzODEyODV9.8U9Iim1oNKkP7OoI52TaZ9SCqajog60IileqZJnMyxs",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"warehouse\": \"Central Wareuse\",\r\n  \"store\": \"Store A\",\r\n  \"product\": \"LED TV 42 inch\",\r\n  \"Responsible_Person\": \"Abi\",\r\n  \"quantity\": 50\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://192.168.1.18:5000/ims_api/v1/managestock/createManageStock",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"1",
+										"18"
+									],
+									"port": "5000",
+									"path": [
+										"ims_api",
+										"v1",
+										"managestock",
+										"createManageStock"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getmanagestock",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjkyZDI1MmFhLTQ5MTEtNDk2MS1hNzcxLTA3MDYxMTJjNGQ4YSIsInVzZXJuYW1lIjoicHJhYmhhIiwiZW1haWwiOiJwcmFiaGFAZ21haWwuY29tIiwicGhvbmUiOiI2MzgzMDYxMTE3Iiwicm9sZSI6ImFkbWluIiwiaXNfYWN0aXZlIjp0cnVlLCJpYXQiOjE3NjMzNzU5NTMsImV4cCI6MTc2MzM4MzE1M30.Xiaj-2CJ5CA0RfSTIv1fPJ_wZF7ySaPae46md2UNV8A",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"warehouse\": \"Central Warehouse\",\r\n  \"store\": \"Store 1\",\r\n  \"product\": \"Product A\",\r\n  \"quantity\": 150\r\n}"
+								},
+								"url": {
+									"raw": "http://192.168.1.18:5000/ims_api/v1/managestock/getAllManageStock",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"1",
+										"18"
+									],
+									"port": "5000",
+									"path": [
+										"ims_api",
+										"v1",
+										"managestock",
+										"getAllManageStock"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getidmanagestock",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQ2MDJkOTQ3LWU1ZDMtNGUxZC05MDY0LTgwYTQxNGE4YzQzZSIsInVzZXJuYW1lIjoiam90aGkiLCJlbWFpbCI6ImFiaXJhbWlpaWlxcXFAZ21haWwuY29tIiwicGhvbmUiOiI2MzgzMDYxMTE3Iiwicm9sZSI6ImFkbWluIiwiaXNfYWN0aXZlIjp0cnVlLCJpYXQiOjE3NjIxNTA2NDEsImV4cCI6MTc2MjE1Nzg0MX0.Jd89_hLdYArakjqtlNby8UAKGmiUdSPyiKExClj_NzM",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"warehouse\": \"Central Warehouse\",\r\n  \"store\": \"Store 1\",\r\n  \"product\": \"Product A\",\r\n  \"quantity\": 150\r\n}"
+								},
+								"url": {
+									"raw": "http://192.168.1.18:3000/ims_api/v1/managestock/getManageStockById/08b81820-315c-43d7-9c29-8fd329eb6be8",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"1",
+										"18"
+									],
+									"port": "3000",
+									"path": [
+										"ims_api",
+										"v1",
+										"managestock",
+										"getManageStockById",
+										"08b81820-315c-43d7-9c29-8fd329eb6be8"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "updatemanagestock",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQ2MDJkOTQ3LWU1ZDMtNGUxZC05MDY0LTgwYTQxNGE4YzQzZSIsInVzZXJuYW1lIjoiam90aGkiLCJlbWFpbCI6ImFiaXJhbWlpaWlxcXFAZ21haWwuY29tIiwicGhvbmUiOiI2MzgzMDYxMTE3Iiwicm9sZSI6ImFkbWluIiwiaXNfYWN0aXZlIjp0cnVlLCJpYXQiOjE3NjIxNTA2NDEsImV4cCI6MTc2MjE1Nzg0MX0.Jd89_hLdYArakjqtlNby8UAKGmiUdSPyiKExClj_NzM",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"warehouse\": \"Central Warehouse\",\r\n  \"store\": \"Store 1\",\r\n  \"product\": \"laptop\",\r\n  \"quantity\": 150\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://192.168.1.18:3000/ims_api/v1/managestock/updateManageStock/08b81820-315c-43d7-9c29-8fd329eb6be8",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"1",
+										"18"
+									],
+									"port": "3000",
+									"path": [
+										"ims_api",
+										"v1",
+										"managestock",
+										"updateManageStock",
+										"08b81820-315c-43d7-9c29-8fd329eb6be8"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "deletemanagestock",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQ2MDJkOTQ3LWU1ZDMtNGUxZC05MDY0LTgwYTQxNGE4YzQzZSIsInVzZXJuYW1lIjoiam90aGkiLCJlbWFpbCI6ImFiaXJhbWlpaWlxcXFAZ21haWwuY29tIiwicGhvbmUiOiI2MzgzMDYxMTE3Iiwicm9sZSI6ImFkbWluIiwiaXNfYWN0aXZlIjp0cnVlLCJpYXQiOjE3NjIxNTA2NDEsImV4cCI6MTc2MjE1Nzg0MX0.Jd89_hLdYArakjqtlNby8UAKGmiUdSPyiKExClj_NzM",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"warehouse\": \"Central Warehouse\",\r\n  \"store\": \"Store 1\",\r\n  \"product\": \"laptop\",\r\n  \"quantity\": 150\r\n}"
+								},
+								"url": {
+									"raw": "http://192.168.1.18:3000/ims_api/v1/managestock/deleteManageStock/08b81820-315c-43d7-9c29-8fd329eb6be8",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"1",
+										"18"
+									],
+									"port": "3000",
+									"path": [
+										"ims_api",
+										"v1",
+										"managestock",
+										"deleteManageStock",
+										"08b81820-315c-43d7-9c29-8fd329eb6be8"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "stockadjustment",
+					"item": [
+						{
+							"name": "poststock",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJhMmM5M2M1LWRlMjgtNDExZi05YmM0LTE3ZGMwZWY4Y2FmOCIsInVzZXJuYW1lIjoia2F2aXlhIiwicm9sZSI6ImQ5YWE3MWE4LThlMGItNGVhNi1iMWFlLTFiYTZkMjdmYTBlMCIsImlhdCI6MTc2MzcwNjI3MywiZXhwIjoxNzYzNzkyNjczfQ.WCO3emhf88byJeN9WuPgQO8qpSCaPL0h3jp2pv1YOXo",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"product\": \"Laptop\",\r\n  \"warehouse\": \"Main Warehouse\",\r\n  \"reference_number\": \"REF12345\",\r\n  \"store\": \"Store A\",\r\n  \"responsible_person\": \"John Doe\",\r\n  \"quantity\": 50,\r\n  \"notes\": \"Initial stock adjustment\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://192.168.1.15:5000/ims_api/v1/stockadjustment/createStockAdjustment",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"1",
+										"15"
+									],
+									"port": "5000",
+									"path": [
+										"ims_api",
+										"v1",
+										"stockadjustment",
+										"createStockAdjustment"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getstockadjusment",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJhMmM5M2M1LWRlMjgtNDExZi05YmM0LTE3ZGMwZWY4Y2FmOCIsInVzZXJuYW1lIjoia2F2aXlhIiwicm9sZSI6ImQ5YWE3MWE4LThlMGItNGVhNi1iMWFlLTFiYTZkMjdmYTBlMCIsImlhdCI6MTc2MzcwNjI3MywiZXhwIjoxNzYzNzkyNjczfQ.WCO3emhf88byJeN9WuPgQO8qpSCaPL0h3jp2pv1YOXo",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"product\": \"Laptop\",\r\n  \"warehouse\": \"Main Warehouse\",\r\n  \"reference_number\": \"REF12345\",\r\n  \"store\": \"Store A\",\r\n  \"responsible_person\": \"John Doe\",\r\n  \"quantity\": 50,\r\n  \"notes\": \"Initial stock adjustment\"\r\n}"
+								},
+								"url": {
+									"raw": "http://192.168.1.15:5000/ims_api/v1/stockadjustment/getAllStockAdjustments",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"1",
+										"15"
+									],
+									"port": "5000",
+									"path": [
+										"ims_api",
+										"v1",
+										"stockadjustment",
+										"getAllStockAdjustments"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getidstock",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQ2MDJkOTQ3LWU1ZDMtNGUxZC05MDY0LTgwYTQxNGE4YzQzZSIsInVzZXJuYW1lIjoiam90aGkiLCJlbWFpbCI6ImFiaXJhbWlpaWlxcXFAZ21haWwuY29tIiwicGhvbmUiOiI2MzgzMDYxMTE3Iiwicm9sZSI6ImFkbWluIiwiaXNfYWN0aXZlIjp0cnVlLCJpYXQiOjE3NjIxNTA2NDEsImV4cCI6MTc2MjE1Nzg0MX0.Jd89_hLdYArakjqtlNby8UAKGmiUdSPyiKExClj_NzM",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"product\": \"Laptop\",\r\n  \"warehouse\": \"Main Warehouse\",\r\n  \"reference_number\": \"REF12345\",\r\n  \"store\": \"Store A\",\r\n  \"responsible_person\": \"John Doe\",\r\n  \"quantity\": 50,\r\n  \"notes\": \"Initial stock adjustment\"\r\n}"
+								},
+								"url": {
+									"raw": "http://192.168.1.18:3000/ims_api/v1/stockadjustment/getStockAdjustmentById/d28c56e2-3dea-4088-bd19-36f387541fef",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"1",
+										"18"
+									],
+									"port": "3000",
+									"path": [
+										"ims_api",
+										"v1",
+										"stockadjustment",
+										"getStockAdjustmentById",
+										"d28c56e2-3dea-4088-bd19-36f387541fef"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "updatestock",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQ2MDJkOTQ3LWU1ZDMtNGUxZC05MDY0LTgwYTQxNGE4YzQzZSIsInVzZXJuYW1lIjoiam90aGkiLCJlbWFpbCI6ImFiaXJhbWlpaWlxcXFAZ21haWwuY29tIiwicGhvbmUiOiI2MzgzMDYxMTE3Iiwicm9sZSI6ImFkbWluIiwiaXNfYWN0aXZlIjp0cnVlLCJpYXQiOjE3NjIxNTA2NDEsImV4cCI6MTc2MjE1Nzg0MX0.Jd89_hLdYArakjqtlNby8UAKGmiUdSPyiKExClj_NzM",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"product\": \"Laptop\",\r\n  \"warehouse\": \"Main Warehouse\",\r\n  \"reference_number\": \"REF12345\",\r\n  \"store\": \"Store A\",\r\n  \"responsible_person\": \"Abirami\",\r\n  \"quantity\": 50,\r\n  \"notes\": \"Initial stock adjustment\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://192.168.1.18:3000/ims_api/v1/stockadjustment/updateStockAdjustment/d28c56e2-3dea-4088-bd19-36f387541fef",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"1",
+										"18"
+									],
+									"port": "3000",
+									"path": [
+										"ims_api",
+										"v1",
+										"stockadjustment",
+										"updateStockAdjustment",
+										"d28c56e2-3dea-4088-bd19-36f387541fef"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "deletestock",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQ2MDJkOTQ3LWU1ZDMtNGUxZC05MDY0LTgwYTQxNGE4YzQzZSIsInVzZXJuYW1lIjoiam90aGkiLCJlbWFpbCI6ImFiaXJhbWlpaWlxcXFAZ21haWwuY29tIiwicGhvbmUiOiI2MzgzMDYxMTE3Iiwicm9sZSI6ImFkbWluIiwiaXNfYWN0aXZlIjp0cnVlLCJpYXQiOjE3NjIxNTA2NDEsImV4cCI6MTc2MjE1Nzg0MX0.Jd89_hLdYArakjqtlNby8UAKGmiUdSPyiKExClj_NzM",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"product\": \"Laptop\",\r\n  \"warehouse\": \"Main Warehouse\",\r\n  \"reference_number\": \"REF12345\",\r\n  \"store\": \"Store A\",\r\n  \"responsible_person\": \"Abirami\",\r\n  \"quantity\": 50,\r\n  \"notes\": \"Initial stock adjustment\"\r\n}"
+								},
+								"url": {
+									"raw": "http://192.168.1.18:3000/ims_api/v1/stockadjustment/deleteStockAdjustment/d28c56e2-3dea-4088-bd19-36f387541fef",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"1",
+										"18"
+									],
+									"port": "3000",
+									"path": [
+										"ims_api",
+										"v1",
+										"stockadjustment",
+										"deleteStockAdjustment",
+										"d28c56e2-3dea-4088-bd19-36f387541fef"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "stocktransfer",
+					"item": [
+						{
+							"name": "posttransfer",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQ2MDJkOTQ3LWU1ZDMtNGUxZC05MDY0LTgwYTQxNGE4YzQzZSIsInVzZXJuYW1lIjoiam90aGkiLCJlbWFpbCI6ImFiaXJhbWlpaWlxcXFAZ21haWwuY29tIiwicGhvbmUiOiI2MzgzMDYxMTE3Iiwicm9sZSI6ImFkbWluIiwiaXNfYWN0aXZlIjp0cnVlLCJpYXQiOjE3NjIxNTA2NDEsImV4cCI6MTc2MjE1Nzg0MX0.Jd89_hLdYArakjqtlNby8UAKGmiUdSPyiKExClj_NzM",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"warehouse_from\": \"Warehouse A\",\r\n  \"warehouse_to\": \"Warehouse B\",\r\n  \"reference_number\": \"REF-TRF-001\",\r\n  \"no_of_products\": \"5\",\r\n  \"quatity_transferred\": \"150\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://192.168.1.18:3000/ims_api/v1/stocktransfer/createStockTransfer",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"1",
+										"18"
+									],
+									"port": "3000",
+									"path": [
+										"ims_api",
+										"v1",
+										"stocktransfer",
+										"createStockTransfer"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "gettransfer",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQ2MDJkOTQ3LWU1ZDMtNGUxZC05MDY0LTgwYTQxNGE4YzQzZSIsInVzZXJuYW1lIjoiam90aGkiLCJlbWFpbCI6ImFiaXJhbWlpaWlxcXFAZ21haWwuY29tIiwicGhvbmUiOiI2MzgzMDYxMTE3Iiwicm9sZSI6ImFkbWluIiwiaXNfYWN0aXZlIjp0cnVlLCJpYXQiOjE3NjIxNTA2NDEsImV4cCI6MTc2MjE1Nzg0MX0.Jd89_hLdYArakjqtlNby8UAKGmiUdSPyiKExClj_NzM",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"warehouse_from\": \"Warehouse A\",\r\n  \"warehouse_to\": \"Warehouse B\",\r\n  \"reference_number\": \"REF-TRF-001\",\r\n  \"no_of_products\": \"5\",\r\n  \"quatity_transferred\": \"150\"\r\n}"
+								},
+								"url": {
+									"raw": "http://192.168.1.18:3000/ims_api/v1/stocktransfer/getAllStockTransfers",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"1",
+										"18"
+									],
+									"port": "3000",
+									"path": [
+										"ims_api",
+										"v1",
+										"stocktransfer",
+										"getAllStockTransfers"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getidtransfer",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQ2MDJkOTQ3LWU1ZDMtNGUxZC05MDY0LTgwYTQxNGE4YzQzZSIsInVzZXJuYW1lIjoiam90aGkiLCJlbWFpbCI6ImFiaXJhbWlpaWlxcXFAZ21haWwuY29tIiwicGhvbmUiOiI2MzgzMDYxMTE3Iiwicm9sZSI6ImFkbWluIiwiaXNfYWN0aXZlIjp0cnVlLCJpYXQiOjE3NjIxNTA2NDEsImV4cCI6MTc2MjE1Nzg0MX0.Jd89_hLdYArakjqtlNby8UAKGmiUdSPyiKExClj_NzM",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"warehouse_from\": \"Warehouse A\",\r\n  \"warehouse_to\": \"Warehouse B\",\r\n  \"reference_number\": \"REF-TRF-001\",\r\n  \"no_of_products\": \"5\",\r\n  \"quatity_transferred\": \"150\"\r\n}"
+								},
+								"url": {
+									"raw": "http://192.168.1.18:3000/ims_api/v1/stocktransfer/stocktransfer/c4a91153-1f60-4723-b0ba-483030c20843",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"1",
+										"18"
+									],
+									"port": "3000",
+									"path": [
+										"ims_api",
+										"v1",
+										"stocktransfer",
+										"stocktransfer",
+										"c4a91153-1f60-4723-b0ba-483030c20843"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "updatetransfer",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQ2MDJkOTQ3LWU1ZDMtNGUxZC05MDY0LTgwYTQxNGE4YzQzZSIsInVzZXJuYW1lIjoiam90aGkiLCJlbWFpbCI6ImFiaXJhbWlpaWlxcXFAZ21haWwuY29tIiwicGhvbmUiOiI2MzgzMDYxMTE3Iiwicm9sZSI6ImFkbWluIiwiaXNfYWN0aXZlIjp0cnVlLCJpYXQiOjE3NjIxNTA2NDEsImV4cCI6MTc2MjE1Nzg0MX0.Jd89_hLdYArakjqtlNby8UAKGmiUdSPyiKExClj_NzM",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"warehouse_from\": \"Warehouse c\",\r\n  \"warehouse_to\": \"Warehouse d\",\r\n  \"reference_number\": \"REF-TRF-001\",\r\n  \"no_of_products\": \"5\",\r\n  \"quatity_transferred\": \"150\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://192.168.1.18:3000/ims_api/v1/stocktransfer/updateStockTransfer/c4a91153-1f60-4723-b0ba-483030c20843",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"1",
+										"18"
+									],
+									"port": "3000",
+									"path": [
+										"ims_api",
+										"v1",
+										"stocktransfer",
+										"updateStockTransfer",
+										"c4a91153-1f60-4723-b0ba-483030c20843"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "deletetransfer",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQ2MDJkOTQ3LWU1ZDMtNGUxZC05MDY0LTgwYTQxNGE4YzQzZSIsInVzZXJuYW1lIjoiam90aGkiLCJlbWFpbCI6ImFiaXJhbWlpaWlxcXFAZ21haWwuY29tIiwicGhvbmUiOiI2MzgzMDYxMTE3Iiwicm9sZSI6ImFkbWluIiwiaXNfYWN0aXZlIjp0cnVlLCJpYXQiOjE3NjIxNTA2NDEsImV4cCI6MTc2MjE1Nzg0MX0.Jd89_hLdYArakjqtlNby8UAKGmiUdSPyiKExClj_NzM",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"warehouse_from\": \"Warehouse c\",\r\n  \"warehouse_to\": \"Warehouse d\",\r\n  \"reference_number\": \"REF-TRF-001\",\r\n  \"no_of_products\": \"5\",\r\n  \"quatity_transferred\": \"150\"\r\n}"
+								},
+								"url": {
+									"raw": "http://192.168.1.18:3000/ims_api/v1/stocktransfer/deleteStockTransfer/c4a91153-1f60-4723-b0ba-483030c20843",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"1",
+										"18"
+									],
+									"port": "3000",
+									"path": [
+										"ims_api",
+										"v1",
+										"stocktransfer",
+										"deleteStockTransfer",
+										"c4a91153-1f60-4723-b0ba-483030c20843"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Inventry",
+			"item": [
+				{
+					"name": "category",
+					"item": [
+						{
+							"name": "postcategory",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ0M2JmZWRmLTZmM2ItNGVjMC1hMWFjLTQ3MDBiNDkzY2NmYSIsInVzZXJuYW1lIjoic2FuamF5Iiwicm9sZSI6IjU5NTIyYWZiLTM4ZWItNGQ4YS1iY2ZmLTM3M2Q3NjI4ZmExMyIsImlhdCI6MTc2MzcxODIxMiwiZXhwIjoxNzYzODA0NjEyfQ.XelNm7YU42bBjrx1G7hYJ_NnT3N0DudDJ2lcJ4lSjYo",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"category_name\": \"Mobile\",\r\n  \"category_slug\": \"mobile\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://192.168.1.24:3000/ims_api/v1/categories/categories/create",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"1",
+										"24"
+									],
+									"port": "3000",
+									"path": [
+										"ims_api",
+										"v1",
+										"categories",
+										"categories",
+										"create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getcategory",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ0M2JmZWRmLTZmM2ItNGVjMC1hMWFjLTQ3MDBiNDkzY2NmYSIsInVzZXJuYW1lIjoic2FuamF5Iiwicm9sZSI6IjU5NTIyYWZiLTM4ZWItNGQ4YS1iY2ZmLTM3M2Q3NjI4ZmExMyIsImlhdCI6MTc2MzcxODIxMiwiZXhwIjoxNzYzODA0NjEyfQ.XelNm7YU42bBjrx1G7hYJ_NnT3N0DudDJ2lcJ4lSjYo",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://192.168.1.24:3000/ims_api/v1/categories/categories/all",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"1",
+										"24"
+									],
+									"port": "3000",
+									"path": [
+										"ims_api",
+										"v1",
+										"categories",
+										"categories",
+										"all"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getidcategory",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEyNWMyMzk1LTAyMDktNDhkYy05MzE4LWE1ZDI3MjkxZTMyZSIsInVzZXJuYW1lIjoiam90aGkiLCJlbWFpbCI6ImpvdGhpaWlpQGdtYWlsLmNvbSIsInBob25lIjoiNjM4MzA2MTExNyIsInJvbGUiOiJ1c2VyIiwiaXNfYWN0aXZlIjp0cnVlLCJpYXQiOjE3NjE4MDU0MTAsImV4cCI6MTc2MTgxMjYxMH0.z9qL-LDCUo8xOxr9dqCdcIR-8TvcnWi2aHT55QWW-50",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://192.168.1.7:3000/ims_api/v1/categories/categories/7f679bda-3f8f-4c3e-9c5b-750ae2640d3b",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"1",
+										"7"
+									],
+									"port": "3000",
+									"path": [
+										"ims_api",
+										"v1",
+										"categories",
+										"categories",
+										"7f679bda-3f8f-4c3e-9c5b-750ae2640d3b"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "updatecategory",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImU2MDIwNGQ4LTZlNjktNDRiYS04NzM5LTFhMDVmOTRjYjVmYiIsInVzZXJuYW1lIjoiam90aGkiLCJlbWFpbCI6ImpvdGhpaWlpcXFAZ21haWwuY29tIiwicGhvbmUiOiI2MzgzMDYxMTE3Iiwicm9sZSI6ImFkbWluIiwiaXNfYWN0aXZlIjp0cnVlLCJpYXQiOjE3NjE4MDc3MTAsImV4cCI6MTc2MTgxNDkxMH0.nt9QXkuC9MG4jAN6VL39LJSoWJTLf8t72p1XQ34wleA",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"category_name\": \"irrrrw devics\",\r\n  \"category_slug\": \"electricalll\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://192.168.1.7:3000/ims_api/v1/categories/categories/7f679bda-3f8f-4c3e-9c5b-750ae2640d3b",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"1",
+										"7"
+									],
+									"port": "3000",
+									"path": [
+										"ims_api",
+										"v1",
+										"categories",
+										"categories",
+										"7f679bda-3f8f-4c3e-9c5b-750ae2640d3b"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "deletecategory",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImU2MDIwNGQ4LTZlNjktNDRiYS04NzM5LTFhMDVmOTRjYjVmYiIsInVzZXJuYW1lIjoiam90aGkiLCJlbWFpbCI6ImpvdGhpaWlpcXFAZ21haWwuY29tIiwicGhvbmUiOiI2MzgzMDYxMTE3Iiwicm9sZSI6ImFkbWluIiwiaXNfYWN0aXZlIjp0cnVlLCJpYXQiOjE3NjE4MDc3MTAsImV4cCI6MTc2MTgxNDkxMH0.nt9QXkuC9MG4jAN6VL39LJSoWJTLf8t72p1XQ34wleA",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://192.168.1.7:3000/ims_api/v1/categories/categories/7f679bda-3f8f-4c3e-9c5b-750ae2640d3b",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"1",
+										"7"
+									],
+									"port": "3000",
+									"path": [
+										"ims_api",
+										"v1",
+										"categories",
+										"categories",
+										"7f679bda-3f8f-4c3e-9c5b-750ae2640d3b"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "subcategory",
+					"item": [
+						{
+							"name": "postsubcategory",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImM5NTJhYmYxLWUxYWQtNGU4ZS04ZGNkLTgzNGQ3OThmNmM4NSIsInVzZXJuYW1lIjoiSm90aGkiLCJyb2xlIjoiMGExYjU1YzUtNTc0My00N2IxLWI0ZmQtODFmNTc0NDY5ZTY5IiwiaWF0IjoxNzYzNDQxMjMyLCJleHAiOjE3NjM1Mjc2MzJ9.tY0texx60zXm4yNowsjgMm2m8Op3i5jvvFiTdS0jxn4",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "subcategory_name",
+											"value": "Laptop New Model11",
+											"type": "text"
+										},
+										{
+											"key": "category_id",
+											"value": "e022636b-7b93-49f5-b6a9-63f85ccdffb1",
+											"type": "text"
+										},
+										{
+											"key": "category_code",
+											"value": "ELEC",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "All types of smartphones including Android and iPhones",
+											"type": "text"
+										},
+										{
+											"key": "image",
+											"type": "file",
+											"src": "/C:/Users/Admin/OneDrive/Pictures/lord-hanuman-8k-3840x2160-14689.jpg"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://192.168.1.11:3000/ims_api/v1/subcategories/subcategories/create",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"1",
+										"11"
+									],
+									"port": "3000",
+									"path": [
+										"ims_api",
+										"v1",
+										"subcategories",
+										"subcategories",
+										"create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "updae",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImM5NTJhYmYxLWUxYWQtNGU4ZS04ZGNkLTgzNGQ3OThmNmM4NSIsInVzZXJuYW1lIjoiSm90aGkiLCJyb2xlIjoiMGExYjU1YzUtNTc0My00N2IxLWI0ZmQtODFmNTc0NDY5ZTY5IiwiaWF0IjoxNzYzNDQxMjMyLCJleHAiOjE3NjM1Mjc2MzJ9.tY0texx60zXm4yNowsjgMm2m8Op3i5jvvFiTdS0jxn4",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "subcategory_name",
+											"value": "Laptop New Model11",
+											"type": "text"
+										},
+										{
+											"key": "category_id",
+											"value": "e022636b-7b93-49f5-b6a9-63f85ccdffb1",
+											"type": "text"
+										},
+										{
+											"key": "category_code",
+											"value": "ELEC udsmj kjd",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "All types of smartphones including Android and iPhones",
+											"type": "text"
+										},
+										{
+											"key": "image",
+											"type": "file",
+											"src": "/C:/Users/Admin/OneDrive/Pictures/Screenshots/2024-02-27 (3).png"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://192.168.1.11:3000/ims_api/v1/subcategories/subcategories/03d75f79-8ec5-473b-aa6b-f007f451f65a",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"1",
+										"11"
+									],
+									"port": "3000",
+									"path": [
+										"ims_api",
+										"v1",
+										"subcategories",
+										"subcategories",
+										"03d75f79-8ec5-473b-aa6b-f007f451f65a"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getsubcategory",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImM5NTJhYmYxLWUxYWQtNGU4ZS04ZGNkLTgzNGQ3OThmNmM4NSIsInVzZXJuYW1lIjoiSm90aGkiLCJyb2xlIjoiMGExYjU1YzUtNTc0My00N2IxLWI0ZmQtODFmNTc0NDY5ZTY5IiwiaWF0IjoxNzYzNDQxMjMyLCJleHAiOjE3NjM1Mjc2MzJ9.tY0texx60zXm4yNowsjgMm2m8Op3i5jvvFiTdS0jxn4",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://192.168.1.11:3000/ims_api/v1/subcategories/subcategories/all",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"1",
+										"11"
+									],
+									"port": "3000",
+									"path": [
+										"ims_api",
+										"v1",
+										"subcategories",
+										"subcategories",
+										"all"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "id",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImM5NTJhYmYxLWUxYWQtNGU4ZS04ZGNkLTgzNGQ3OThmNmM4NSIsInVzZXJuYW1lIjoiSm90aGkiLCJyb2xlIjoiMGExYjU1YzUtNTc0My00N2IxLWI0ZmQtODFmNTc0NDY5ZTY5IiwiaWF0IjoxNzYzNDQxMjMyLCJleHAiOjE3NjM1Mjc2MzJ9.tY0texx60zXm4yNowsjgMm2m8Op3i5jvvFiTdS0jxn4",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"subcategory_name\": \"Smartphones\",\r\n  \"category_id\": \"7f679bda-3f8f-4c3e-9c5b-750ae2640d3b\",\r\n  \"category_code\": \"ELEC\",\r\n  \"description\": \"All types of smartphones including Android and iPhones\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://192.168.1.11:3000/ims_api/v1/subcategories/subcategories/cedddaf5-1e3b-48ab-9e73-1ac380ac853c",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"1",
+										"11"
+									],
+									"port": "3000",
+									"path": [
+										"ims_api",
+										"v1",
+										"subcategories",
+										"subcategories",
+										"cedddaf5-1e3b-48ab-9e73-1ac380ac853c"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delee",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImM5NTJhYmYxLWUxYWQtNGU4ZS04ZGNkLTgzNGQ3OThmNmM4NSIsInVzZXJuYW1lIjoiSm90aGkiLCJyb2xlIjoiMGExYjU1YzUtNTc0My00N2IxLWI0ZmQtODFmNTc0NDY5ZTY5IiwiaWF0IjoxNzYzNDQxMjMyLCJleHAiOjE3NjM1Mjc2MzJ9.tY0texx60zXm4yNowsjgMm2m8Op3i5jvvFiTdS0jxn4",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"subcategory_name\": \"Smartphones\",\r\n  \"category_id\": \"7f679bda-3f8f-4c3e-9c5b-750ae2640d3b\",\r\n  \"category_code\": \"ELEC\",\r\n  \"description\": \"All types of smartphones including Android and iPhones\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://192.168.1.11:3000/ims_api/v1/subcategories/subcategories/cedddaf5-1e3b-48ab-9e73-1ac380ac853c",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"1",
+										"11"
+									],
+									"port": "3000",
+									"path": [
+										"ims_api",
+										"v1",
+										"subcategories",
+										"subcategories",
+										"cedddaf5-1e3b-48ab-9e73-1ac380ac853c"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "brands",
+					"item": [
+						{
+							"name": "postbrand",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjkyZDI1MmFhLTQ5MTEtNDk2MS1hNzcxLTA3MDYxMTJjNGQ4YSIsInVzZXJuYW1lIjoicHJhYmhhIiwiZW1haWwiOiJwcmFiaGFAZ21haWwuY29tIiwicGhvbmUiOiI2MzgzMDYxMTE3Iiwicm9sZSI6ImFkbWluIiwiaXNfYWN0aXZlIjp0cnVlLCJpYXQiOjE3NjMzNzIwODQsImV4cCI6MTc2MzM3OTI4NH0.jR1srHkWzF6yAfvnkEdRdXbf6fhz-CoHjWS4qUu_SHE",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "image",
+											"type": "file",
+											"src": "/C:/Users/Sanjay/Pictures/Screenshots/Screenshot 2025-10-17 110813.png"
+										},
+										{
+											"key": "brand_name",
+											"value": "apple",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://192.168.1.18:5000/ims_api/v1/brands/brands/create",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"1",
+										"18"
+									],
+									"port": "5000",
+									"path": [
+										"ims_api",
+										"v1",
+										"brands",
+										"brands",
+										"create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getbrand",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjkyZDI1MmFhLTQ5MTEtNDk2MS1hNzcxLTA3MDYxMTJjNGQ4YSIsInVzZXJuYW1lIjoicHJhYmhhIiwiZW1haWwiOiJwcmFiaGFAZ21haWwuY29tIiwicGhvbmUiOiI2MzgzMDYxMTE3Iiwicm9sZSI6ImFkbWluIiwiaXNfYWN0aXZlIjp0cnVlLCJpYXQiOjE3NjMzNzIwODQsImV4cCI6MTc2MzM3OTI4NH0.jR1srHkWzF6yAfvnkEdRdXbf6fhz-CoHjWS4qUu_SHE",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "image",
+											"type": "file",
+											"src": "/C:/Users/Sanjay/Pictures/Screenshots/Screenshot 2025-10-17 110813.png"
+										},
+										{
+											"key": "brand_name",
+											"value": "apple",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://192.168.1.18:5000/ims_api/v1/brands/brands/all",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"1",
+										"18"
+									],
+									"port": "5000",
+									"path": [
+										"ims_api",
+										"v1",
+										"brands",
+										"brands",
+										"all"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getidbrand",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQ2MDJkOTQ3LWU1ZDMtNGUxZC05MDY0LTgwYTQxNGE4YzQzZSIsInVzZXJuYW1lIjoiam90aGkiLCJlbWFpbCI6ImFiaXJhbWlpaWlxcXFAZ21haWwuY29tIiwicGhvbmUiOiI2MzgzMDYxMTE3Iiwicm9sZSI6ImFkbWluIiwiaXNfYWN0aXZlIjp0cnVlLCJpYXQiOjE3NjIxNTA2NDEsImV4cCI6MTc2MjE1Nzg0MX0.Jd89_hLdYArakjqtlNby8UAKGmiUdSPyiKExClj_NzM",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "image",
+											"type": "file",
+											"src": "/C:/Users/Sanjay/Pictures/Screenshots/Screenshot 2025-10-17 110813.png"
+										},
+										{
+											"key": "brand_name",
+											"value": "apple",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://192.168.1.18:3000/ims_api/v1/brands/brands/c8bfaa99-29af-4255-8a36-0eba144fae4d",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"1",
+										"18"
+									],
+									"port": "3000",
+									"path": [
+										"ims_api",
+										"v1",
+										"brands",
+										"brands",
+										"c8bfaa99-29af-4255-8a36-0eba144fae4d"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "updatebrand",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQ2MDJkOTQ3LWU1ZDMtNGUxZC05MDY0LTgwYTQxNGE4YzQzZSIsInVzZXJuYW1lIjoiam90aGkiLCJlbWFpbCI6ImFiaXJhbWlpaWlxcXFAZ21haWwuY29tIiwicGhvbmUiOiI2MzgzMDYxMTE3Iiwicm9sZSI6ImFkbWluIiwiaXNfYWN0aXZlIjp0cnVlLCJpYXQiOjE3NjIxNTA2NDEsImV4cCI6MTc2MjE1Nzg0MX0.Jd89_hLdYArakjqtlNby8UAKGmiUdSPyiKExClj_NzM",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "image",
+											"type": "file",
+											"src": "/C:/Users/Sanjay/Pictures/Screenshots/Screenshot 2025-10-17 110813.png"
+										},
+										{
+											"key": "brand_name",
+											"value": "samsung",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://192.168.1.18:3000/ims_api/v1/brands/brands/c8bfaa99-29af-4255-8a36-0eba144fae4d",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"1",
+										"18"
+									],
+									"port": "3000",
+									"path": [
+										"ims_api",
+										"v1",
+										"brands",
+										"brands",
+										"c8bfaa99-29af-4255-8a36-0eba144fae4d"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "deletebrand",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQ2MDJkOTQ3LWU1ZDMtNGUxZC05MDY0LTgwYTQxNGE4YzQzZSIsInVzZXJuYW1lIjoiam90aGkiLCJlbWFpbCI6ImFiaXJhbWlpaWlxcXFAZ21haWwuY29tIiwicGhvbmUiOiI2MzgzMDYxMTE3Iiwicm9sZSI6ImFkbWluIiwiaXNfYWN0aXZlIjp0cnVlLCJpYXQiOjE3NjIxNTA2NDEsImV4cCI6MTc2MjE1Nzg0MX0.Jd89_hLdYArakjqtlNby8UAKGmiUdSPyiKExClj_NzM",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "image",
+											"type": "file",
+											"src": "/C:/Users/Sanjay/Pictures/Screenshots/Screenshot 2025-10-17 110813.png"
+										},
+										{
+											"key": "brand_name",
+											"value": "samsung",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://192.168.1.18:3000/ims_api/v1/brands/brands/c8bfaa99-29af-4255-8a36-0eba144fae4d",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"1",
+										"18"
+									],
+									"port": "3000",
+									"path": [
+										"ims_api",
+										"v1",
+										"brands",
+										"brands",
+										"c8bfaa99-29af-4255-8a36-0eba144fae4d"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "unit",
+					"item": [
+						{
+							"name": "create",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImI3Y2FjNDQyLTBlM2ItNGViZC1iZjk1LTJjYWVkMzBjZDk0YyIsInVzZXJuYW1lIjoiam90aGkiLCJlbWFpbCI6ImFiaXJhbWlpaWlxcXFxcXNzQGdtYWlsLmNvbSIsInBob25lIjoiNjM4MzA2MTExNyIsInJvbGUiOiJhZG1pbiIsImlzX2FjdGl2ZSI6dHJ1ZSwiaWF0IjoxNzYzMTIwMDkyLCJleHAiOjE3NjMxMjcyOTJ9.4LtGJvnxvAi9CMk5h0Jzza56eZw48JpTjp6EVUArK2U",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"unit_name\": \"Milli Liter dd\",\r\n  \"short_name\": \"mtl\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://192.168.1.9:5000/ims_api/v1/unit/create",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"1",
+										"9"
+									],
+									"port": "5000",
+									"path": [
+										"ims_api",
+										"v1",
+										"unit",
+										"create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "all",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQ2MDJkOTQ3LWU1ZDMtNGUxZC05MDY0LTgwYTQxNGE4YzQzZSIsInVzZXJuYW1lIjoiam90aGkiLCJlbWFpbCI6ImFiaXJhbWlpaWlxcXFAZ21haWwuY29tIiwicGhvbmUiOiI2MzgzMDYxMTE3Iiwicm9sZSI6ImFkbWluIiwiaXNfYWN0aXZlIjp0cnVlLCJpYXQiOjE3NjI4NTA1MTcsImV4cCI6MTc2Mjg1NzcxN30.rx0R-smmQ0fan0LLhd9UNSbN-3n1q_vigvMPUHKvQ7o",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://192.168.1.18:3000/ims_api/v1/unit/all",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"1",
+										"18"
+									],
+									"port": "3000",
+									"path": [
+										"ims_api",
+										"v1",
+										"unit",
+										"all"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "id",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQ2MDJkOTQ3LWU1ZDMtNGUxZC05MDY0LTgwYTQxNGE4YzQzZSIsInVzZXJuYW1lIjoiam90aGkiLCJlbWFpbCI6ImFiaXJhbWlpaWlxcXFAZ21haWwuY29tIiwicGhvbmUiOiI2MzgzMDYxMTE3Iiwicm9sZSI6ImFkbWluIiwiaXNfYWN0aXZlIjp0cnVlLCJpYXQiOjE3NjI4NTA1MTcsImV4cCI6MTc2Mjg1NzcxN30.rx0R-smmQ0fan0LLhd9UNSbN-3n1q_vigvMPUHKvQ7o",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://192.168.1.18:3000/ims_api/v1/unit/8d500298-1831-4a92-bad5-8a1fa92caecf",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"1",
+										"18"
+									],
+									"port": "3000",
+									"path": [
+										"ims_api",
+										"v1",
+										"unit",
+										"8d500298-1831-4a92-bad5-8a1fa92caecf"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "updae",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQ2MDJkOTQ3LWU1ZDMtNGUxZC05MDY0LTgwYTQxNGE4YzQzZSIsInVzZXJuYW1lIjoiam90aGkiLCJlbWFpbCI6ImFiaXJhbWlpaWlxcXFAZ21haWwuY29tIiwicGhvbmUiOiI2MzgzMDYxMTE3Iiwicm9sZSI6ImFkbWluIiwiaXNfYWN0aXZlIjp0cnVlLCJpYXQiOjE3NjI4NTA1MTcsImV4cCI6MTc2Mjg1NzcxN30.rx0R-smmQ0fan0LLhd9UNSbN-3n1q_vigvMPUHKvQ7o",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"unit_name\": \"Milli Liter\",\r\n  \"short_name\": \"ml\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://192.168.1.18:3000/ims_api/v1/unit/8d500298-1831-4a92-bad5-8a1fa92caecf",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"1",
+										"18"
+									],
+									"port": "3000",
+									"path": [
+										"ims_api",
+										"v1",
+										"unit",
+										"8d500298-1831-4a92-bad5-8a1fa92caecf"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQ2MDJkOTQ3LWU1ZDMtNGUxZC05MDY0LTgwYTQxNGE4YzQzZSIsInVzZXJuYW1lIjoiam90aGkiLCJlbWFpbCI6ImFiaXJhbWlpaWlxcXFAZ21haWwuY29tIiwicGhvbmUiOiI2MzgzMDYxMTE3Iiwicm9sZSI6ImFkbWluIiwiaXNfYWN0aXZlIjp0cnVlLCJpYXQiOjE3NjI4NTA1MTcsImV4cCI6MTc2Mjg1NzcxN30.rx0R-smmQ0fan0LLhd9UNSbN-3n1q_vigvMPUHKvQ7o",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://192.168.1.18:3000/ims_api/v1/unit/be0e931b-9c2a-4096-bfcb-f424d0c299b7",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"1",
+										"18"
+									],
+									"port": "3000",
+									"path": [
+										"ims_api",
+										"v1",
+										"unit",
+										"be0e931b-9c2a-4096-bfcb-f424d0c299b7"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "store",
+					"item": [
+						{
+							"name": "getallstore",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJhMmM5M2M1LWRlMjgtNDExZi05YmM0LTE3ZGMwZWY4Y2FmOCIsInVzZXJuYW1lIjoia2F2aXlhIiwicm9sZSI6ImQ5YWE3MWE4LThlMGItNGVhNi1iMWFlLTFiYTZkMjdmYTBlMCIsImlhdCI6MTc2MzYxOTU1NiwiZXhwIjoxNzYzNzA1OTU2fQ.O6_qHP7Dnf2gaLje9_KhRyqI3k6Cq-EtjAYI_fcQNZo",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://192.168.1.15:5000/ims_api/v1/store/getAllStores?=",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"1",
+										"15"
+									],
+									"port": "5000",
+									"path": [
+										"ims_api",
+										"v1",
+										"store",
+										"getAllStores"
+									],
+									"query": [
+										{
+											"key": "",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update by id",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "http://192.168.1.15:5000/ims_api/v1/store/updateStore/",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"1",
+										"15"
+									],
+									"port": "5000",
+									"path": [
+										"ims_api",
+										"v1",
+										"store",
+										"updateStore",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "cteate strore",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ0M2JmZWRmLTZmM2ItNGVjMC1hMWFjLTQ3MDBiNDkzY2NmYSIsInVzZXJuYW1lIjoic2FuamF5Iiwicm9sZSI6IjU5NTIyYWZiLTM4ZWItNGQ4YS1iY2ZmLTM3M2Q3NjI4ZmExMyIsImlhdCI6MTc2MzcxODIxMiwiZXhwIjoxNzYzODA0NjEyfQ.XelNm7YU42bBjrx1G7hYJ_NnT3N0DudDJ2lcJ4lSjYo",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"store_name\": \"hariniiiii Store\",\r\n  \"username\": \"hariniiiiitore011\",\r\n  \"password\": \"hariniiiiiii@1234\",\r\n  \"email\": \"harini@example1.com\",\r\n  \"phone\": \"9876543290\",\r\n  \"status\": \"active\",\r\n  \"created_by\": \"admin\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://192.168.1.24:3000/ims_api/v1/store/createStore",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"1",
+										"24"
+									],
+									"port": "3000",
+									"path": [
+										"ims_api",
+										"v1",
+										"store",
+										"createStore"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "warehouse",
+					"item": [
+						{
+							"name": "get request",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJhMmM5M2M1LWRlMjgtNDExZi05YmM0LTE3ZGMwZWY4Y2FmOCIsInVzZXJuYW1lIjoia2F2aXlhIiwicm9sZSI6ImQ5YWE3MWE4LThlMGItNGVhNi1iMWFlLTFiYTZkMjdmYTBlMCIsImlhdCI6MTc2MzYxNzgyOCwiZXhwIjoxNzYzNzA0MjI4fQ.wC0S1toTxA2Akj-XLfDJTzflKvE_xaROC8hRM1saP2E",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://192.168.1.15:5000/ims_api/v1/warehouse/getAllwarehouse",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"1",
+										"15"
+									],
+									"port": "5000",
+									"path": [
+										"ims_api",
+										"v1",
+										"warehouse",
+										"getAllwarehouse"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "singleid",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImI3Y2FjNDQyLTBlM2ItNGViZC1iZjk1LTJjYWVkMzBjZDk0YyIsInVzZXJuYW1lIjoiam90aGkiLCJlbWFpbCI6ImFiaXJhbWlpaWlxcXFxcXNzQGdtYWlsLmNvbSIsInBob25lIjoiNjM4MzA2MTExNyIsInJvbGUiOiJhZG1pbiIsImlzX2FjdGl2ZSI6dHJ1ZSwiaWF0IjoxNzYzMDk5Mzc1LCJleHAiOjE3NjMxMDY1NzV9.fFZdVem0Un13RgWbrVeAbR9alE4WBeAhbAKRP4FwSxY",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://192.168.1.9:5000/ims_api/v1/warehouse/getwarehouseByid/cbc27a8d-e28f-47c9-960c-c5dd6c52b04f",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"1",
+										"9"
+									],
+									"port": "5000",
+									"path": [
+										"ims_api",
+										"v1",
+										"warehouse",
+										"getwarehouseByid",
+										"cbc27a8d-e28f-47c9-960c-c5dd6c52b04f"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "warehouse create",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJhMmM5M2M1LWRlMjgtNDExZi05YmM0LTE3ZGMwZWY4Y2FmOCIsInVzZXJuYW1lIjoia2F2aXlhIiwicm9sZSI6ImQ5YWE3MWE4LThlMGItNGVhNi1iMWFlLTFiYTZkMjdmYTBlMCIsImlhdCI6MTc2MzYxNzgyOCwiZXhwIjoxNzYzNzA0MjI4fQ.wC0S1toTxA2Akj-XLfDJTzflKvE_xaROC8hRM1saP2E",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"warehouse_name\": \"xtown  Unitsssssss\",\r\n  \"Contact_person\": \"saravanas\",\r\n  \"email\": \"saravanas.kumar@exampl.com\",\r\n  \"phone_number\": \"9876543211\",\r\n  \"phone_work\": \"91234567891\",\r\n  \"address\": \"123 Industrial Estate, Near City Malls\",\r\n  \"city\": \"erode\",\r\n  \"state\": \"Tamil Nadu\",\r\n  \"country\": \"India\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://192.168.1.15:5000/ims_api/v1/warehouse/createwarehouse",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"1",
+										"15"
+									],
+									"port": "5000",
+									"path": [
+										"ims_api",
+										"v1",
+										"warehouse",
+										"createwarehouse"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update by id",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJhMmM5M2M1LWRlMjgtNDExZi05YmM0LTE3ZGMwZWY4Y2FmOCIsInVzZXJuYW1lIjoia2F2aXlhIiwicm9sZSI6ImQ5YWE3MWE4LThlMGItNGVhNi1iMWFlLTFiYTZkMjdmYTBlMCIsImlhdCI6MTc2MzYxOTU1NiwiZXhwIjoxNzYzNzA1OTU2fQ.O6_qHP7Dnf2gaLje9_KhRyqI3k6Cq-EtjAYI_fcQNZo",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"warehouse_name\": \"Centra Storagesss Unit\",\r\n  \"Contact_person\": \"saravana\",\r\n  \"email\": \"ravi.kumar@exampl.com\",\r\n  \"phone_number\": \"9876543211\",\r\n  \"phone_work\": \"91234567891\",\r\n  \"address\": \"123 Industrial Estate, Near City Malls\",\r\n  \"city\": \"madurai\",\r\n  \"state\": \"Tamil Nadu\",\r\n  \"country\": \"India\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://192.168.1.15:5000/ims_api/v1/warehouse/updatewarehouse/6dc1e36d-c4ad-44ae-8287-6dd039063124",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"1",
+										"15"
+									],
+									"port": "5000",
+									"path": [
+										"ims_api",
+										"v1",
+										"warehouse",
+										"updatewarehouse",
+										"6dc1e36d-c4ad-44ae-8287-6dd039063124"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "deleteby id",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJhMmM5M2M1LWRlMjgtNDExZi05YmM0LTE3ZGMwZWY4Y2FmOCIsInVzZXJuYW1lIjoia2F2aXlhIiwicm9sZSI6ImQ5YWE3MWE4LThlMGItNGVhNi1iMWFlLTFiYTZkMjdmYTBlMCIsImlhdCI6MTc2MzYxOTU1NiwiZXhwIjoxNzYzNzA1OTU2fQ.O6_qHP7Dnf2gaLje9_KhRyqI3k6Cq-EtjAYI_fcQNZo",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://192.168.1.15:5000/ims_api/v1/warehouse/deletewarehouse/6dc1e36d-c4ad-44ae-8287-6dd039063124",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"1",
+										"15"
+									],
+									"port": "5000",
+									"path": [
+										"ims_api",
+										"v1",
+										"warehouse",
+										"deletewarehouse",
+										"6dc1e36d-c4ad-44ae-8287-6dd039063124"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "warrenty",
+					"item": [
+						{
+							"name": "warrenty post",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjAyMjdlM2VlLThhYWYtNDNmZC1iNzdlLWE5ZTY3MmZkMjA0YSIsInVzZXJuYW1lIjoiam90aGkiLCJlbWFpbCI6ImpvdGhpQGdtYWlsLmNvbSIsInBob25lIjoiNjM4MzA2MTExNyIsInJvbGUiOiJhZG1pbiIsImlzX2FjdGl2ZSI6dHJ1ZSwiaWF0IjoxNzYzMTk0MTkwLCJleHAiOjE3NjMyMDEzOTB9.A7HgZHkQ8tS8PDjFGmSEUcuHXQgVB4AJIrK41s4uoxA",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"warranty_name\": \"Extended Laptop\",\r\n  \"duration\": 2,\r\n  \"period\": \"Years\",\r\n  \"description\": \"Covers accidental damage and hardware failures\",\r\n  \"status\": true\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://192.168.1.18:5000/ims_api/v1/warranty/createWarranty",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"1",
+										"18"
+									],
+									"port": "5000",
+									"path": [
+										"ims_api",
+										"v1",
+										"warranty",
+										"createWarranty"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getall warrenty",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjAyMjdlM2VlLThhYWYtNDNmZC1iNzdlLWE5ZTY3MmZkMjA0YSIsInVzZXJuYW1lIjoiam90aGkiLCJlbWFpbCI6ImpvdGhpQGdtYWlsLmNvbSIsInBob25lIjoiNjM4MzA2MTExNyIsInJvbGUiOiJhZG1pbiIsImlzX2FjdGl2ZSI6dHJ1ZSwiaWF0IjoxNzYzMTk0MTkwLCJleHAiOjE3NjMyMDEzOTB9.A7HgZHkQ8tS8PDjFGmSEUcuHXQgVB4AJIrK41s4uoxA",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"warranty_name\": \"Extended Laptop Warranty\",\r\n  \"duration\": 2,\r\n  \"period\": \"Years\",\r\n  \"description\": \"Covers accidental damage and hardware failures\",\r\n  \"status\": true\r\n}\r\n"
+								},
+								"url": {
+									"raw": "http://192.168.1.18:5000/ims_api/v1/warranty/getAllwarehouse",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"1",
+										"18"
+									],
+									"port": "5000",
+									"path": [
+										"ims_api",
+										"v1",
+										"warranty",
+										"getAllwarehouse"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getbyid",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImI3Y2FjNDQyLTBlM2ItNGViZC1iZjk1LTJjYWVkMzBjZDk0YyIsInVzZXJuYW1lIjoiam90aGkiLCJlbWFpbCI6ImFiaXJhbWlpaWlxcXFxcXNzQGdtYWlsLmNvbSIsInBob25lIjoiNjM4MzA2MTExNyIsInJvbGUiOiJhZG1pbiIsImlzX2FjdGl2ZSI6dHJ1ZSwiaWF0IjoxNzYzMDk4Mzg5LCJleHAiOjE3NjMxMDU1ODl9.GWRHe0TkaIZ19lLAEnsbBp5oOSNX3K9PstJr8PQHbNI",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"warranty_name\": \"Extended Laptop Warranty\",\r\n  \"duration\": 2,\r\n  \"period\": \"Years\",\r\n  \"description\": \"Covers accidental damage and hardware failures\",\r\n  \"status\": true\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://192.168.1.9:5000/ims_api/v1/warranty/getWarrantyById/6e126397-670b-407b-a6de-e7262afcd3e4",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"1",
+										"9"
+									],
+									"port": "5000",
+									"path": [
+										"ims_api",
+										"v1",
+										"warranty",
+										"getWarrantyById",
+										"6e126397-670b-407b-a6de-e7262afcd3e4"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "updateby id",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJhMmM5M2M1LWRlMjgtNDExZi05YmM0LTE3ZGMwZWY4Y2FmOCIsInVzZXJuYW1lIjoia2F2aXlhIiwicm9sZSI6ImQ5YWE3MWE4LThlMGItNGVhNi1iMWFlLTFiYTZkMjdmYTBlMCIsImlhdCI6MTc2MzYxNzc1OSwiZXhwIjoxNzYzNzA0MTU5fQ.XL_8tFWujYvhZlM5ka8qZcMJwhLYjCclSXrWWm3auWw",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"warranty_name\": \"Extended Laptop Warrantyy\",\r\n  \"duration\": 3,\r\n  \"period\": \"Years\",\r\n  \"description\": \"Covers accidental damage and hardware failures\",\r\n  \"status\": true\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://192.168.1.15:5000/ims_api/v1/warranty/updateWarranty/6e126397-670b-407b-a6de-e7262afcd3e4",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"1",
+										"15"
+									],
+									"port": "5000",
+									"path": [
+										"ims_api",
+										"v1",
+										"warranty",
+										"updateWarranty",
+										"6e126397-670b-407b-a6de-e7262afcd3e4"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "New Request",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImI3Y2FjNDQyLTBlM2ItNGViZC1iZjk1LTJjYWVkMzBjZDk0YyIsInVzZXJuYW1lIjoiam90aGkiLCJlbWFpbCI6ImFiaXJhbWlpaWlxcXFxcXNzQGdtYWlsLmNvbSIsInBob25lIjoiNjM4MzA2MTExNyIsInJvbGUiOiJhZG1pbiIsImlzX2FjdGl2ZSI6dHJ1ZSwiaWF0IjoxNzYzMTA2MjY4LCJleHAiOjE3NjMxMTM0Njh9.cWA7IeQaKHYMubZ5VBOTgfnKN0KibCXQaYSUIfidSjE",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"warranty_name\": \"Extended Laptop Warranty\",\r\n  \"duration\": 3,\r\n  \"period\": \"Years\",\r\n  \"description\": \"Covers accidental damage and hardware failures\",\r\n  \"status\": true\r\n}\r\n"
+								},
+								"url": {
+									"raw": "http://192.168.1.9:5000/ims_api/v1/warranty/deleteWarranty/6dc1e36d-c4ad-44ae-8287-6dd039063124",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"1",
+										"9"
+									],
+									"port": "5000",
+									"path": [
+										"ims_api",
+										"v1",
+										"warranty",
+										"deleteWarranty",
+										"6dc1e36d-c4ad-44ae-8287-6dd039063124"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "varrient",
+					"item": [
+						{
+							"name": "gett all request",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImI3Y2FjNDQyLTBlM2ItNGViZC1iZjk1LTJjYWVkMzBjZDk0YyIsInVzZXJuYW1lIjoiam90aGkiLCJlbWFpbCI6ImFiaXJhbWlpaWlxcXFxcXNzQGdtYWlsLmNvbSIsInBob25lIjoiNjM4MzA2MTExNyIsInJvbGUiOiJhZG1pbiIsImlzX2FjdGl2ZSI6dHJ1ZSwiaWF0IjoxNzYzNDQ3MDA4LCJleHAiOjE3NjM0NTQyMDh9.A9p8DYuOhbnxX43iXo3PSHRRhU8037wtpWMzKTsNVTQ",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://192.168.1.18:5000/ims_api/v1/varrient/getAllvariants",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"1",
+										"18"
+									],
+									"port": "5000",
+									"path": [
+										"ims_api",
+										"v1",
+										"varrient",
+										"getAllvariants"
+									],
+									"query": [
+										{
+											"key": "",
+											"value": "",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "post varrient",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImI3Y2FjNDQyLTBlM2ItNGViZC1iZjk1LTJjYWVkMzBjZDk0YyIsInVzZXJuYW1lIjoiam90aGkiLCJlbWFpbCI6ImFiaXJhbWlpaWlxcXFxcXNzQGdtYWlsLmNvbSIsInBob25lIjoiNjM4MzA2MTExNyIsInJvbGUiOiJhZG1pbiIsImlzX2FjdGl2ZSI6dHJ1ZSwiaWF0IjoxNzYzMzUzNDc0LCJleHAiOjE3NjMzNjA2NzR9.higtxTyt6K_k9JNQkKVrHBIdfYHvW_oZ1LF6VqZMJ08",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"variant_name\": \"Color\",\r\n  \"values\": [\"Red\", \"Blue\", \"black\"],\r\n  \"status\": true\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://192.168.1.18:5000/ims_api/v1/varrient/getAllvariants\n",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"1",
+										"18"
+									],
+									"port": "5000",
+									"path": [
+										"ims_api",
+										"v1",
+										"varrient",
+										"getAllvariants\n"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "updateid",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImI3Y2FjNDQyLTBlM2ItNGViZC1iZjk1LTJjYWVkMzBjZDk0YyIsInVzZXJuYW1lIjoiam90aGkiLCJlbWFpbCI6ImFiaXJhbWlpaWlxcXFxcXNzQGdtYWlsLmNvbSIsInBob25lIjoiNjM4MzA2MTExNyIsInJvbGUiOiJhZG1pbiIsImlzX2FjdGl2ZSI6dHJ1ZSwiaWF0IjoxNzYzMDE0NTU0LCJleHAiOjE3NjMwMjE3NTR9.HMFnL2eufJkkoQjV4-btCdj88N5MYiFb2WL4svBriak",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"variant_name\": \"Size\",\r\n  \"values\": \"S,M,L,L\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://192.168.1.9:5000/ims_api/v1/varrient/updatevariant/3f051ba6-adf0-4634-ba30-5f047acc6046",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"1",
+										"9"
+									],
+									"port": "5000",
+									"path": [
+										"ims_api",
+										"v1",
+										"varrient",
+										"updatevariant",
+										"3f051ba6-adf0-4634-ba30-5f047acc6046"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get singleid",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImI3Y2FjNDQyLTBlM2ItNGViZC1iZjk1LTJjYWVkMzBjZDk0YyIsInVzZXJuYW1lIjoiam90aGkiLCJlbWFpbCI6ImFiaXJhbWlpaWlxcXFxcXNzQGdtYWlsLmNvbSIsInBob25lIjoiNjM4MzA2MTExNyIsInJvbGUiOiJhZG1pbiIsImlzX2FjdGl2ZSI6dHJ1ZSwiaWF0IjoxNzYzMDk2OTQ4LCJleHAiOjE3NjMxMDQxNDh9.y0y-uUcnDv6ux-bU9XK3hQRu4ey6m2DZjlshS5vRkDs",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://192.168.1.9:5000/ims_api/v1/varrient/getvariantById/3f051ba6-adf0-4634-ba30-5f047acc6046",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"1",
+										"9"
+									],
+									"port": "5000",
+									"path": [
+										"ims_api",
+										"v1",
+										"varrient",
+										"getvariantById",
+										"3f051ba6-adf0-4634-ba30-5f047acc6046"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete varient id",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImI3Y2FjNDQyLTBlM2ItNGViZC1iZjk1LTJjYWVkMzBjZDk0YyIsInVzZXJuYW1lIjoiam90aGkiLCJlbWFpbCI6ImFiaXJhbWlpaWlxcXFxcXNzQGdtYWlsLmNvbSIsInBob25lIjoiNjM4MzA2MTExNyIsInJvbGUiOiJhZG1pbiIsImlzX2FjdGl2ZSI6dHJ1ZSwiaWF0IjoxNzYzMjA0NjUzLCJleHAiOjE3NjMyMTE4NTN9.nPP0s7nV_TQLJGNwZc6PKdwcbN3yQ_RRrDpOhWoDME8",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://192.168.1.18:5000/ims_api/v1/varrient/deleteVariant/3f051ba6-adf0-4634-ba30-5f047acc6046",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"1",
+										"18"
+									],
+									"port": "5000",
+									"path": [
+										"ims_api",
+										"v1",
+										"varrient",
+										"deleteVariant",
+										"3f051ba6-adf0-4634-ba30-5f047acc6046"
+									],
+									"query": [
+										{
+											"key": "",
+											"value": null,
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "barcode",
+					"item": [
+						{
+							"name": "createbarcode",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJhMmM5M2M1LWRlMjgtNDExZi05YmM0LTE3ZGMwZWY4Y2FmOCIsInVzZXJuYW1lIjoia2F2aXlhIiwicm9sZSI6ImQ5YWE3MWE4LThlMGItNGVhNi1iMWFlLTFiYTZkMjdmYTBlMCIsImlhdCI6MTc2MzcxNDcyNywiZXhwIjoxNzYzODAxMTI3fQ.v_JXIbfe1DkjH_xjXdVgqitXLZ8lUjS6gjIgd0Kw3KQ",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n//   \"text\": \"ABC123489\",\r\n  \"type\": \"code128\",\r\n  \"scale\": 3,\r\n  \"height\": 40,\r\n  \"includetext\": true,\r\n  \"textxalign\": \"center\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://192.168.1.15:5000/ims_api/v1/barcode/createBarcode",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"1",
+										"15"
+									],
+									"port": "5000",
+									"path": [
+										"ims_api",
+										"v1",
+										"barcode",
+										"createBarcode"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getbarcode",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJhMmM5M2M1LWRlMjgtNDExZi05YmM0LTE3ZGMwZWY4Y2FmOCIsInVzZXJuYW1lIjoia2F2aXlhIiwicm9sZSI6ImQ5YWE3MWE4LThlMGItNGVhNi1iMWFlLTFiYTZkMjdmYTBlMCIsImlhdCI6MTc2MzcxNDQyMywiZXhwIjoxNzYzODAwODIzfQ.xPR_zuOWik8j-MHdeH2RS3knjoey7NOFHVfVYYzKfes",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "",
+											"value": "",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://192.168.1.18/5000/ims_api/v1/barcode/getAllBarcodes",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"1",
+										"18"
+									],
+									"path": [
+										"5000",
+										"ims_api",
+										"v1",
+										"barcode",
+										"getAllBarcodes"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getbyid",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://192.168.1.18:5000/ims_api/v1/barcode/getBarcodeById/7d2a95ce-d21e-42ef-a1b5-61a257777ccf",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"1",
+										"18"
+									],
+									"port": "5000",
+									"path": [
+										"ims_api",
+										"v1",
+										"barcode",
+										"getBarcodeById",
+										"7d2a95ce-d21e-42ef-a1b5-61a257777ccf"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "deletebarcode",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://192.168.1.18:5000/ims_api/v1/barcode/deleteBarcode/7d2a95ce-d21e-42ef-a1b5-61a257777ccf",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"1",
+										"18"
+									],
+									"port": "5000",
+									"path": [
+										"ims_api",
+										"v1",
+										"barcode",
+										"deleteBarcode",
+										"7d2a95ce-d21e-42ef-a1b5-61a257777ccf"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Qrcode",
+					"item": [
+						{
+							"name": "createqrcode",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJhMmM5M2M1LWRlMjgtNDExZi05YmM0LTE3ZGMwZWY4Y2FmOCIsInVzZXJuYW1lIjoia2F2aXlhIiwicm9sZSI6ImQ5YWE3MWE4LThlMGItNGVhNi1iMWFlLTFiYTZkMjdmYTBlMCIsImlhdCI6MTc2MzcxNDcyNywiZXhwIjoxNzYzODAxMTI3fQ.v_JXIbfe1DkjH_xjXdVgqitXLZ8lUjS6gjIgd0Kw3KQ",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"type\": \"qrcode\",\r\n  \"scale\": 3,\r\n  \"height\": 40,\r\n  \"includetext\": true,\r\n  \"textxalign\": \"center\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://192.168.1.15:5000/ims_api/v1/qrcode/createQRCode",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"1",
+										"15"
+									],
+									"port": "5000",
+									"path": [
+										"ims_api",
+										"v1",
+										"qrcode",
+										"createQRCode"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getQrcodes",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://192.168.1.15:5000/ims_api/v1/qrcode/getAllQRCodes",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"1",
+										"15"
+									],
+									"port": "5000",
+									"path": [
+										"ims_api",
+										"v1",
+										"qrcode",
+										"getAllQRCodes"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "poststore",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NzAxZjI4LTQ2MTAtNGMwMi1iYjgzLTliNTk1MTQ4ZGZkOSIsInVzZXJuYW1lIjoiZGhhcnVuIiwicm9sZSI6Ijc4Y2QzNWRhLTgwMGMtNGM1YS05NGE5LTE0MWFjOWM5YTRhMyIsImlhdCI6MTc2MzUzNzc2NiwiZXhwIjoxNzYzNjI0MTY2fQ.GV1XqKWnZdQQcf3kzff6oYTl7p6lfklGb2oPMMsjUKs",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"store_name\": \"Downtown Suparket 2\",\r\n  \"username\": \"downwn_store 2\",\r\n  \"password\": \"SecurePa123\",\r\n  \"email\": \"store@exple.com\",\r\n  \"phone\": \"+919876543110\"\r\n  \r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://192.168.1.15:5000/ims_api/v1/store/store/create",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"1",
+								"15"
+							],
+							"port": "5000",
+							"path": [
+								"ims_api",
+								"v1",
+								"store",
+								"store",
+								"create"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "tax",
+			"item": [
+				{
+					"name": "create tax",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImI3Y2FjNDQyLTBlM2ItNGViZC1iZjk1LTJjYWVkMzBjZDk0YyIsInVzZXJuYW1lIjoiam90aGkiLCJlbWFpbCI6ImFiaXJhbWlpaWlxcXFxcXNzQGdtYWlsLmNvbSIsInBob25lIjoiNjM4MzA2MTExNyIsInJvbGUiOiJhZG1pbiIsImlzX2FjdGl2ZSI6dHJ1ZSwiaWF0IjoxNzYzMzY1NDI2LCJleHAiOjE3NjMzNzI2MjZ9.vd4GzOmzES9PK1spLM21sNoIFN2kOfy0lk1ABU-RwZ4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"tax_name\": \"GST\",\r\n  \"tax_percentage\": 17.00,\r\n  \"tax_type\": \"exclusive\",\r\n  \"description\": \"Government Goods and Services Tax\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://192.168.1.18:5000/ims_api/v1/tax/createtax",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"1",
+								"18"
+							],
+							"port": "5000",
+							"path": [
+								"ims_api",
+								"v1",
+								"tax",
+								"createtax"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all tax",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImI3Y2FjNDQyLTBlM2ItNGViZC1iZjk1LTJjYWVkMzBjZDk0YyIsInVzZXJuYW1lIjoiam90aGkiLCJlbWFpbCI6ImFiaXJhbWlpaWlxcXFxcXNzQGdtYWlsLmNvbSIsInBob25lIjoiNjM4MzA2MTExNyIsInJvbGUiOiJhZG1pbiIsImlzX2FjdGl2ZSI6dHJ1ZSwiaWF0IjoxNzYzNDQxNzA0LCJleHAiOjE3NjM0NDg5MDR9.dEvhwkHRZYlxCghq7rUQn7XFKbF6Gv_JWmS3h26RJgg",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://192.168.1.18:5000/ims_api/v1/tax/getalltax",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"1",
+								"18"
+							],
+							"port": "5000",
+							"path": [
+								"ims_api",
+								"v1",
+								"tax",
+								"getalltax"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImI3Y2FjNDQyLTBlM2ItNGViZC1iZjk1LTJjYWVkMzBjZDk0YyIsInVzZXJuYW1lIjoiam90aGkiLCJlbWFpbCI6ImFiaXJhbWlpaWlxcXFxcXNzQGdtYWlsLmNvbSIsInBob25lIjoiNjM4MzA2MTExNyIsInJvbGUiOiJhZG1pbiIsImlzX2FjdGl2ZSI6dHJ1ZSwiaWF0IjoxNzYzMzY2NDA2LCJleHAiOjE3NjMzNzM2MDZ9.lZDBrWAL-Wvek-TD1KXJur1E7vQUa_9xDQK16wQae6k",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"tax_name\": \"GST 188\",\r\n  \"tax_percentage\": 20,\r\n  \"tax_type\": \"inclusive\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://192.168.1.18:5000/ims_api/v1/tax/update/8725b885-5eca-4cab-984f-620cf78e27ea",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"1",
+								"18"
+							],
+							"port": "5000",
+							"path": [
+								"ims_api",
+								"v1",
+								"tax",
+								"update",
+								"8725b885-5eca-4cab-984f-620cf78e27ea"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delet",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImI3Y2FjNDQyLTBlM2ItNGViZC1iZjk1LTJjYWVkMzBjZDk0YyIsInVzZXJuYW1lIjoiam90aGkiLCJlbWFpbCI6ImFiaXJhbWlpaWlxcXFxcXNzQGdtYWlsLmNvbSIsInBob25lIjoiNjM4MzA2MTExNyIsInJvbGUiOiJhZG1pbiIsImlzX2FjdGl2ZSI6dHJ1ZSwiaWF0IjoxNzYzMzY2NDA2LCJleHAiOjE3NjMzNzM2MDZ9.lZDBrWAL-Wvek-TD1KXJur1E7vQUa_9xDQK16wQae6k",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://192.168.1.18:5000/ims_api/v1/tax/softDelete/d8a09364-17d8-4280-a6f8-e22f6e17e0db",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"1",
+								"18"
+							],
+							"port": "5000",
+							"path": [
+								"ims_api",
+								"v1",
+								"tax",
+								"softDelete",
+								"d8a09364-17d8-4280-a6f8-e22f6e17e0db"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "finance",
+			"item": [
+				{
+					"name": "expensesfinance",
+					"item": [
+						{
+							"name": "createfinance",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijc1ZWQxYzJmLWM1NTctNDI4Yy1iODJjLTQwNGQ4ODUxMzc2NyIsInVzZXJuYW1lIjoiaGFyaW5pIiwicm9sZSI6Ijc4Y2QzNWRhLTgwMGMtNGM1YS05NGE5LTE0MWFjOWM5YTRhMyIsImlhdCI6MTc2MzU1MTc1OSwiZXhwIjoxNzYzNjM4MTU5fQ.09rGL6idd7eB6cQWC4Cewgu6ovNciP8pWKk8xkGzBBQ",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"category_name\": \"TExpensesssssssss\",\r\n  \"description\": \"Expenses related to employee travel, fuel & accommodation\",\r\n  \"status\": true\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://192.168.1.15:5000/ims_api/v1/finance/addExpesescategory",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"1",
+										"15"
+									],
+									"port": "5000",
+									"path": [
+										"ims_api",
+										"v1",
+										"finance",
+										"addExpesescategory"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getallfinance",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJhMmM5M2M1LWRlMjgtNDExZi05YmM0LTE3ZGMwZWY4Y2FmOCIsInVzZXJuYW1lIjoia2F2aXlhIiwicm9sZSI6ImQ5YWE3MWE4LThlMGItNGVhNi1iMWFlLTFiYTZkMjdmYTBlMCIsImlhdCI6MTc2MzYxNjMyOSwiZXhwIjoxNzYzNzAyNzI5fQ.wOxWVgaegKcX1LAsgAsqSSybKfP1XBYqQ7rNpafurCE",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://192.168.1.15:5000/ims_api/v1/finance/getAllExpenseCategories",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"1",
+										"15"
+									],
+									"port": "5000",
+									"path": [
+										"ims_api",
+										"v1",
+										"finance",
+										"getAllExpenseCategories"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get single id",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijc1ZWQxYzJmLWM1NTctNDI4Yy1iODJjLTQwNGQ4ODUxMzc2NyIsInVzZXJuYW1lIjoiaGFyaW5pIiwicm9sZSI6Ijc4Y2QzNWRhLTgwMGMtNGM1YS05NGE5LTE0MWFjOWM5YTRhMyIsImlhdCI6MTc2MzYxMzA4MywiZXhwIjoxNzYzNjk5NDgzfQ.Qs_ORxaJh79zk6iQq0BFX_ZZuitilUiCiYsdNpveZS0",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://192.168.1.18:5000/ims_api/v1/finance/getExpenseCategoryById/02058261-e7f4-4aee-bdf9-7c9090471337",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"1",
+										"18"
+									],
+									"port": "5000",
+									"path": [
+										"ims_api",
+										"v1",
+										"finance",
+										"getExpenseCategoryById",
+										"02058261-e7f4-4aee-bdf9-7c9090471337"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijc1ZWQxYzJmLWM1NTctNDI4Yy1iODJjLTQwNGQ4ODUxMzc2NyIsInVzZXJuYW1lIjoiaGFyaW5pIiwicm9sZSI6Ijc4Y2QzNWRhLTgwMGMtNGM1YS05NGE5LTE0MWFjOWM5YTRhMyIsImlhdCI6MTc2MzYxMzA4MywiZXhwIjoxNzYzNjk5NDgzfQ.Qs_ORxaJh79zk6iQq0BFX_ZZuitilUiCiYsdNpveZS0",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"category_name\": \"tax\" ,\r\n  \"description\": \"dfgh\",\r\n  \"status\": true\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://192.168.1.15:5000/ims_api/v1/finance/updateExpenseCategory/4bc448de-0d92-49b4-b39f-1c543ebad992",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"1",
+										"15"
+									],
+									"port": "5000",
+									"path": [
+										"ims_api",
+										"v1",
+										"finance",
+										"updateExpenseCategory",
+										"4bc448de-0d92-49b4-b39f-1c543ebad992"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "deletbyid",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijc1ZWQxYzJmLWM1NTctNDI4Yy1iODJjLTQwNGQ4ODUxMzc2NyIsInVzZXJuYW1lIjoiaGFyaW5pIiwicm9sZSI6Ijc4Y2QzNWRhLTgwMGMtNGM1YS05NGE5LTE0MWFjOWM5YTRhMyIsImlhdCI6MTc2MzYxMzA4MywiZXhwIjoxNzYzNjk5NDgzfQ.Qs_ORxaJh79zk6iQq0BFX_ZZuitilUiCiYsdNpveZS0",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://192.168.1.15:5000/ims_api/v1/finance/deleteExpenseCategory/4bc448de-0d92-49b4-b39f-1c543ebad992",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"1",
+										"15"
+									],
+									"port": "5000",
+									"path": [
+										"ims_api",
+										"v1",
+										"finance",
+										"deleteExpenseCategory",
+										"4bc448de-0d92-49b4-b39f-1c543ebad992"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "getallcustomer",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "peoples",
+			"item": [
+				{
+					"name": "customer",
+					"item": [
+						{
+							"name": "createcustomer",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJhMmM5M2M1LWRlMjgtNDExZi05YmM0LTE3ZGMwZWY4Y2FmOCIsInVzZXJuYW1lIjoia2F2aXlhIiwicm9sZSI6ImQ5YWE3MWE4LThlMGItNGVhNi1iMWFlLTFiYTZkMjdmYTBlMCIsImlhdCI6MTc2MzYyNTA3MiwiZXhwIjoxNzYzNzExNDcyfQ.cJAwS20o7K-pBHPSXBv-Z3R6QcE52yc02jz0wPIOMQE",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "first_name",
+											"value": "harini",
+											"type": "text"
+										},
+										{
+											"key": "last_name",
+											"value": "M",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "harini86@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "phone",
+											"value": "9750959498",
+											"type": "text"
+										},
+										{
+											"key": "address",
+											"value": "Erode",
+											"type": "text"
+										},
+										{
+											"key": "city",
+											"value": "",
+											"type": "text"
+										},
+										{
+											"key": "state",
+											"value": "tamil",
+											"type": "text"
+										},
+										{
+											"key": "country",
+											"value": "india",
+											"type": "text"
+										},
+										{
+											"key": "postal_code",
+											"value": "123456",
+											"type": "text"
+										},
+										{
+											"key": "image",
+											"type": "file",
+											"src": "/D:/Downloads/samsungs21.jpg"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://192.168.1.15:5000/ims_api/v1/customers/createcustomer",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"1",
+										"15"
+									],
+									"port": "5000",
+									"path": [
+										"ims_api",
+										"v1",
+										"customers",
+										"createcustomer"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getallcustomers",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJhMmM5M2M1LWRlMjgtNDExZi05YmM0LTE3ZGMwZWY4Y2FmOCIsInVzZXJuYW1lIjoia2F2aXlhIiwicm9sZSI6ImQ5YWE3MWE4LThlMGItNGVhNi1iMWFlLTFiYTZkMjdmYTBlMCIsImlhdCI6MTc2MzY5OTYxNCwiZXhwIjoxNzYzNzg2MDE0fQ.uQhhWPXCzWnyzRguJy9mpre10job1uoOrDkxVtsaZ0E",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://192.168.1.15:5000/ims_api/v1/customers/getallcustomers",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"1",
+										"15"
+									],
+									"port": "5000",
+									"path": [
+										"ims_api",
+										"v1",
+										"customers",
+										"getallcustomers"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "updatebyid",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "first_name",
+											"value": "saravanan",
+											"type": "text"
+										},
+										{
+											"key": "last_name",
+											"value": "M",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "saravnm8@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "phone",
+											"value": "9750959498",
+											"type": "text"
+										},
+										{
+											"key": "address",
+											"value": "Erode",
+											"type": "text"
+										},
+										{
+											"key": "city",
+											"value": "perundurai",
+											"type": "text"
+										},
+										{
+											"key": "state",
+											"value": "tamilnadu",
+											"type": "text"
+										},
+										{
+											"key": "country",
+											"value": "india",
+											"type": "text"
+										},
+										{
+											"key": "postal_code",
+											"value": "123456",
+											"type": "text"
+										},
+										{
+											"key": "image\"",
+											"type": "file",
+											"src": "/D:/Downloads/vivo27.jpg"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://192.168.1.15:5000/ims_api/v1/customers/updateCustomerById/a9843720-ba8f-4195-a390-0edb69ee9eb4",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"1",
+										"15"
+									],
+									"port": "5000",
+									"path": [
+										"ims_api",
+										"v1",
+										"customers",
+										"updateCustomerById",
+										"a9843720-ba8f-4195-a390-0edb69ee9eb4"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getbyid",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://192.168.1.15:5000/ims_api/v1/customers/getCustomerById/a9843720-ba8f-4195-a390-0edb69ee9eb4",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"1",
+										"15"
+									],
+									"port": "5000",
+									"path": [
+										"ims_api",
+										"v1",
+										"customers",
+										"getCustomerById",
+										"a9843720-ba8f-4195-a390-0edb69ee9eb4"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "deletebyid",
+							"request": {
+								"method": "GET",
+								"header": []
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "suppliers",
+					"item": [
+						{
+							"name": "createSupplier",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJhMmM5M2M1LWRlMjgtNDExZi05YmM0LTE3ZGMwZWY4Y2FmOCIsInVzZXJuYW1lIjoia2F2aXlhIiwicm9sZSI6ImQ5YWE3MWE4LThlMGItNGVhNi1iMWFlLTFiYTZkMjdmYTBlMCIsImlhdCI6MTc2MzY5OTYxNCwiZXhwIjoxNzYzNzg2MDE0fQ.uQhhWPXCzWnyzRguJy9mpre10job1uoOrDkxVtsaZ0E",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "first_name",
+											"value": "priyanka",
+											"type": "text"
+										},
+										{
+											"key": "last_name",
+											"value": "v",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "priyanka8416@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "phone",
+											"value": "9876509876",
+											"type": "text"
+										},
+										{
+											"key": "address",
+											"value": "theni",
+											"type": "text"
+										},
+										{
+											"key": "city",
+											"value": "theni",
+											"type": "text"
+										},
+										{
+											"key": "state",
+											"value": "tamilnadu",
+											"type": "text"
+										},
+										{
+											"key": "country",
+											"value": "india",
+											"type": "text"
+										},
+										{
+											"key": "postal_code",
+											"value": "123456",
+											"type": "text"
+										},
+										{
+											"key": "image",
+											"type": "file",
+											"src": "/D:/Downloads/hondabike 1.jpeg"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://192.168.1.15:5000/ims_api/v1/suppliers/createsupplier",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"1",
+										"15"
+									],
+									"port": "5000",
+									"path": [
+										"ims_api",
+										"v1",
+										"suppliers",
+										"createsupplier"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getallsuppliers",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJhMmM5M2M1LWRlMjgtNDExZi05YmM0LTE3ZGMwZWY4Y2FmOCIsInVzZXJuYW1lIjoia2F2aXlhIiwicm9sZSI6ImQ5YWE3MWE4LThlMGItNGVhNi1iMWFlLTFiYTZkMjdmYTBlMCIsImlhdCI6MTc2MzYzMDMwMCwiZXhwIjoxNzYzNzE2NzAwfQ.ce_HS876PZ57P3jDv1CyX0VT3rZxX6BUAZfWrVWfuOc",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "first_name",
+											"value": "saravanan",
+											"type": "text"
+										},
+										{
+											"key": "last_name",
+											"value": "M",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "saravanan84416@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "phone",
+											"value": "9750950959498",
+											"type": "text"
+										},
+										{
+											"key": "address",
+											"value": "Erode",
+											"type": "text"
+										},
+										{
+											"key": "city",
+											"value": "perundurai",
+											"type": "text"
+										},
+										{
+											"key": "state",
+											"value": "tamilnadu",
+											"type": "text"
+										},
+										{
+											"key": "country",
+											"value": "india",
+											"type": "text"
+										},
+										{
+											"key": "postal_code",
+											"value": "123456",
+											"type": "text"
+										},
+										{
+											"key": "image",
+											"type": "file",
+											"src": "/D:/Downloads/hondabike 1.jpeg"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://192.168.1.15:5000/ims_api/v1/suppliers/getAllSuppliers",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"1",
+										"15"
+									],
+									"port": "5000",
+									"path": [
+										"ims_api",
+										"v1",
+										"suppliers",
+										"getAllSuppliers"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getbyid",
+							"request": {
+								"method": "GET",
+								"header": []
+							},
+							"response": []
+						},
+						{
+							"name": "updatebyid",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJhMmM5M2M1LWRlMjgtNDExZi05YmM0LTE3ZGMwZWY4Y2FmOCIsInVzZXJuYW1lIjoia2F2aXlhIiwicm9sZSI6ImQ5YWE3MWE4LThlMGItNGVhNi1iMWFlLTFiYTZkMjdmYTBlMCIsImlhdCI6MTc2MzYzMDMwMCwiZXhwIjoxNzYzNzE2NzAwfQ.ce_HS876PZ57P3jDv1CyX0VT3rZxX6BUAZfWrVWfuOc",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "first_name",
+											"value": "saravanan",
+											"type": "text"
+										},
+										{
+											"key": "last_name",
+											"value": "M",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "saravanan416@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "phone",
+											"value": "9750950959498",
+											"type": "text"
+										},
+										{
+											"key": "address",
+											"value": "Erode",
+											"type": "text"
+										},
+										{
+											"key": "city",
+											"value": "perundurai",
+											"type": "text"
+										},
+										{
+											"key": "state",
+											"value": "tamilnadu",
+											"type": "text"
+										},
+										{
+											"key": "country",
+											"value": "india",
+											"type": "text"
+										},
+										{
+											"key": "postal_code",
+											"value": "12345",
+											"type": "text"
+										},
+										{
+											"key": "image",
+											"type": "file",
+											"src": "/D:/Downloads/honda11.jpg"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://192.168.1.15:5000/ims_api/v1/suppliers/updateSupplierById/250504c6-4e93-4604-9283-a4274970d2cd",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"1",
+										"15"
+									],
+									"port": "5000",
+									"path": [
+										"ims_api",
+										"v1",
+										"suppliers",
+										"updateSupplierById",
+										"250504c6-4e93-4604-9283-a4274970d2cd"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "deletebyid",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJhMmM5M2M1LWRlMjgtNDExZi05YmM0LTE3ZGMwZWY4Y2FmOCIsInVzZXJuYW1lIjoia2F2aXlhIiwicm9sZSI6ImQ5YWE3MWE4LThlMGItNGVhNi1iMWFlLTFiYTZkMjdmYTBlMCIsImlhdCI6MTc2MzYzMDMwMCwiZXhwIjoxNzYzNzE2NzAwfQ.ce_HS876PZ57P3jDv1CyX0VT3rZxX6BUAZfWrVWfuOc",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://192.168.1.15:5000/ims_api/v1/suppliers/deleteSupplierById/250504c6-4e93-4604-9283-a4274970d2cd",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"1",
+										"15"
+									],
+									"port": "5000",
+									"path": [
+										"ims_api",
+										"v1",
+										"suppliers",
+										"deleteSupplierById",
+										"250504c6-4e93-4604-9283-a4274970d2cd"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "cupons",
+			"item": [
+				{
+					"name": "cuponroutes",
+					"item": [
+						{
+							"name": "createcupon",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"cupon_name\": \"pongal offer\",\r\n  \"code\": \"NY25OF\",\r\n  \"type\": \"percentage\",\r\n  \"discount\": 20,\r\n  \"limit\": 200,\r\n  \"product\": \"Electronics\",\r\n  \"start_date\": \"2025-01-01\",\r\n  \"end_date\": \"2025-01-31\",\r\n  \"description\": \"Special New Year festival discount\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://192.168.1.15:5000/ims_api/v1/cupon/createCupon",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"1",
+										"15"
+									],
+									"port": "5000",
+									"path": [
+										"ims_api",
+										"v1",
+										"cupon",
+										"createCupon"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getbyid",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://192.168.1.15:5000/ims_api/v1/cupon/getCuponById/8c5a7b6e-332b-46e1-99f0-3e0c7094bfb9",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"1",
+										"15"
+									],
+									"port": "5000",
+									"path": [
+										"ims_api",
+										"v1",
+										"cupon",
+										"getCuponById",
+										"8c5a7b6e-332b-46e1-99f0-3e0c7094bfb9"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "updatebyid",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"cupon_name\": \"New Year Offer\",\r\n  \"code\": \"NY25OFF\",\r\n  \"type\": \"percentage\",\r\n  \"discount\": 20,\r\n  \"limit\": 200,\r\n  \"product\": \"Electronics\",\r\n  \"start_date\": \"2025-01-01\",\r\n  \"end_date\": \"2025-01-31\",\r\n  \"description\": \"pongal Special festival discount\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://192.168.1.15:5000/ims_api/v1/cupon/updateCupon/8c5a7b6e-332b-46e1-99f0-3e0c7094bfb9",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"1",
+										"15"
+									],
+									"port": "5000",
+									"path": [
+										"ims_api",
+										"v1",
+										"cupon",
+										"updateCupon",
+										"8c5a7b6e-332b-46e1-99f0-3e0c7094bfb9"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getallresponses",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://192.168.1.15:5000/ims_api/v1/cupon/getAllCupons",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"1",
+										"15"
+									],
+									"port": "5000",
+									"path": [
+										"ims_api",
+										"v1",
+										"cupon",
+										"getAllCupons"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://192.168.1.15:5000/ims_api/v1/cupon/deleteCupon/8c5a7b6e-332b-46e1-99f0-3e0c7094bfb9",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"1",
+										"15"
+									],
+									"port": "5000",
+									"path": [
+										"ims_api",
+										"v1",
+										"cupon",
+										"deleteCupon",
+										"8c5a7b6e-332b-46e1-99f0-3e0c7094bfb9"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "giftcards",
+					"item": [
+						{
+							"name": "gftcardcreate",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"giftcard_no\": \"GC-20250001\",\r\n  \"customer_id\": \"01634a52-011c-448f-88fa-912db65b20ae\",\r\n  \"issued_date\": \"2025-11-21\",\r\n  \"expiry_date\": \"2026-11-21\",\r\n  \"amount\": 1000.00,\r\n  \"balance\": 1000.00,\r\n  \"status\": true\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://192.168.1.15:5000/ims_api/v1/gift/creategiftcard",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"1",
+										"15"
+									],
+									"port": "5000",
+									"path": [
+										"ims_api",
+										"v1",
+										"gift",
+										"creategiftcard"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getall",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://192.168.1.15:5000/ims_api/v1/gift/getAllgiftcards",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"1",
+										"15"
+									],
+									"port": "5000",
+									"path": [
+										"ims_api",
+										"v1",
+										"gift",
+										"getAllgiftcards"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getbyid",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://192.168.1.15:5000/ims_api/v1/gift/getgiftcardById/2d35dfe7-3a3b-4781-bb3e-88a12352fae2",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"1",
+										"15"
+									],
+									"port": "5000",
+									"path": [
+										"ims_api",
+										"v1",
+										"gift",
+										"getgiftcardById",
+										"2d35dfe7-3a3b-4781-bb3e-88a12352fae2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "updatebyid",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"giftcard_no\": \"GC-20250002\",\r\n  \"customer_id\": \"01634a52-011c-448f-88fa-912db65b20ae\",\r\n  \"issued_date\": \"2025-11-21\",\r\n  \"expiry_date\": \"2026-11-21\",\r\n  \"amount\": 1000.00,\r\n  \"balance\": 1000.00,\r\n  \"status\": true\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://192.168.1.15:5000/ims_api/v1/gift/updategiftcard/2d35dfe7-3a3b-4781-bb3e-88a12352fae2",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"1",
+										"15"
+									],
+									"port": "5000",
+									"path": [
+										"ims_api",
+										"v1",
+										"gift",
+										"updategiftcard",
+										"2d35dfe7-3a3b-4781-bb3e-88a12352fae2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "deletebyid",
+							"request": {
+								"method": "GET",
+								"header": []
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}
