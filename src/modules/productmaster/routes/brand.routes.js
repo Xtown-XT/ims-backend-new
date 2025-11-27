@@ -7,7 +7,7 @@ const router = Router();
 
 // Create Brand (authenticated + file upload)
 router.post(
-  "/brands/create",
+  "/createBrand",
  verifyEmployeeToken,
   uploadSingle("image", "brands"),
   validate(createBrandSchema),
@@ -16,14 +16,14 @@ router.post(
 
 // Get all brands (with pagination / search)
 router.get(
-  "/brands/all",
+  "/getAllBrands",
  verifyEmployeeToken,
   brandController.getAllBrands
 );
 
 // Get one brand by id
 router.get(
-  "/brands/:id",
+  "/getBrandById/:id",
  verifyEmployeeToken,
   validate(brandIdSchema),
   brandController.getBrandById
@@ -31,7 +31,7 @@ router.get(
 
 // Update brand (allow upload)
 router.put(
-  "/brands/:id",
+  "/updateBrand/:id",
  verifyEmployeeToken,
   uploadSingle("image", "brands"), // handle optional file
   validate(brandIdSchema),
@@ -41,7 +41,7 @@ router.put(
 
 // Delete brand
 router.delete(
-  "/brands/:id",
+  "/deleteBrand/:id",
  verifyEmployeeToken,
   validate(brandIdSchema),
   brandController.deleteBrand

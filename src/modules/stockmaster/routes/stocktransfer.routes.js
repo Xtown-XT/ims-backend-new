@@ -1,52 +1,49 @@
 import { Router } from "express";
 import stocktransferController from "../controller/stocktransfer.controller.js";
-import { verifyToken, authorizeRole } from "../../../middleware/index.js";
 import { validate } from "../../../middleware/validate.js";
 import {
     createStocktransferSchema,
     updateStocktransferSchema,
      stocktransferIdSchema,
 } from "../dto/stocktransfer.dto.js";
+import { verifyEmployeeToken } from "../../../middleware/empAuth.js";
 
 const router = Router();
 
 // Public / Authenticated routes
 router.post(
-    "/stocktransfer/create",
-    verifyToken,
-    authorizeRole(["admin", "superadmin", "user"]),
+    "/createStockTransfer",
+    verifyEmployeeToken,
     validate(createStocktransferSchema),
+    
+    
     stocktransferController.createStockTransfer
 );
 
 router.get(
-    "/stocktransfer/all",
-    verifyToken,
-    authorizeRole(["admin", "superadmin", "user"]),
+    "/getAllStockTransfers",
+    verifyEmployeeToken,
     stocktransferController.getAllStockTransfers
 );
 
 router.get(
-    "/stocktransfer/:id",
-    verifyToken,
-    authorizeRole(["admin", "superadmin", "user"]),
+    "/getStockTransferById/:id",
+    verifyEmployeeToken,
     validate( stocktransferIdSchema),
     stocktransferController.getStockTransferById
 );
 
 router.put(
-    "/stocktransfer/:id",
-    verifyToken,
-    authorizeRole(["admin", "superadmin", "user"]),
+    "/updateStockTransfer/:id",
+    verifyEmployeeToken,
     validate( stocktransferIdSchema),
     validate(updateStocktransferSchema),
     stocktransferController.updateStockTransfer
 );
 
 router.delete(
-    "/stocktransfer/:id",
-    verifyToken,
-    authorizeRole(["admin", "superadmin", "user"]),
+    "/deleteStockTransfer/:id",
+  verifyEmployeeToken,
     validate( stocktransferIdSchema),
     stocktransferController.deleteStockTransfer
 );

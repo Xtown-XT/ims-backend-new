@@ -14,6 +14,8 @@ import userManagementRoutes from './modules/employee/routes/index.js'
 import productRoutes from './modules/productmaster/routes/index.js';
 import financeRoutes from "./modules/finance/routes/index.js";
 import peoplesmasterRoutes from "./modules/peoplesmaster/Routes/index.js";
+import cuponRoutes from "./modules/promo/routes/index.js";
+import stockMasterRoutes from "./modules/stockmaster/routes/index.js";
 
 
 
@@ -95,6 +97,10 @@ app.use('/ims_api/v1', productRoutes);
 app.use("/ims_api/v1", financeRoutes);
 
 app.use("/ims_api/v1", peoplesmasterRoutes);
+
+app.use("/ims_api/v1", cuponRoutes);
+
+app.use("/ims_api/v1", stockMasterRoutes);
 
 
 

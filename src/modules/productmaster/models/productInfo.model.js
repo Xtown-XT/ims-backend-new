@@ -42,14 +42,18 @@ const ProductInfo = sequelize.define("ProductInfo", {
         model: "brands",
         key: "id",
       },
+      
    },
-  unit_id: { type: DataTypes.UUID, allowNull: false,
-      references: {
-        model: "units",
-        key: "id",
-      },
-   },
-
+ unit_id: {
+  type: DataTypes.UUID,
+  allowNull: false,
+  references: {
+    model: "units",
+    key: "id",
+  },
+  onDelete: "CASCADE",
+  onUpdate: "CASCADE",
+},
   barcode_symbology_id: { type: DataTypes.UUID, allowNull: false ,
       references: {
         model: "barcodes",

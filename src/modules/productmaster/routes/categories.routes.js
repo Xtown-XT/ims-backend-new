@@ -14,35 +14,35 @@ const router = Router();
 
 // Public / Authenticated routes
 router.post(
-  "/categories/create",
+  "/createCategory",
 verifyEmployeeToken,
   validate(createCategorySchema),
   categoryController.createCategory
 );
 
 router.get(
-  "/categories/all",
+  "/getAllCategories",
   verifyEmployeeToken,
   categoryController.getAllCategories
 );
 
 // Protected routes (by ID)
 router.get(
-  "/categories/:id",
+  "/getCategoryById/:id",
  verifyEmployeeToken,
   validate(categoryIdSchema, "params"),
   categoryController.getCategoryById
 );
 
 router.put(
-  "/categories/:id",
+  "/updateCategory/:id",
  verifyEmployeeToken,
   validate(updateCategorySchema),
   categoryController.updateCategory
 );
 
 router.delete(
-  "/categories/:id",
+  "/deleteCategory/:id",
   verifyEmployeeToken,
   validate(categoryIdSchema, "params"),
   categoryController.deleteCategory

@@ -4,6 +4,13 @@ import Employee from "../modules/employee/models/employee.model.js";
 import Role from "../modules/employee/models/role.model.js"; 
 
 // PRODUCT MODELS
+
+import Customer from "../modules/peoplesmaster/models/addcustomers.models.js";
+import GiftCard from "../modules/promo/models/gift.models.js";
+import Discount from "../modules/promo/models/adddiscount.models.js";
+import DiscountPlan from "../modules/promo/models/adddiscountplan.models.js";
+// 1️⃣ One Role can have many Employees
+// PRODUCT MODELS
 import ProductInfo from "../modules/productmaster/models/productInfo.model.js";
 import SingleProduct from "../modules/productmaster/models/singleProduct.model.js";
 import VariantProduct from "../modules/productmaster/models/variantProduct.model.js";
@@ -22,6 +29,7 @@ import Barcode from "../modules/productmaster/models/barcode.model.js";
 // --------------------------------------------
 // EMPLOYEE ASSOCIATIONS
 // --------------------------------------------
+
 Role.hasMany(Employee, {
   foreignKey: "role_id",
   as: "employees",
@@ -117,6 +125,22 @@ ProductImage.belongsTo(ProductInfo, { foreignKey: "product_id" });
 ProductInfo.hasOne(CustomFields, { foreignKey: "product_id" });
 CustomFields.belongsTo(ProductInfo, { foreignKey: "product_id" });
 
+// --------------------------------------------
+DiscountPlan.hasMany(Discount, {
+  foreignKey: "discount_plan_id",
+  as: "discounts",
+});
+
+// Child → Parent
+Discount.belongsTo(DiscountPlan, {
+  foreignKey: "discount_plan_id",
+  as: "plan",
+});
+
+// promo
+
+  Customer.hasMany(GiftCard, { foreignKey: "customer_id", as: "giftcards" });
+  GiftCard.belongsTo(Customer, { foreignKey: "customer_id", as: "customer" });
 
 
 
@@ -135,5 +159,10 @@ export {
   Unit,
   Tax,
   Warehouse,
-  Barcode
+  Barcode,
+  DiscountPlan,
+  Discount,
+  Customer,
+  GiftCard
 };
+

@@ -67,6 +67,7 @@ const Categories = sequelize.define(
       allowNull: false,
       unique: true,
     },
+ 
     category_code: {
       type: DataTypes.STRING(10),
       unique: true,
