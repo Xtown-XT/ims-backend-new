@@ -74,15 +74,41 @@ const productController = {
       );
     }
 
-    if (variantProducts?.length > 0) {
-      for (const v of variantProducts) {
-        const variantSku = `${product.sku}-V${Math.floor(Math.random() * 9000) + 1000}`;
-        await VariantProduct.create(
-          { ...v, product_id: product.id, sku: variantSku, created_by: userId, updated_by: userId },
-          { transaction: t }
-        );
-      }
-    }
+    // if (variantProducts?.length > 0) {
+    //   for (const v of variantProducts) {
+    //     const variantSku = `${product.sku}-V${Math.floor(Math.random() * 9000) + 1000}`;
+    //     await VariantProduct.create(
+    //       { ...v, product_id: product.id, sku: variantSku, created_by: userId, updated_by: userId },
+    //       { transaction: t }
+    //     );
+    //   }
+    // }
+
+    if (variantProducts && variantProducts.length > 0) {
+  for (const v of variantProducts) {
+
+    // Auto SKU for Variant
+    const variantSku = `${product.sku}-V${Math.floor(Math.random() * 9000) + 1000}`;
+     console.log("variantSku :", variantSku);
+    await VariantProduct.create(
+      {
+        product_id: product.id,
+
+        attribute_name: v.attribute_name,      // color / size
+        attribute_value: v.attribute_value,    // red / black
+
+        sku: variantSku,
+
+        quantity: v.quantity ?? 0,
+        price: v.price ?? 0,
+
+        created_by: userId,
+        updated_by: userId,
+      },
+      { transaction: t }
+    );
+  }
+}
 
     if (req.files?.length > 0) {
       for (const file of req.files) {

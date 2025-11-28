@@ -39,11 +39,23 @@ const singleProductSchema = z.object({
 });
 
 // 3️⃣ VariantProduct Model
+// const variantProductSchema = z.object({
+//   sku: z.string().optional(),
+//   attributes: z.record(z.string(), z.any()), // e.g., { size: "XL", color: "Blue" }
+//   price: z.number().nonnegative().optional(),
+//   stock: z.number().int().nonnegative().optional(),
+// });
+
 const variantProductSchema = z.object({
-  sku: z.string().optional(),
-  attributes: z.record(z.string(), z.any()), // e.g., { size: "XL", color: "Blue" }
-  price: z.number().nonnegative().optional(),
-  stock: z.number().int().nonnegative().optional(),
+  attribute_name: z.string().min(1, "Attribute name is required"),   // e.g., "color"
+  attribute_value: z.string().min(1, "Attribute value is required"), // e.g., "red"
+  sku: z.string().min(1, "SKU is required"),
+  quantity: z.number().int().nonnegative({
+    message: "Quantity must be a positive integer",
+  }),
+  price: z.number().nonnegative({
+    message: "Price must be a positive number",
+  }),
 });
 
 // 4️⃣ ProductImage Model
