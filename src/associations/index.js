@@ -3,6 +3,11 @@
 import Employee from "../modules/employee/models/employee.model.js";
 import Role from "../modules/employee/models/role.model.js"; 
 
+
+// expenses 
+import Expense from "../modules/finance/models/expenses.models.js";
+import ExpenseCategory from "../modules/finance/models/addexpenescategory.models.js";
+
 // PRODUCT MODELS
 
 import Customer from "../modules/peoplesmaster/models/addcustomers.models.js";
@@ -144,6 +149,18 @@ Discount.belongsTo(DiscountPlan, {
 
 
 
+
+  
+// EXPENSE CATEGORY -> EXPENSE
+ExpenseCategory.hasMany(Expense, {
+  foreignKey: "category_id",
+  as: "expenses",
+});
+
+Expense.belongsTo(ExpenseCategory, {
+  foreignKey: "category_id",
+  as: "expenseCategory",
+});
 export {
   Employee,
   Role,
@@ -163,6 +180,9 @@ export {
   DiscountPlan,
   Discount,
   Customer,
-  GiftCard
+  GiftCard,
+  ExpenseCategory,
+  Expense
+  
 };
 

@@ -5,9 +5,10 @@ const Expense = sequelize.define(
   "Expense",
   {
     id: {
-      type: DataTypes.INTEGER,     // You used integer, so keeping same
+      type: DataTypes.UUID,
+      defaultValue: DataTypes.UUIDV4,
       primaryKey: true,
-      autoIncrement: true,
+      allowNull: false,
     },
 
     expense: {
@@ -20,9 +21,13 @@ const Expense = sequelize.define(
       allowNull: true,
     },
 
-    category: {
-      type: DataTypes.STRING,
+    category_id: {
+      type: DataTypes.UUID,
       allowNull: false,
+      references: {
+        model: "expense_categories",
+        key: "id",
+      },
     },
 
     date: {
@@ -31,26 +36,30 @@ const Expense = sequelize.define(
     },
 
     amount: {
-      type: DataTypes.DECIMAL(12, 2),   // Perfect for money
+      type: DataTypes.DECIMAL(12, 2),
       allowNull: false,
     },
 
     status: {
       type: DataTypes.ENUM("Paid", "Pending", "Draft"),
+      defaultValue: "Pending",
       allowNull: false,
     },
-
-    deleted_at: {
-      type: DataTypes.DATE,
-      allowNull: true,
+     is_active: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: true,
     },
-  },
+    created_by: DataTypes.UUID,
+    updated_by: DataTypes.UUID,
+},
   {
     tableName: "expenses",
     timestamps: true,
-    paranoid: true,        // 🔥 enables soft delete
-    deletedAt: "deleted_at",
+    paranoid: true,
+    
   }
 );
+
+
 
 export default Expense;

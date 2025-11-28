@@ -25,7 +25,8 @@ const router = Router();
  * Create Expense Category
  */
 router.post(
-  "/addExpesescategory",verifyEmployeeToken,
+  "/addExpesescategory",
+  verifyEmployeeToken,
   validate(expenseCategorySchema),
  addexpensescontrollers.
   addExpesescategory
@@ -34,17 +35,22 @@ router.post(
 // /**
 //  * Get All Expense Categorie
 //  */
-router.get("/getAllExpenseCategories",verifyEmployeeToken,  addexpensescontrollers.getAllExpenseCategories);
+router.get("/getAllExpenseCategories",
+  verifyEmployeeToken, 
+   addexpensescontrollers.getAllExpenseCategories);
 
 /**
  * Get Category by ID
  */
-   router.get("/getExpenseCategoryById/:id",verifyEmployeeToken, addexpensescontrollers.getExpenseCategoryById);
+   router.get("/getExpenseCategoryById/:id",
+    verifyEmployeeToken,
+     addexpensescontrollers.getExpenseCategoryById);
 
 // /**
 //  * Update Expense Category
 router.put(
-  "/updateExpenseCategory/:id",verifyEmployeeToken,
+  "/updateExpenseCategory/:id",
+  verifyEmployeeToken,
   validate(expenseCategoryUpdateSchema),
   addexpensescontrollers.updateExpenseCategory
 );
@@ -52,6 +58,8 @@ router.put(
 
 // /**
 //  * Delete Expense Category
-   router.delete("/deleteExpenseCategory/:id",verifyEmployeeToken, addexpensescontrollers.deleteExpenseCategory);
+   router.delete("/deleteExpenseCategory/:id",
+    verifyEmployeeToken, 
+    addexpensescontrollers.deleteExpenseCategory);
 
 export default router;

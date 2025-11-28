@@ -6,7 +6,7 @@ import { formatDates } from "../../../utils/dataFormatter.js";
 const expenseCategoryService = new BaseService(ExpenseCategory);
 
 
-export const addExpesescategory = async (req,res)=>{
+export const addExpesescategory = async (req,res,next)=>{
      try {
     const { category_name, description, status } = req.body;
     const created_by = req.user?.id; // get user from auth middleware
@@ -33,6 +33,7 @@ export const addExpesescategory = async (req,res)=>{
       message: "Failed to create expense category",
       error: error.message,
     });
+    
   }
 };
 
@@ -113,7 +114,7 @@ export const updateExpenseCategory = async (req, res) => {
   try {
     const { id } = req.params;
     const data = { ...req.body };
-    if (req.file) data.image = `/uploads/expenseCategories/${req.file.filename}`;
+    if (req.file) data.image = `${req.file.filename}`;
 
     const result = await expenseCategoryService.update(id, data);
 

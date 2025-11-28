@@ -1,56 +1,56 @@
 import { z } from "zod";
 
-// ⭐ Common Reusable Fields
-const expenseName = z
-  .string({ required_error: "Expense name is required" })
-  .min(1, "Expense name cannot be empty");
-
-const description = z.string().optional();
-
-const category = z
-  .string({ required_error: "Category is required" })
-  .min(1, "Category cannot be empty");
-
-const date = z
-  .string({ required_error: "Date is required" })
-  .refine(
-    (val) => !isNaN(Date.parse(val)),
-    "Invalid date format — use YYYY-MM-DD"
-  );
-
-const amount = z
-  .preprocess(
-    (val) => (typeof val === "string" ? val.trim() : val),
-    z
-      .number({ invalid_type_error: "Amount must be a number" })
-      .positive("Amount must be greater than 0")
-  );
-
-const status = z.enum(["Paid", "Pending", "Draft"], {
-  required_error: "Status is required",
-});
-
-// ⭐ CREATE EXPENSE SCHEMA
 export const createExpenseSchema = z.object({
-  expense: expenseName,
-  description,
-  category,
-  date,
-  amount,
-  status,
+  body: z.object({
+    expense: z
+      .string({ required_error: "Expense name is required" })
+      .min(1, "Expense name cannot be empty"),
+
+    description: z
+      .string({ required_error: "Description is required" })
+      .min(1, "Description cannot be empty"),
+
+    category_id: z
+      .string({ required_error: "Category ID is required" })
+      .uuid("Invalid category ID format"),
+
+    date: z
+      .string({ required_error: "Date is required" })
+      .refine((val) => !isNaN(Date.parse(val)), {
+        message: "Invalid date format",
+      }),
+
+    amount: z
+      .number({ required_error: "Amount is required" })
+      .positive("Amount must be greater than 0"),
+
+    status: z.enum(["paid", "pending", "cancelled"], {
+      required_error: "Status is required",
+    }),
+  }),
 });
 
-// ⭐ UPDATE EXPENSE SCHEMA
+
+export const expenseIdSchema = z.object({
+  params: z.object({
+    id: z
+      .string({ required_error: "Expense ID is required" })
+      .uuid("Invalid expense ID"),
+  }),
+});
+
 export const updateExpenseSchema = z.object({
-  expense: expenseName.optional(),
-  description: z.string().optional(),
-  category: z.string().optional(),
-  date: date.optional(),
-  amount: z
-    .preprocess(
-      (val) => (typeof val === "string" ? val.trim() : val),
-      z.number().positive()
-    )
-    .optional(),
-  status: status.optional(),
+  body: z.object({
+    expense: z.string().min(1).optional(),
+    description: z.string().min(1).optional(),
+    category_id: z.string().uuid().optional(),
+    date: z
+      .string()
+      .refine((val) => !isNaN(Date.parse(val)), {
+        message: "Invalid date format",
+      })
+      .optional(),
+    amount: z.number().positive().optional(),
+    status: z.enum(["paid", "pending", "cancelled"]).optional(),
+  }),
 });

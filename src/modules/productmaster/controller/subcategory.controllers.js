@@ -43,36 +43,63 @@ export const createSubcategory = async (req, res) => {
 // Get All Subcategories
 export const getAllSubcategories = async (req, res) => {
   try {
-    const baseUrl = `${req.protocol}://${req.get("host")}`;
+    const {
+      search = "",
+      page = 1,
+      limit = 10,
+      orderBy = "createdAt",
+      order = "ASC",
+    } = req.query;
 
+    const pageNumber = Number(page);
+    const limitNumber = Number(limit);
+
+    const allowedOrderBy = ["createdAt", "updatedAt", "subcategory_name", "category_code"];
+
+    const sortField = allowedOrderBy.includes(orderBy) ? orderBy : "createdAt";
+    const sortOrder = ["ASC", "DESC"].includes(order.toUpperCase()) ? order.toUpperCase() : "ASC";
+
+    // Fetch data from BaseService
     const result = await subcategoryService.getAll({
+      search,
+      page: pageNumber,
+      limit: limitNumber,
+      orderBy: sortField,
+      order: sortOrder,
       searchFields: ["subcategory_name", "category_code", "description"],
+      paranoid: false, // include soft deleted if needed
     });
 
+    const BASE_URL = `${req.protocol}://${req.get("host")}`;
+
+    // Add full image URL
     const formattedRows = result.rows.map((item) => {
       const json = item.toJSON();
-
       return {
         ...json,
         image: json.image
-          ? `${baseUrl}${json.image.startsWith("/") ? "" : "/"}${json.image}`
+          ? `${BASE_URL}/uploads/subcategories/${json.image.startsWith("uploads/") ? json.image.split("/")[1] : json.image}`
           : null,
       };
     });
 
     return res.status(200).json({
-      count: result.count,
-      rows: formattedRows,
+      message: "Subcategories fetched successfully",
+      data: {
+        total: result.count,
+        page: pageNumber,
+        limit: limitNumber,
+        subcategories: formattedRows,
+      },
     });
-
   } catch (error) {
+    console.error("Error fetching subcategories:", error);
     return res.status(500).json({
       message: "Failed to fetch subcategories",
       error: error.message,
     });
   }
 };
-
 
 
 // Get Subcategory by ID
@@ -89,16 +116,18 @@ export const getSubcategoryById = async (req, res) => {
 
     const json = record.toJSON();
 
+    // Build full image URL
     const formatted = {
       ...json,
       image: json.image
-        ? `${baseUrl}${json.image.startsWith("/") ? "" : "/"}${json.image}`
+        ? `${baseUrl}/uploads/${json.image.startsWith("uploads/") ? json.image.split("/")[1] : json.image}`
         : null,
     };
 
     return res.status(200).json(formatted);
 
   } catch (error) {
+    console.error("Error fetching subcategory:", error);
     return res.status(500).json({
       message: "Failed to fetch subcategory",
       error: error.message,
