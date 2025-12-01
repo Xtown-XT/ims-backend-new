@@ -30,7 +30,13 @@ import Brand from "../modules/productmaster/models/brand.model.js";
 import Unit from "../modules/productmaster/models/unit.model.js";
 import Tax from "../modules/productmaster/models/tax.models.js";
 import Warehouse from "../modules/productmaster/models/warehouse.models.js";
+
 import Barcode from "../modules/productmaster/models/barcode.model.js";``
+
+import Barcode from "../modules/productmaster/models/barcode.model.js";
+import Purchase from "../modules/purchase/models/purchase.model.js";
+import PurchaseItem from "../modules/purchase/models/purchaseItem.model.js";
+
 // --------------------------------------------
 // EMPLOYEE ASSOCIATIONS
 // --------------------------------------------
@@ -146,6 +152,9 @@ Discount.belongsTo(DiscountPlan, {
 
   Customer.hasMany(GiftCard, { foreignKey: "customer_id", as: "giftcards" });
   GiftCard.belongsTo(Customer, { foreignKey: "customer_id", as: "customer" });
+
+  Purchase.hasMany(PurchaseItem, { foreignKey: "purchase_id", onDelete: "CASCADE" });
+PurchaseItem.belongsTo(Purchase, { foreignKey: "purchase_id" });
 
 
 

@@ -10,9 +10,6 @@ const Supplier = sequelize.define(
             primaryKey: true,
             allowNull: false,
         },
-
-
-        
     first_name: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -84,7 +81,7 @@ const Supplier = sequelize.define(
   },
   {
     timestamps: true,
-    tableName: "customers",
+    tableName: "supplier",
     paranoid: true, 
   }
 );

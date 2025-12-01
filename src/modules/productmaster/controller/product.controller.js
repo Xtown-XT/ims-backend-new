@@ -172,7 +172,7 @@ async getAllProducts(req, res) {
         {
           model: Barcode,
           as: "Barcode",
-          attributes: ["id", "text", "type", "image_url"],
+          attributes: ["id", "text",  "image_url"],
         },
 
         // SINGLE PRODUCT + TAX

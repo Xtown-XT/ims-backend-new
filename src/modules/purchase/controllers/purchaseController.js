@@ -1,0 +1,365 @@
+import Purchase from "../models/purchase.model.js";
+import PurchaseItem from "../models/purchaseItem.model.js";
+import { sequelize } from "../../../db/index.js";
+import BaseService from "../../../services/service.js";
+
+const purchaseService = new BaseService(Purchase);
+const purchaseItemService = new BaseService(PurchaseItem);
+
+// ===============================
+// CREATE PURCHASE
+// ===============================
+const createPurchase = async (req, res) => {
+  const t = await sequelize.transaction();
+  try {
+    const {
+      supplier_id,
+      reference,
+      date,
+      order_tax,
+      discount,
+      shipping,
+      status,
+      description,
+      items,
+    } = req.body;
+
+    if (!items || !Array.isArray(items) || items.length === 0) {
+      return res.status(400).json({ message: "Purchase items are required" });
+    }
+
+    const created_by = req.user?.id || "system";
+
+    // Calculate total cost
+    let totalCost = 0;
+    items.forEach((p) => {
+      const unitPrice = p.price - p.discount + p.tax_amount;
+      const total = unitPrice * p.qty;
+      totalCost += total;
+    });
+
+    // Create purchase
+    const purchase = await Purchase.create(
+      {
+        supplier_id,
+        reference,
+        date,
+        order_tax,
+        discount,
+        shipping,
+        status,
+        description,
+        total_cost: totalCost,
+        created_by,
+        updated_by: created_by,
+      },
+      { transaction: t }
+    );
+
+    // Create purchase items
+    for (const p of items) {
+      const unitPrice = p.price - p.discount + p.tax_amount;
+      const total = unitPrice * p.qty;
+
+      await PurchaseItem.create(
+        {
+          purchase_id: purchase.id,
+          product_id: p.product_id,
+          qty: p.qty,
+          price: p.price,
+          discount: p.discount,
+          tax_percent: p.tax_percent,
+          tax_amount: p.tax_amount,
+          unit_price: unitPrice,
+          total_cost: total,
+          created_by,
+          updated_by: created_by,
+        },
+        { transaction: t }
+      );
+    }
+
+    await t.commit();
+    res.status(201).json({ message: "Purchase created successfully", purchase });
+  } catch (err) {
+    await t.rollback();
+    res.status(500).json({ message: err.message });
+  }
+};
+
+// ===============================
+// GET ALL PURCHASES
+// ===============================
+const getAllPurchases = async (req, res) => {
+  try {
+    const purchases = await Purchase.findAll({
+      include: [{ model: PurchaseItem }],
+      order: [["createdAt", "DESC"]],
+    });
+
+    res.status(200).json({ purchases });
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+};
+
+// ===============================
+// GET PURCHASE BY ID
+// ===============================
+const getPurchaseById = async (req, res) => {
+  try {
+    const purchase = await Purchase.findByPk(req.params.id, {
+      include: [{ model: PurchaseItem }],
+    });
+
+    if (!purchase)
+      return res.status(404).json({ message: "Purchase not found" });
+
+    res.status(200).json({ purchase });
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+};
+
+// ===============================
+// UPDATE PURCHASE
+// ===============================
+const updatePurchase = async (req, res) => {
+  const t = await sequelize.transaction();
+  try {
+    const { id } = req.params;
+    const {
+      supplier_id,
+      reference,
+      date,
+      order_tax,
+      discount,
+      shipping,
+      status,
+      description,
+      items,
+    } = req.body;
+
+    const updated_by = req.user?.id || "system";
+
+    const purchase = await Purchase.findByPk(id);
+    if (!purchase)
+      return res.status(404).json({ message: "Purchase not found" });
+
+    // Recalculate total cost
+    let totalCost = 0;
+    items.forEach((p) => {
+      const unitPrice = p.price - p.discount + p.tax_amount;
+      const total = unitPrice * p.qty;
+      totalCost += total;
+    });
+
+    // Update purchase
+    await purchase.update(
+      {
+        supplier_id,
+        reference,
+        date,
+        order_tax,
+        discount,
+        shipping,
+        status,
+        description,
+        total_cost: totalCost,
+        updated_by,
+      },
+      { transaction: t }
+    );
+
+    // Remove old items
+    await PurchaseItem.destroy(
+      { where: { purchase_id: id } },
+      { transaction: t }
+    );
+
+    // Insert new items
+    for (const p of items) {
+      const unitPrice = p.price - p.discount + p.tax_amount;
+      const total = unitPrice * p.qty;
+
+      await PurchaseItem.create(
+        {
+          purchase_id: id,
+          product_id: p.product_id,
+          qty: p.qty,
+          price: p.price,
+          discount: p.discount,
+          tax_percent: p.tax_percent,
+          tax_amount: p.tax_amount,
+          unit_price: unitPrice,
+          total_cost: total,
+          updated_by,
+        },
+        { transaction: t }
+      );
+    }
+
+    await t.commit();
+    res.json({ message: "Purchase updated successfully" });
+  } catch (err) {
+    await t.rollback();
+    res.status(500).json({ message: err.message });
+  }
+};
+
+// export const updatePurchase = async (req, res) => {
+//   const t = await sequelize.transaction();
+//   try {
+//     const { purchase_id } = req.params;
+//     const { items, ...purchaseData } = req.body;
+
+//     // Update purchase main data
+//     await Purchase.update(purchaseData, {
+//       where: { id: purchase_id },
+//       transaction: t
+//     });
+
+//     // Get existing items
+//     const existingItems = await PurchaseItem.findAll({
+//       where: { purchase_id },
+//       transaction: t
+//     });
+
+//     const existingItemIds = existingItems.map(i => i.id);
+//     const incomingItemIds = items.filter(i => i.id).map(i => i.id);
+
+//     // DELETE removed items
+//     for (const oldId of existingItemIds) {
+//       if (!incomingItemIds.includes(oldId)) {
+//         await PurchaseItem.destroy({
+//           where: { id: oldId },
+//           transaction: t
+//         });
+//       }
+//     }
+
+//     // ADD or UPDATE items
+//     for (const item of items) {
+//       if (item.id) {
+//         // UPDATE
+//         await PurchaseItem.update(
+//           { ...item },
+//           { where: { id: item.id }, transaction: t }
+//         );
+//       } else {
+//         // CREATE
+//         await PurchaseItem.create(
+//           { ...item, purchase_id },
+//           { transaction: t }
+//         );
+//       }
+//     }
+
+//     await t.commit();
+//     res.status(200).json({ message: "Purchase updated successfully" });
+
+//   } catch (error) {
+//     if (t) await t.rollback();
+//     res.status(500).json({ message: error.message });
+//   }
+// };
+
+// export const updatePurchase = async (req, res) => {
+//   const t = await sequelize.transaction();
+
+//   try {
+//     const { purchase_id } = req.params;
+//     const { items = [], ...purchaseData } = req.body;
+
+//     if (!purchase_id) {
+//       return res.status(400).json({ message: "purchase_id is required" });
+//     }
+
+//     // Update purchase main data
+//     await Purchase.update(purchaseData, {
+//       where: { id: purchase_id },
+//       transaction: t
+//     });
+
+//     // Get existing items from DB
+//     const existingItems = await PurchaseItem.findAll({
+//       where: { purchase_id },
+//       transaction: t
+//     });
+
+//     const existingItemIds = existingItems.map(i => i.id);
+//     const incomingItemIds = items.filter(i => i.id).map(i => i.id);
+
+//     // DELETE removed items
+//     for (const oldId of existingItemIds) {
+//       if (!incomingItemIds.includes(oldId)) {
+//         await PurchaseItem.destroy({
+//           where: { id: oldId },
+//           transaction: t
+//         });
+//       }
+//     }
+
+//     // ADD or UPDATE items
+//     for (const item of items) {
+//       const cleanItem = {
+//         product_id: item.product_id,
+//         qty: item.qty,
+//         price: item.price,
+//         discount: item.discount,
+//         tax_percent: item.tax_percent,
+//         tax_amount: item.tax_amount
+//       };
+
+//       if (item.id) {
+//         // UPDATE
+//         await PurchaseItem.update(cleanItem, {
+//           where: { id: item.id, purchase_id },
+//           transaction: t
+//         });
+//       } else {
+//         // CREATE
+//         await PurchaseItem.create(
+//           { ...cleanItem, purchase_id },
+//           { transaction: t }
+//         );
+//       }
+//     }
+
+//     await t.commit();
+//     res.status(200).json({ message: "Purchase updated successfully" });
+
+//   } catch (error) {
+//     if (t) await t.rollback();
+//     res.status(500).json({ message: error.message });
+//   }
+// };
+
+
+// ===============================
+// DELETE PURCHASE
+// ===============================
+const deletePurchase = async (req, res) => {
+  try {
+    await Purchase.destroy({ where: { id: req.params.id } });
+    res.json({ message: "Purchase deleted successfully" });
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+};
+
+// ===============================
+// RESTORE (PARANOID)
+// ===============================
+const restorePurchase = async (req, res) => {
+  try {
+    await Purchase.restore({ where: { id: req.params.id } });
+    res.json({ message: "Purchase restored successfully" });
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+};
+
+
+
+export default { createPurchase,getAllPurchases,getPurchaseById,updatePurchase,deletePurchase,restorePurchase };

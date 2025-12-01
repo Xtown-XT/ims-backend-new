@@ -16,7 +16,7 @@ import financeRoutes from "./modules/finance/routes/index.js";
 import peoplesmasterRoutes from "./modules/peoplesmaster/Routes/index.js";
 import cuponRoutes from "./modules/promo/routes/index.js";
 import stockMasterRoutes from "./modules/stockmaster/routes/index.js";
-
+import purchaseRoutes from "./modules/purchase/routes/index.js"
 
 
 const app = express();
@@ -102,7 +102,7 @@ app.use("/ims_api/v1", cuponRoutes);
 
 app.use("/ims_api/v1", stockMasterRoutes);
 
-
+app.use("/ims_api/v1", purchaseRoutes);
 
 app.use((req, res) => {
   return res.sendError('Route not found', 404);
