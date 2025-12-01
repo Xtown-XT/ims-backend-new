@@ -12,43 +12,40 @@ const barcodeService = new BaseService(Barcode);
 // CREATE BARCODE
 // ----------------------------
 export const createBarcode = async (req, res) => {
- try {
-    // ZOD VALIDATION
+  try {
     const validated = barcodeSchema.parse(req.body);
 
-    // Generate unique barcode text if user does not send text
     let finalText = validated.text;
     if (!finalText || finalText.trim() === "") {
       finalText = generateUniqueBarcodeText();
     }
 
-    // Generate barcode image
     const png = await bwipjs.toBuffer({
       bcid: validated.type,
       text: finalText,
       scale: validated.scale,
       height: validated.height,
-      includetext: validated.includetext === true || validated.includetext === "true",
+      includetext:
+        validated.includetext === true || validated.includetext === "true",
       textxalign: validated.textxalign,
       paddingwidth: 10,
       paddingheight: 10,
       backgroundcolor: "FFFFFF",
     });
 
-    // Ensure folder exists
     const uploadDir = path.join(process.cwd(), "uploads", "barcodes");
     if (!fs.existsSync(uploadDir)) fs.mkdirSync(uploadDir, { recursive: true });
 
-    // Save image
     const fileName = `barcode_${Date.now()}.png`;
-    fs.writeFileSync(path.join(uploadDir, fileName), png);
+    const filePath = path.join(uploadDir, fileName);
+    fs.writeFileSync(filePath, png);
 
-    const imageUrl = `${fileName}`;
+    // ✅ FIXED → FULL IMAGE URL
+    const imageUrl = `/uploads/barcodes/${fileName}`;
 
-    // Save to DB
     const record = await barcodeService.create({
       text: finalText,
-      type: validated.type,
+      // type: validated.type,
       image_url: imageUrl,
     });
 

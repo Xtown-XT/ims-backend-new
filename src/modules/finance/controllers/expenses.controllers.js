@@ -159,6 +159,63 @@ export const deeleteExpense = async (req,res)=>{
 };
 
 
+export const updateExpenseById = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    if (!id) {
+      return res.status(400).json({ message: "Expense ID is required" });
+    }
+
+    const { 
+      expense, 
+      description, 
+      category_id, 
+      date, 
+      amount, 
+      status 
+    } = req.body;
+
+    const updated_by = req.user?.id; // from token
+
+    // Check record exists
+    const existingExpense = await Expense.findByPk(id);
+
+    if (!existingExpense) {
+      return res.status(404).json({
+        message: "Expense not found",
+      });
+    }
+
+    // Prepare update data
+    const updateData = {
+      expense: expense ?? existingExpense.expense,
+      description: description ?? existingExpense.description,
+      category_id: category_id ?? existingExpense.category_id,
+      date: date ?? existingExpense.date,
+      amount: amount ?? existingExpense.amount,
+      status: status ?? existingExpense.status,
+      updated_by
+    };
+
+    await existingExpense.update(updateData);
+
+    return res.status(200).json({
+      message: "Expense updated successfully",
+      data: existingExpense,
+    });
+
+  } catch (error) {
+    console.error("Error updating expense:", error);
+    return res.status(500).json({
+      message: "Failed to update expense",
+      error: error.message,
+    });
+  }
+};
 
 
-export default {createExpense,getAllExpenses,getExpenseById,deeleteExpense};
+
+
+
+export default {createExpense,getAllExpenses,getExpenseById,deeleteExpense,updateExpenseById};

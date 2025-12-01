@@ -67,6 +67,8 @@ const productController = {
 
     const product = await ProductInfo.create(productInfo, { transaction: t });
 
+    console.log("product : ", product);
+
     if (singleProduct) {
       await SingleProduct.create(
         { ...singleProduct, product_id: product.id, created_by: userId, updated_by: userId },

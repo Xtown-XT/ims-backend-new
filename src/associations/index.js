@@ -30,7 +30,7 @@ import Brand from "../modules/productmaster/models/brand.model.js";
 import Unit from "../modules/productmaster/models/unit.model.js";
 import Tax from "../modules/productmaster/models/tax.models.js";
 import Warehouse from "../modules/productmaster/models/warehouse.models.js";
-import Barcode from "../modules/productmaster/models/barcode.model.js";
+import Barcode from "../modules/productmaster/models/barcode.model.js";``
 // --------------------------------------------
 // EMPLOYEE ASSOCIATIONS
 // --------------------------------------------

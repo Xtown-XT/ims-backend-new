@@ -15,11 +15,11 @@ const Barcode = sequelize.define(
       allowNull: false,
       unique: true,
     },
-    type: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      defaultValue: "code128", // FIXED
-    },
+    // type: {
+    //   type: DataTypes.STRING,
+    //   allowNull: false,
+    //   defaultValue: "code128", // FIXED
+    // },
     image_url: {
       type: DataTypes.STRING,
       allowNull: false,
