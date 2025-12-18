@@ -12,6 +12,14 @@ const ProductImage = sequelize.define("ProductImage", {
         key: "id",
       },
    },
+    varient_product_id: { 
+    type: DataTypes.UUID,
+    allowNull: true,
+     references: {
+        model: "variantProduct",
+        key: "id",
+      },
+   },
   image_url: { type: DataTypes.STRING, allowNull: false },
 
  is_active: {

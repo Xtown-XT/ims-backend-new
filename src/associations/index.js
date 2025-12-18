@@ -30,8 +30,7 @@ import Brand from "../modules/productmaster/models/brand.model.js";
 import Unit from "../modules/productmaster/models/unit.model.js";
 import Tax from "../modules/productmaster/models/tax.models.js";
 import Warehouse from "../modules/productmaster/models/warehouse.models.js";
-
-import Barcode from "../modules/productmaster/models/barcode.model.js";``
+import Variants from "../modules/productmaster/models/variant.models.js";
 
 import Barcode from "../modules/productmaster/models/barcode.model.js";
 import Purchase from "../modules/purchase/models/purchase.model.js";
@@ -69,8 +68,8 @@ Subcategory.belongsTo(Categories, {
 // --------------------------------------------
 
 // STORE <-> PRODUCT
-Store.hasMany(ProductInfo, { foreignKey: "store_id" });
-ProductInfo.belongsTo(Store, { foreignKey: "store_id" });
+Store.hasMany(ProductInfo, { foreignKey: "store_id" , as: "stores" });
+ProductInfo.belongsTo(Store, { foreignKey: "store_id" , as: "stores" });
 
 // CATEGORY <-> PRODUCT
 Categories.hasMany(ProductInfo, { foreignKey: "category_id" });
@@ -93,8 +92,8 @@ ProductInfo.belongsTo(Unit, { foreignKey: "unit_id" });
 // ProductInfo.belongsTo(Tax, { foreignKey: "tax_id" });
 
 // WAREHOUSE <-> PRODUCT
-Warehouse.hasMany(ProductInfo, { foreignKey: "warehouse_id" });
-ProductInfo.belongsTo(Warehouse, { foreignKey: "warehouse_id" });
+Warehouse.hasMany(ProductInfo, { foreignKey: "warehouse_id" , as: "warehouses" });
+ProductInfo.belongsTo(Warehouse, { foreignKey: "warehouse_id" , as: "warehouses" });
 
 // // WAREHOUSE <-> Barcode
 // ProductInfo.hasOne(Barcode, { foreignKey: "barcode_symbology_id" });
@@ -113,8 +112,8 @@ Barcode.hasMany(ProductInfo, {
 
 
 // PRODUCT INFO <-> SINGLE PRODUCT
-ProductInfo.hasOne(SingleProduct, { foreignKey: "product_id" });
-SingleProduct.belongsTo(ProductInfo, { foreignKey: "product_id" });
+ProductInfo.hasOne(SingleProduct, { foreignKey: "product_id" ,  onDelete: "CASCADE",  onUpdate: "CASCADE"});
+SingleProduct.belongsTo(ProductInfo, { foreignKey: "product_id" , onDelete: "CASCADE",  onUpdate: "CASCADE"});
 
 
 // SINGLE PRODUCT <-> TAX
@@ -125,16 +124,32 @@ SingleProduct.belongsTo(Tax, { foreignKey: "tax_id", as: "tax" });
 Tax.hasMany(SingleProduct, { foreignKey: "tax_id", as: "tax" });
 
 // PRODUCT INFO <-> VARIANT PRODUCT
-ProductInfo.hasMany(VariantProduct, { foreignKey: "product_id" });
-VariantProduct.belongsTo(ProductInfo, { foreignKey: "product_id" });
+ProductInfo.hasMany(VariantProduct, { foreignKey: "product_id" ,onDelete: "CASCADE",  onUpdate: "CASCADE"});
+VariantProduct.belongsTo(ProductInfo, { foreignKey: "product_id" , onDelete: "CASCADE",  onUpdate: "CASCADE" });
 
 // PRODUCT IMAGES
-ProductInfo.hasMany(ProductImage, { foreignKey: "product_id" });
-ProductImage.belongsTo(ProductInfo, { foreignKey: "product_id" });
+ProductInfo.hasMany(ProductImage, { foreignKey: "product_id", onDelete: "CASCADE",  onUpdate: "CASCADE" });
+ProductImage.belongsTo(ProductInfo, { foreignKey: "product_id" , onDelete: "CASCADE",  onUpdate: "CASCADE"});
 
 // PRODUCT CUSTOM FIELDS
-ProductInfo.hasOne(CustomFields, { foreignKey: "product_id" });
-CustomFields.belongsTo(ProductInfo, { foreignKey: "product_id" });
+ProductInfo.hasOne(CustomFields, { foreignKey: "product_id" ,  as: "custom_fields" ,onDelete: "CASCADE",  onUpdate: "CASCADE"});
+CustomFields.belongsTo(ProductInfo, { foreignKey: "product_id" ,  as: "product" ,onDelete: "CASCADE",  onUpdate: "CASCADE"});
+
+
+// VARIANT PRODUCT <-> PRODUCT IMAGES
+VariantProduct.hasMany(ProductImage, {
+  foreignKey: "varient_product_id",   // <-- your actual DB column
+  as: "variant_images",
+  onDelete: "CASCADE",
+  onUpdate: "CASCADE",
+});
+
+ProductImage.belongsTo(VariantProduct, {
+  foreignKey: "varient_product_id",
+  as: "variant_image_of",
+  onDelete: "CASCADE",
+  onUpdate: "CASCADE",
+});
 
 // --------------------------------------------
 DiscountPlan.hasMany(Discount, {
@@ -155,10 +170,6 @@ Discount.belongsTo(DiscountPlan, {
 
   Purchase.hasMany(PurchaseItem, { foreignKey: "purchase_id", onDelete: "CASCADE" });
 PurchaseItem.belongsTo(Purchase, { foreignKey: "purchase_id" });
-
-
-
-
   
 // EXPENSE CATEGORY -> EXPENSE
 ExpenseCategory.hasMany(Expense, {
@@ -186,6 +197,7 @@ export {
   Tax,
   Warehouse,
   Barcode,
+  Variants,
   DiscountPlan,
   Discount,
   Customer,

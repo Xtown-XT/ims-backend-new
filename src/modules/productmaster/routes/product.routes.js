@@ -40,4 +40,24 @@ router.put("/updateProduct/:id",
   productController.updateProduct);
 
 
+// UPDATE updateVariantProductImages 
+router.put("/updateVariantProductImages/:id", 
+  uploadMultiple("images", "products" , 10),  // multiple images
+  verifyEmployeeToken, 
+  validate(updateProductSchema), 
+  productController.updateProduct);
+
+router.put(
+  "/updateVariantProductImages/:product_id/:variant_product_id",
+   verifyEmployeeToken, 
+  uploadMultiple("images", "products", 10), // folder path
+  productController.updateVariantProductImages);
+
+
+  //getAllExpProducts
+router.get("/getExpiredProducts", verifyEmployeeToken, productController.getAllExpProducts);
+
+// GET all products (single + variant)
+router.get("/getLowStockProducts", verifyEmployeeToken, productController.getLowStockProducts);
+
 export default router;

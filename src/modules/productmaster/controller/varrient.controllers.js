@@ -7,9 +7,9 @@ const variantService = new BaseService(Variant);
 // Create Variant
 export const createVariant = async (req, res) => {
   try {
-    const { variant_name, values, status } = req.body;
+    const { variant_name, variant_value, status } = req.body;
 
-    if (!variant_name || !values) {
+    if (!variant_name || !variant_value) {
       return res.status(400).json({
         status: "error",
         message: "variant_name and values are required",
@@ -18,7 +18,7 @@ export const createVariant = async (req, res) => {
 
     const newVariant = await variantService.create({
       variant_name,
-      values,
+      variant_value,
       status,
     });
 
@@ -37,6 +37,50 @@ export const createVariant = async (req, res) => {
   }
 };
 
+// export const createVariant = async (req, res) => {
+//   try {
+//     const { variant_name, variant_value, status } = req.body;
+
+//     if (!variant_name || !variant_value) {
+//       return res.status(400).json({
+//         status: "error",
+//         message: "variant_name and variant_value are required",
+//       });
+//     }
+
+//     // Convert input to array
+//     const valuesArray = Array.isArray(variant_value)
+//       ? variant_value
+//       : variant_value.split(",").map(v => v.trim());
+
+//     // Create multiple rows
+//     const rows = await Promise.all(
+//       valuesArray.map(value =>
+//         Variant.create({
+//           variant_name,
+//           variant_value: value,
+//           status: status ?? true,
+//         })
+//       )
+//     );
+
+//     return res.status(201).json({
+//       status: "success",
+//       message: "Variants created successfully",
+//       data: rows,
+//     });
+
+//   } catch (error) {
+//     console.error("❌ Error creating variant:", error);
+//     return res.status(500).json({
+//       status: "error",
+//       message: "Internal server error",
+//       error: error.message,
+//     });
+//   }
+// };
+
+
 //  get all variant
 export const getAllvariants = async (req,res)=>{
     try {
@@ -49,7 +93,7 @@ export const getAllvariants = async (req,res)=>{
       search: search || "",
       orderBy: "created_at", // ✅ matches BaseService default naming
       order: "DESC",
-      searchFields: ["variant_name", "values"],
+      searchFields: ["variant_name", "variant_value"],
     });
 
     return res.status(200).json({
@@ -66,7 +110,7 @@ export const getAllvariants = async (req,res)=>{
   }
 };   
 
-// update  varient by id 
+// // update  varient by id 
 
 export const updatevariant = async(req,res)=>{
   try {
@@ -88,6 +132,42 @@ export const updatevariant = async(req,res)=>{
     });
   }
 }
+
+// export const updatevariant = async (req, res) => {
+//   try {
+//     const { id } = req.params;
+//     const { variant_name, variant_value, status } = req.body;
+
+//     // Find row by ID
+//     const variant = await Variant.findByPk(id);
+
+//     if (!variant) {
+//       return res.status(404).json({
+//         message: "Variant not found",
+//       });
+//     }
+
+//     // Update row
+//     await variant.update({
+//       variant_name: variant_name ?? variant.variant_name,
+//       variant_value: variant_value ?? variant.variant_value,
+//       status: status ?? variant.status,
+//     });
+
+//     return res.status(200).json({
+//       message: "Variant updated successfully",
+//       data: variant,
+//     });
+
+//   } catch (error) {
+//     console.error("❌ Error updating variant:", error);
+//     return res.status(500).json({
+//       message: "Internal server error",
+//       error: error.message,
+//     });
+//   }
+// };
+
 
 // getsingle id
 

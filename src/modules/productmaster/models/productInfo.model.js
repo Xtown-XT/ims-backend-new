@@ -20,7 +20,7 @@ const ProductInfo = sequelize.define("ProductInfo", {
   product_name: { type: DataTypes.STRING, allowNull: false   },
   slug: { type: DataTypes.STRING, allowNull: false, unique: true },
 
-  sku: { type: DataTypes.STRING, allowNull: false, unique: true },
+  sku: { type: DataTypes.STRING, allowNull: true, unique: true },
 
   category_id: { type: DataTypes.UUID, allowNull: false,
       references: {
@@ -50,7 +50,7 @@ const ProductInfo = sequelize.define("ProductInfo", {
       },
    },
 
-  barcode_symbology_id: { type: DataTypes.UUID, allowNull: false ,
+  barcode_symbology_id: { type: DataTypes.UUID, allowNull: true ,
       references: {
         model: "barcodes",
         key: "id",

@@ -34,8 +34,7 @@ const createPurchase = async (req, res) => {
     let totalCost = 0;
     items.forEach((p) => {
       const unitPrice = p.price - p.discount + p.tax_amount;
-      const total = unitPrice * p.qty;
-      totalCost += total;
+      totalCost += unitPrice * p.qty;
     });
 
     // Create purchase
@@ -56,10 +55,9 @@ const createPurchase = async (req, res) => {
       { transaction: t }
     );
 
-    // Create purchase items
+    // Create all purchase items
     for (const p of items) {
       const unitPrice = p.price - p.discount + p.tax_amount;
-      const total = unitPrice * p.qty;
 
       await PurchaseItem.create(
         {
@@ -71,7 +69,7 @@ const createPurchase = async (req, res) => {
           tax_percent: p.tax_percent,
           tax_amount: p.tax_amount,
           unit_price: unitPrice,
-          total_cost: total,
+          total_cost: unitPrice * p.qty,
           created_by,
           updated_by: created_by,
         },
@@ -80,7 +78,7 @@ const createPurchase = async (req, res) => {
     }
 
     await t.commit();
-    res.status(201).json({ message: "Purchase created successfully", purchase });
+    res.status(201).json({ message: "Purchase created successfully" });
   } catch (err) {
     await t.rollback();
     res.status(500).json({ message: err.message });
@@ -88,16 +86,29 @@ const createPurchase = async (req, res) => {
 };
 
 // ===============================
-// GET ALL PURCHASES
+// GET ALL PURCHASES (WITH PAGINATION)
 // ===============================
 const getAllPurchases = async (req, res) => {
   try {
-    const purchases = await Purchase.findAll({
+    const {
+      search = "",
+      page = 1,
+      limit = 10,
+      orderBy = "createdAt",
+      order = "DESC",
+    } = req.query;
+
+    const result = await purchaseService.getAll({
+      search,
+      page: Number(page),
+      limit: Number(limit),
+      orderBy,
+      order,
+      searchFields: ["reference"], // Add more fields if needed
       include: [{ model: PurchaseItem }],
-      order: [["createdAt", "DESC"]],
     });
 
-    res.status(200).json({ purchases });
+    res.status(200).json(result);
   } catch (err) {
     res.status(500).json({ message: err.message });
   }
@@ -112,10 +123,11 @@ const getPurchaseById = async (req, res) => {
       include: [{ model: PurchaseItem }],
     });
 
-    if (!purchase)
+    if (!purchase) {
       return res.status(404).json({ message: "Purchase not found" });
+    }
 
-    res.status(200).json({ purchase });
+    res.status(200).json(purchase);
   } catch (err) {
     res.status(500).json({ message: err.message });
   }
@@ -126,6 +138,7 @@ const getPurchaseById = async (req, res) => {
 // ===============================
 const updatePurchase = async (req, res) => {
   const t = await sequelize.transaction();
+
   try {
     const { id } = req.params;
     const {
@@ -143,15 +156,15 @@ const updatePurchase = async (req, res) => {
     const updated_by = req.user?.id || "system";
 
     const purchase = await Purchase.findByPk(id);
-    if (!purchase)
+    if (!purchase) {
       return res.status(404).json({ message: "Purchase not found" });
+    }
 
     // Recalculate total cost
     let totalCost = 0;
     items.forEach((p) => {
       const unitPrice = p.price - p.discount + p.tax_amount;
-      const total = unitPrice * p.qty;
-      totalCost += total;
+      totalCost += unitPrice * p.qty;
     });
 
     // Update purchase
@@ -180,7 +193,6 @@ const updatePurchase = async (req, res) => {
     // Insert new items
     for (const p of items) {
       const unitPrice = p.price - p.discount + p.tax_amount;
-      const total = unitPrice * p.qty;
 
       await PurchaseItem.create(
         {
@@ -192,7 +204,7 @@ const updatePurchase = async (req, res) => {
           tax_percent: p.tax_percent,
           tax_amount: p.tax_amount,
           unit_price: unitPrice,
-          total_cost: total,
+          total_cost: unitPrice * p.qty,
           updated_by,
         },
         { transaction: t }
@@ -207,149 +219,20 @@ const updatePurchase = async (req, res) => {
   }
 };
 
-// export const updatePurchase = async (req, res) => {
-//   const t = await sequelize.transaction();
-//   try {
-//     const { purchase_id } = req.params;
-//     const { items, ...purchaseData } = req.body;
-
-//     // Update purchase main data
-//     await Purchase.update(purchaseData, {
-//       where: { id: purchase_id },
-//       transaction: t
-//     });
-
-//     // Get existing items
-//     const existingItems = await PurchaseItem.findAll({
-//       where: { purchase_id },
-//       transaction: t
-//     });
-
-//     const existingItemIds = existingItems.map(i => i.id);
-//     const incomingItemIds = items.filter(i => i.id).map(i => i.id);
-
-//     // DELETE removed items
-//     for (const oldId of existingItemIds) {
-//       if (!incomingItemIds.includes(oldId)) {
-//         await PurchaseItem.destroy({
-//           where: { id: oldId },
-//           transaction: t
-//         });
-//       }
-//     }
-
-//     // ADD or UPDATE items
-//     for (const item of items) {
-//       if (item.id) {
-//         // UPDATE
-//         await PurchaseItem.update(
-//           { ...item },
-//           { where: { id: item.id }, transaction: t }
-//         );
-//       } else {
-//         // CREATE
-//         await PurchaseItem.create(
-//           { ...item, purchase_id },
-//           { transaction: t }
-//         );
-//       }
-//     }
-
-//     await t.commit();
-//     res.status(200).json({ message: "Purchase updated successfully" });
-
-//   } catch (error) {
-//     if (t) await t.rollback();
-//     res.status(500).json({ message: error.message });
-//   }
-// };
-
-// export const updatePurchase = async (req, res) => {
-//   const t = await sequelize.transaction();
-
-//   try {
-//     const { purchase_id } = req.params;
-//     const { items = [], ...purchaseData } = req.body;
-
-//     if (!purchase_id) {
-//       return res.status(400).json({ message: "purchase_id is required" });
-//     }
-
-//     // Update purchase main data
-//     await Purchase.update(purchaseData, {
-//       where: { id: purchase_id },
-//       transaction: t
-//     });
-
-//     // Get existing items from DB
-//     const existingItems = await PurchaseItem.findAll({
-//       where: { purchase_id },
-//       transaction: t
-//     });
-
-//     const existingItemIds = existingItems.map(i => i.id);
-//     const incomingItemIds = items.filter(i => i.id).map(i => i.id);
-
-//     // DELETE removed items
-//     for (const oldId of existingItemIds) {
-//       if (!incomingItemIds.includes(oldId)) {
-//         await PurchaseItem.destroy({
-//           where: { id: oldId },
-//           transaction: t
-//         });
-//       }
-//     }
-
-//     // ADD or UPDATE items
-//     for (const item of items) {
-//       const cleanItem = {
-//         product_id: item.product_id,
-//         qty: item.qty,
-//         price: item.price,
-//         discount: item.discount,
-//         tax_percent: item.tax_percent,
-//         tax_amount: item.tax_amount
-//       };
-
-//       if (item.id) {
-//         // UPDATE
-//         await PurchaseItem.update(cleanItem, {
-//           where: { id: item.id, purchase_id },
-//           transaction: t
-//         });
-//       } else {
-//         // CREATE
-//         await PurchaseItem.create(
-//           { ...cleanItem, purchase_id },
-//           { transaction: t }
-//         );
-//       }
-//     }
-
-//     await t.commit();
-//     res.status(200).json({ message: "Purchase updated successfully" });
-
-//   } catch (error) {
-//     if (t) await t.rollback();
-//     res.status(500).json({ message: error.message });
-//   }
-// };
-
-
 // ===============================
-// DELETE PURCHASE
+// DELETE PURCHASE (via BaseService)
 // ===============================
 const deletePurchase = async (req, res) => {
   try {
-    await Purchase.destroy({ where: { id: req.params.id } });
-    res.json({ message: "Purchase deleted successfully" });
+    const response = await purchaseService.delete(req.params.id);
+    res.json(response);
   } catch (err) {
     res.status(500).json({ message: err.message });
   }
 };
 
 // ===============================
-// RESTORE (PARANOID)
+// RESTORE PURCHASE
 // ===============================
 const restorePurchase = async (req, res) => {
   try {
@@ -360,6 +243,35 @@ const restorePurchase = async (req, res) => {
   }
 };
 
+export default {
+  createPurchase,
+  getAllPurchases,
+  getPurchaseById,
+  updatePurchase,
+  deletePurchase,
+  restorePurchase,
+};
 
 
-export default { createPurchase,getAllPurchases,getPurchaseById,updatePurchase,deletePurchase,restorePurchase };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

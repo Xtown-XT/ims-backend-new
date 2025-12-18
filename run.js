@@ -3,6 +3,8 @@
 import app from './src/index.js';
 import dotenv from 'dotenv';
 import os from 'os';
+import "./src/index.js";     // <-- LOAD ALL MODELS
+import "./src/associations/index.js"; // <-- THEN LOAD ASSOCIATIONS
 
 
 import { sequelize as imsSequelize } from './src/db/index.js';

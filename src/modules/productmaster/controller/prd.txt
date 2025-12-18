@@ -300,3 +300,923 @@
 //     res.status(500).json({ message: error.message });
 //   }
 // }
+
+
+================================
+
+
+    // if (variantProducts?.length > 0) {
+    //   for (const v of variantProducts) {
+    //     const variantSku = `${product.sku}-V${Math.floor(Math.random() * 9000) + 1000}`;
+    //     await VariantProduct.create(
+    //       { ...v, product_id: product.id, sku: variantSku, created_by: userId, updated_by: userId },
+    //       { transaction: t }
+    //     );
+    //   }
+    // }
+
+//     if (variantProducts && variantProducts.length > 0) {
+//   for (const v of variantProducts) {
+
+//     // Auto SKU for Variant
+//     const variantSku = `${product.sku}-V${Math.floor(Math.random() * 9000) + 1000}`;
+//      console.log("variantSku :", variantSku);
+//     await VariantProduct.create(
+//       {
+//         product_id: product.id,
+
+//         attribute_name: v.attribute_name,      // color / size
+//         attribute_value: v.attribute_value,    // red / black
+
+//         sku: variantSku,
+
+//         quantity: v.quantity ?? 0,
+//         price: v.price ?? 0,
+
+//         created_by: userId,
+//         updated_by: userId,
+//       },
+//       { transaction: t }
+//     );
+//   }
+// }
+
+====================================================
+
+
+    // if (req.files?.length > 0) {
+    //   for (const file of req.files) {
+    //     await ProductImage.create(
+    //       { product_id: product.id, image_url: file.filename, created_by: userId },
+    //       { transaction: t }
+    //     );
+    //   }
+    // }
+
+    =========================================================
+
+
+    
+// async updateProduct(req, res) {
+//   const t = await sequelize.transaction();
+
+//   try {
+//     const { id } = req.params;
+//     const userId = req.user?.id;
+
+//     const productInfo = req.body.productInfo ? JSON.parse(req.body.productInfo) : {};
+//     const singleProduct = req.body.singleProduct ? JSON.parse(req.body.singleProduct) : null;
+//     const variantProducts = req.body.variantProducts ? JSON.parse(req.body.variantProducts) : null;
+//     const customFields = req.body.customFields ? JSON.parse(req.body.customFields) : null;
+
+//     // Check if product exists
+//     const product = await ProductInfo.findByPk(id);
+//     if (!product) return res.status(404).json({ message: "Product not found" });
+
+//     // ---------- UPDATE MAIN PRODUCT ----------
+//     if (productInfo) {
+//       productInfo.updated_by = userId;
+//       await ProductInfo.update(productInfo, { where: { id }, transaction: t });
+//     }
+
+//     // ---------- UPDATE SINGLE PRODUCT ----------
+//     if (singleProduct) {
+//       await SingleProduct.update(
+//         { ...singleProduct, updated_by: userId },
+//         { where: { product_id: id }, transaction: t }
+//       );
+//     }
+
+//     // ---------- UPDATE VARIANTS ----------
+//     if (variantProducts?.length > 0) {
+//       // Remove old variants and insert new ones
+//       await VariantProduct.destroy({ where: { product_id: id }, transaction: t });
+
+//       for (const v of variantProducts) {
+//         const variantSku = `${product.sku}-V${Math.floor(Math.random() * 9000) + 1000}`;
+//         await VariantProduct.create(
+//           { ...v, product_id: id, sku: variantSku, created_by: userId, updated_by: userId },
+//           { transaction: t }
+//         );
+//       }
+//     }
+
+//     // ---------- UPDATE IMAGES ----------
+//     if (req.files?.length > 0) {
+//       // delete previous images
+//       await ProductImage.destroy({ where: { product_id: id }, transaction: t });
+
+//       for (const file of req.files) {
+//         await ProductImage.create(
+//           { product_id: id, image_url: file.filename, created_by: userId },
+//           { transaction: t }
+//         );
+//       }
+//     }
+
+//     // ---------- UPDATE CUSTOM FIELDS ----------
+//     if (customFields) {
+//       await CustomFields.update(
+//         { ...customFields, updated_by: userId },
+//         { where: { product_id: id }, transaction: t }
+//       );
+//     }
+
+//     await t.commit();
+//     return res.status(200).json({ message: "Product updated successfully" });
+
+//   } catch (error) {
+//     await t.rollback();
+//     return res.status(500).json({ message: error.message });
+//   }
+// },
+
+
+  // if (Array.isArray(variantProducts) && variantProducts.length > 0) {
+    //   await VariantProduct.destroy({
+    //     where: { product_id: id },
+    //     transaction: t,
+    //   });
+
+    //   for (const v of variantProducts) {
+    //     const variantSku = `${product.sku}-V${Math.floor(
+    //       Math.random() * 9000
+    //     ) + 1000}`;
+
+    //     await VariantProduct.create(
+    //       {
+    //         ...v,
+    //         product_id: id,
+    //         sku: variantSku,
+    //         created_by: userId,
+    //         updated_by: userId,
+    //       },
+    //       { transaction: t }
+    //     );
+    //   }
+    // }
+=======================================================mmmmmmm
+
+
+
+// // ===================== VARIANT PRODUCTS ======================
+// if (Array.isArray(variantProducts) && variantProducts.length > 0) {
+//   for (const v of variantProducts) {
+    
+//     // Auto SKU generator
+//     const variantSku = `${product.sku}-V${Math.floor(Math.random() * 9000) + 1000}`;
+
+//     await VariantProduct.create(
+//       {
+//         product_id: product.id,
+        
+//         attribute_name: v.attribute_name,
+//         attribute_value: v.attribute_value,
+
+//         sku: variantSku,
+//         barcode_symbology_id: v.barcode_symbology_id,
+
+//         quantity: v.quantity ?? 0,
+//         quantity_alert: v.quantity_alert ?? 0,
+
+//         price: v.price ?? 0,
+
+//         tax_id: v.tax_id,
+//         tax_type: v.tax_type,
+
+//         discount_type: v.discount_type,
+//         discount_value: v.discount_value,
+
+//         created_by: userId,
+//         updated_by: userId,
+//       },
+//       { transaction: t }
+//     );
+//   }
+// }
+
+// ===================== VARIANT PRODUCTS ======================
+if (Array.isArray(variantProducts) && variantProducts.length > 0) {
+  for (const v of variantProducts) {
+
+    // 1️⃣ Get the variant row for the attribute_name
+    const variantRow = await Variants.findOne({
+      where: { variant_name: v.attribute_name },
+      transaction: t
+    });
+
+    if (!variantRow) {
+      await t.rollback();
+      return res.status(400).json({
+        message: `Variant type '${v.attribute_name}' does not exist`
+      });
+    }
+
+    // 2️⃣ Convert stored CSV string → array
+    const allowedValues = variantRow.variant_value.split(",").map(val => val.trim());
+
+    // 3️⃣ Check if incoming attribute_value is valid
+    if (!allowedValues.includes(v.attribute_value)) {
+      await t.rollback();
+      return res.status(400).json({
+        message: `Invalid attribute_value '${v.attribute_value}'. Allowed values: ${allowedValues.join(", ")}`
+      });
+    }
+
+    // 4️⃣ Auto SKU generator
+    const variantSku = `${product.sku}-V${Math.floor(Math.random() * 9000) + 1000}`;
+
+    // 5️⃣ Create variant product only after validation
+    await VariantProduct.create(
+      {
+        product_id: product.id,
+
+        attribute_name: v.attribute_name,
+        attribute_value: v.attribute_value,
+
+        sku: variantSku,
+        barcode_symbology_id: v.barcode_symbology_id,
+
+        quantity: v.quantity ?? 0,
+        quantity_alert: v.quantity_alert ?? 0,
+
+        price: v.price ?? 0,
+
+        tax_id: v.tax_id,
+        tax_type: v.tax_type,
+
+        discount_type: v.discount_type,
+        discount_value: v.discount_value,
+
+        created_by: userId,
+        updated_by: userId,
+      },
+      { transaction: t }
+    );
+  }
+}
+
+
+//     if (req.files?.length > 0) {
+//   for (const file of req.files) {
+//     await ProductImage.create(
+//       {
+//         product_id: id,                 // main product always required
+//         variant_product_id: req.body.variant_product_id || null, 
+//         image_url: file.filename,
+//         created_by: userId,
+//         updated_by: userId,
+//         is_active: true
+//       },
+//       { transaction: t }
+//     );
+//   }
+// }
+
+
+================================
+
+//   // // ===================== CREATE FULL PRODUCT ======================
+//   async createFullProduct(req, res) {
+//   const t = await sequelize.transaction();
+//   try {
+
+//     // extract user id from token
+//     const userId = req.user?.id;    
+
+//     const productInfo = req.body.productInfo ? JSON.parse(req.body.productInfo) : {};
+//     const singleProduct = req.body.singleProduct ? JSON.parse(req.body.singleProduct) : null;
+//     const variantProducts = req.body.variantProducts ? JSON.parse(req.body.variantProducts) : null;
+//     const customFields = req.body.customFields ? JSON.parse(req.body.customFields) : null;
+
+//     if (singleProduct && variantProducts) {
+//       return res.status(400).json({ message: "Provide either singleProduct OR variantProducts, not both." });
+//     }
+//     if (!singleProduct && !variantProducts) {
+//       return res.status(400).json({ message: "Either singleProduct or variantProducts is required." });
+//     }
+
+//     if (!productInfo.sku) {
+//       productInfo.sku = await generateSKU({
+//         storeId: productInfo.store_id,
+//         categoryId: productInfo.category_id
+//       });
+//     }
+
+//     if (!productInfo.slug && productInfo.product_name) {
+//       productInfo.slug = generateSlug(productInfo.product_name);
+//     }
+
+//     // ---------- Add Created By & Updated By ----------
+//     productInfo.created_by = userId;
+//     productInfo.updated_by = userId;
+
+//     const product = await ProductInfo.create(productInfo, { transaction: t });
+
+//     console.log("product : ", product);
+
+//     if (singleProduct) {
+//       await SingleProduct.create(
+//         { ...singleProduct, product_id: product.id, created_by: userId, updated_by: userId },
+//         { transaction: t }
+//       );
+//     }
+// // ===================== VARIANT PRODUCTS ======================
+// if (Array.isArray(variantProducts) && variantProducts.length > 0) {
+//   for (const v of variantProducts) {
+    
+//     // 1️⃣ Find variant row (example: size, color)
+//     const variantRow = await Variants.findOne({
+//       where: { variant_name: v.attribute_name },
+//       transaction: t
+//     });
+
+//     if (!variantRow) {
+//       await t.rollback();
+//       return res.status(400).json({
+//         message: `Variant type '${v.attribute_name}' does not exist`
+//       });
+//     }
+
+//     // 2️⃣ Convert stored list → array AND clean values
+//     const allowedValues = variantRow.variant_value
+//       .split(",")
+//       .map(val => val.trim().toLowerCase());  // normalize to lowercase
+
+//     // 3️⃣ Clean incoming value
+//     const incomingValue = v.attribute_value.trim().toLowerCase();
+
+//     // 4️⃣ Match check
+//     if (!allowedValues.includes(incomingValue)) {
+//       await t.rollback();
+//       return res.status(400).json({
+//         message: `Invalid value '${v.attribute_value}' for '${v.attribute_name}'. Allowed: ${allowedValues.join(", ")}`
+//       });
+//     }
+
+//     // 5️⃣ Generate variant SKU
+//     const variantSku = `${product.sku}-V${Math.floor(Math.random() * 9000) + 1000}`;
+
+//     // 6️⃣ Insert variant product
+//     await VariantProduct.create(
+//       {
+//         product_id: product.id,
+
+//         attribute_name: v.attribute_name,
+//         attribute_value: incomingValue,   // save clean value
+
+//         sku: variantSku,
+//         barcode_symbology_id: v.barcode_symbology_id,
+
+//         quantity: v.quantity ?? 0,
+//         quantity_alert: v.quantity_alert ?? 0,
+
+//         price: v.price ?? 0,
+
+//         tax_id: v.tax_id,
+//         tax_type: v.tax_type,
+
+//         discount_type: v.discount_type,
+//         discount_value: v.discount_value,
+
+//         created_by: userId,
+//         updated_by: userId,
+//       },
+//       { transaction: t }
+//     );
+//   }
+// }
+
+// // ===================== PRODUCT IMAGES ======================
+// if (req.files?.length > 0) {
+//   for (const file of req.files) {
+//     await ProductImage.create(
+//       {
+//         product_id: product.id,      // FIXED
+//         variant_product_id: null,    // OR pass correct variant_product_id manually
+//         image_url: file.filename,
+//         created_by: userId,
+//         updated_by: userId,
+//         is_active: true
+//       },
+//       { transaction: t }
+//     );
+//   }
+// }
+
+//     if (customFields) {
+//       await CustomFields.create(
+//         { ...customFields, product_id: product.id, created_by: userId, updated_by: userId },
+//         { transaction: t }
+//       );
+//     }
+
+//     await t.commit();
+//     return res.status(201).json({ message: "Product created successfully" });
+
+//   } catch (error) {
+//     await t.rollback();
+//     return res.status(500).json({ message: error.message });
+//   }
+// },
+===================================================================================================
+
+
+   // // ===================== PRODUCT IMAGES ======================
+    // if (req.files?.length > 0) {
+    //   for (const file of req.files) {
+    //     await ProductImage.create(
+    //       {
+    //         product_id: product.id,
+    //         variant_product_id: null,
+    //         image_url: file.filename,
+    //         created_by: userId,
+    //         updated_by: userId,
+    //         is_active: true
+    //       },
+    //       { transaction: t }
+    //     );
+    //   }
+    // }
+
+    // ===================== PRODUCT IMAGES ======================
+// if (req.files?.length > 0) {
+
+//   let variantProductId = null;
+
+//   // If VARIANT PRODUCTS exist → Get the latest created variant product for this product
+//   if (!singleProduct && Array.isArray(variantProducts) && variantProducts.length > 0) {
+//     const lastVariant = await VariantProduct.findOne({
+//       where: { product_id: product.id },
+//       order: [["createdAt", "DESC"]],
+//       transaction: t
+//     });
+
+//     if (lastVariant) {
+//       variantProductId = lastVariant.id;
+//     }
+//   }
+
+//   // Save all images
+//   for (const file of req.files) {
+//     await ProductImage.create(
+//       {
+//         product_id: product.id,
+//           variant_product_id: req.body.variant_product_id || null,
+//         // variant_product_id: variantProductId, // <-- Only set when variants exist
+//         image_url: file.filename,
+//         created_by: userId,
+//         updated_by: userId,
+//         is_active: true
+//       },
+//       { transaction: t }
+//     );
+//   }
+// }
+
+
+=====================================================================
+
+
+// async getAllExpProducts(req, res) {
+//   try {
+//     // Pagination Values
+//     const page = parseInt(req.query.page) || 1;
+//     const limit = parseInt(req.query.limit) || 10;
+//     const offset = (page - 1) * limit;
+
+//     const { rows, count } = await ProductInfo.findAndCountAll({
+//       include: [
+//         {
+//           model: Store,
+//           as: "stores",
+//           attributes: ["store_name", "store_code"],
+//         },
+//         {
+//           model: Warehouse,
+//           as: "warehouses",
+//           attributes: ["warehouse_name"],
+//         },
+//         {
+//           model: CustomFields,
+//           as: "custom_fields",
+//           attributes: ["manufactured_date", "expiry_on"],
+//         },
+//       ],
+//       limit,
+//       offset,
+//       order: [["createdAt", "DESC"]],
+//     });
+
+//     const formatted = rows.map((p) => ({
+//       id: p.id,
+//       product_name: p.product_name,
+//       sku: p.sku,
+//       store_id: p.store_id,
+//       warehouse_id: p.warehouse_id,
+
+//       // Custom fields formatted
+//       manufactured_date: formatDates(p.custom_fields?.manufactured_date),
+//       expired_date: formatDates(p.custom_fields?.expiry_on),
+
+//       // Store info
+//       store: {
+//         store_name: p.stores?.store_name || "",
+//         store_code: p.stores?.store_code || "",
+//       },
+
+//       // Warehouse info
+//       warehouse: {
+//         warehouse_name: p.warehouses?.warehouse_name || "",
+//       },
+
+//       // Main model created/updated dates
+//       createdAt: formatDates(p.createdAt),
+//       updatedAt: formatDates(p.updatedAt),
+//     }));
+
+//     res.status(200).json({
+//       success: true,
+//       total: count,
+//       current_page: page,
+//       total_pages: Math.ceil(count / limit),
+//       data: formatted,
+//     });
+
+//   } catch (error) {
+//     console.log(error);
+
+//     res.status(500).json({
+//       success: false,
+//       message: "Server error",
+//       error: error.message,
+//     });
+//   }
+// }
+
+
+// async getAllExpProducts(req, res) {
+//   try {
+//     // Pagination Values
+//     const page = parseInt(req.query.page) || 1;
+//     const limit = parseInt(req.query.limit) || 10;
+//     const offset = (page - 1) * limit;
+
+//     const { rows, count } = await ProductInfo.findAndCountAll({
+//       include: [
+//         {
+//           model: Store,
+//           as: "stores",
+//           attributes: ["store_name", "store_code"],
+//         },
+//         {
+//           model: Warehouse,
+//           as: "warehouses",
+//           attributes: ["warehouse_name"],
+//         },
+//         {
+//           model: CustomFields,
+//           as: "custom_fields",
+//           attributes: ["manufactured_date", "expiry_on"],
+//         },
+//       ],
+//       limit,
+//       offset,
+//       order: [["createdAt", "DESC"]],
+//     });
+
+//     const formatted = rows.map((p) => ({
+//       id: p.id,
+//       product_name: p.product_name,
+//       sku: p.sku,
+//       store_id: p.store_id,
+//       warehouse_id: p.warehouse_id,
+
+//       // Custom fields formatted
+//       manufactured_date: formatDates(p.custom_fields?.manufactured_date),
+//       expired_date: formatDates(p.custom_fields?.expiry_on),
+
+//       // Store info
+//       store: {
+//         store_name: p.stores?.store_name || "",
+//         store_code: p.stores?.store_code || "",
+//       },
+
+//       // Warehouse info
+//       warehouse: {
+//         warehouse_name: p.warehouses?.warehouse_name || "",
+//       },
+
+//       // Main model created/updated dates formatted
+//       createdAt: formatDates(p.createdAt),
+//       updatedAt: formatDates(p.updatedAt),
+//     }));
+
+//     return res.status(200).json({
+//       success: true,
+//       total: count,
+//       current_page: page,
+//       total_pages: Math.ceil(count / limit),
+//       data: formatted,
+//     });
+
+//   } catch (error) {
+//     console.log(error);
+
+//     return res.status(500).json({
+//       success: false,
+//       message: "Server error",
+//       error: error.message,
+//     });
+//   }
+// }
+
+
+
+// async getAllExpProducts(req, res) {
+//   try {
+//     // Pagination
+//     const page = parseInt(req.query.page) || 1;
+//     const limit = parseInt(req.query.limit) || 10;
+//     const offset = (page - 1) * limit;
+
+//     const { rows, count } = await ProductInfo.findAndCountAll({
+//       include: [
+//         {
+//           model: Store,
+//           as: "stores",
+//           attributes: ["store_name", "store_code"],
+//         },
+//         {
+//           model: Warehouse,
+//           as: "warehouses",
+//           attributes: ["warehouse_name"],
+//         },
+//         {
+//           model: CustomFields,
+//           as: "custom_fields",
+//           attributes: ["manufactured_date", "expiry_on"],
+//         },
+//       ],
+//       limit,
+//       offset,
+//       order: [["createdAt", "DESC"]],
+//     });
+
+//     const formatted = rows.map((p) => ({
+//       id: p.id,
+//       product_name: p.product_name,
+//       sku: p.sku,
+//       store_id: p.store_id,
+//       warehouse_id: p.warehouse_id,
+
+//       // Dates formatted cleanly
+//       manufactured_date: p.custom_fields?.manufactured_date
+//         ? moment(p.custom_fields.manufactured_date).format("DD MMM YYYY")
+//         : "",
+
+//       expired_date: p.custom_fields?.expiry_on
+//         ? moment(p.custom_fields.expiry_on).format("DD MMM YYYY")
+//         : "",
+
+//       // Store info
+//       store: {
+//         store_name: p.stores?.store_name || "",
+//         store_code: p.stores?.store_code || "",
+//       },
+
+//       // Warehouse info
+//       warehouse: {
+//         warehouse_name: p.warehouses?.warehouse_name || "",
+//       },
+//     }));
+
+//     return res.status(200).json({
+//       success: true,
+//       total: count,
+//       current_page: page,
+//       total_pages: Math.ceil(count / limit),
+//       data: formatted,
+//     });
+
+//   } catch (error) {
+//     console.log(error);
+
+//     return res.status(500).json({
+//       success: false,
+//       message: "Server error",
+//       error: error.message,
+//     });
+//   }
+// }
+
+==================================================================================================
+
+
+// async getLowStockProducts(req, res) {
+//     try {
+//       // ============================
+//       // 1️⃣ LOW STOCK → SINGLE PRODUCTS
+//       // ============================
+//       const singleProducts = await SingleProduct.findAll({
+//         where: {
+//           quantity: {
+//             [Op.lte]: Sequelize.col("SingleProduct.quantity_alert")
+//           }
+//         },
+//         include: [
+//           {
+//             model: ProductInfo,
+//             include: [
+//               { model: Warehouse, as: "warehouses", attributes: ["id", "warehouse_name"] },
+//               { model: Store, as: "stores", attributes: ["id", "store_name"] },
+//               { model: Categories, attributes: ["id", "category_name"] },
+//               {
+//                 model: ProductImage,
+//                 attributes: ["image_url"],
+//                 required: false,
+//                 where: { varient_product_id: null }
+//               }
+//             ]
+//           }
+//         ]
+//       });
+
+//       const singleMapped = singleProducts.map((s) => ({
+//         type: "single",
+//         product_id: s.product_id,
+//         sku: s.ProductInfo.sku,
+//         product_name: s.ProductInfo.product_name,
+//         warehouse: s.ProductInfo.warehouses?.warehouse_name || null,
+//         store: s.ProductInfo.stores?.store_name || null,
+//         category: s.ProductInfo.Category?.category_name || null,
+//         qty: s.quantity,
+//         qty_alert: s.quantity_alert,
+//         image: s.ProductInfo.ProductImages?.[0]?.image_url || null
+//       }));
+
+//       // ============================
+//       // 2️⃣ LOW STOCK → VARIANT PRODUCTS
+//       // ============================
+//       const variantProducts = await VariantProduct.findAll({
+//         where: {
+//           quantity: {
+//             [Op.lte]: Sequelize.col("VariantProduct.quantity_alert")
+//           }
+//         },
+//         include: [
+//           {
+//             model: ProductInfo,
+//             include: [
+//               { model: Warehouse, as: "warehouses", attributes: ["id", "warehouse_name"] },
+//               { model: Store, as: "stores", attributes: ["id", "store_name"] },
+//               { model: Categories, attributes: ["id", "category_name"] }
+//             ]
+//           },
+//           {
+//             model: ProductImage, 
+//              as: "variant_images",
+//             required: false,
+//             attributes: ["image_url"]
+//           }
+//         ]
+//       });
+
+//       const variantMapped = variantProducts.map((v) => ({
+//         type: "variant",
+//         product_id: v.product_id,
+//         sku: v.sku,
+//         product_name: v.ProductInfo.product_name,
+//         warehouse: v.ProductInfo.warehouses?.warehouse_name || null,
+//         store: v.ProductInfo.stores?.store_name || null,
+//         category: v.ProductInfo.Category?.category_name || null,
+//         attribute_name: v.attribute_name,
+//         attribute_value: v.attribute_value,
+//         qty: v.quantity,
+//         qty_alert: v.quantity_alert,
+//         image: v.ProductImages?.[0]?.image_url || null
+//       }));
+
+//       // ============================
+//       // 3️⃣ MERGE RESULTS
+//       // ============================
+//       const finalResponse = [...singleMapped, ...variantMapped];
+
+//       return res.status(200).json({
+//         message: "Low stock products fetched successfully",
+//         data: finalResponse
+//       });
+//     } catch (error) {
+//       return res.status(500).json({ message: error.message });
+//     }
+//   }
+
+
+
+// async getLowStockProducts(req, res) {
+//   try {
+//     // ============================================================
+//     // 🚀 SINGLE PRODUCTS LOW STOCK
+//     // ============================================================
+//     const singleProducts = await SingleProduct.findAll({
+//       where: {
+//         quantity: {
+//           [Op.lte]: Sequelize.col("SingleProduct.quantity_alert"),
+//         },
+//       },
+//       include: [
+//         {
+//           model: ProductInfo,
+//           include: [
+//             { model: Store, as: "stores", where: { status: "active" }, attributes: ["id", "store_name", "store_code"] },
+//             { model: Warehouse, as: "warehouses", where: { status: "active" }, attributes: ["id", "warehouse_name"] },
+//             { model: Categories, where: { is_active: true }, attributes: ["id", "category_name", "category_code"] },
+//             { model: Subcategory, where: { is_active: true }, attributes: ["id", "subcategory_name"] },
+//             { model: Brand, where: { is_active: true }, attributes: ["id", "brand_name"] },
+//             { model: Unit, where: { is_active: true }, attributes: ["id", "unit_name"] }
+//           ],
+//         },
+//       ],
+//     });
+
+//     const singleMapped = singleProducts.map((sp) => ({
+//       type: "single",
+//       product_id: sp.product_id,
+//       product_name: sp.ProductInfo.product_name,
+//       sku: sp.ProductInfo.sku, // direct SKU
+//       store: sp.ProductInfo.stores?.store_name,
+//       store_code: sp.ProductInfo.stores?.store_code,
+//       warehouse: sp.ProductInfo.warehouses?.warehouse_name,
+//       category: sp.ProductInfo.Category?.category_name,
+//       subcategory: sp.ProductInfo.SubCategory?.subcategory_name,
+//       brand: sp.ProductInfo.Brand?.brand_name,
+//       unit: sp.ProductInfo.Unit?.unit_name,
+//       quantity: sp.quantity,
+//       quantity_alert: sp.quantity_alert,
+//     }));
+
+//     // ============================================================
+//     // 🚀 VARIANT PRODUCTS LOW STOCK
+//     // ============================================================
+//     const variantProducts = await VariantProduct.findAll({
+//       where: {
+//         quantity: {
+//           [Op.lte]: Sequelize.col("VariantProduct.quantity_alert"),
+//         },
+//       },
+//       include: [
+//         {
+//           model: ProductInfo,
+//           include: [
+//             { model: Store, as: "stores", where: { status: "active" }, attributes: ["id", "store_name", "store_code"] },
+//             { model: Warehouse, as: "warehouses", where: { status: "active" }, attributes: ["id", "warehouse_name"] },
+//             { model: Categories, where: { is_active: true }, attributes: ["id", "category_name", "category_code"] },
+//             { model: Subcategory, where: { is_active: true }, attributes: ["id", "subcategory_name"] },
+//             { model: Brand, where: { is_active: true }, attributes: ["id", "brand_name"] },
+//             { model: Unit, where: { is_active: true }, attributes: ["id", "unit_name"] }
+//           ],
+//         },
+//       ],
+//     });
+
+//     const variantMapped = variantProducts.map((vp) => ({
+//       type: "variant",
+//       product_id: vp.product_id,
+//       product_name: vp.ProductInfo.product_name,
+
+//       // ⭐ SKU logic (matches SQL CASE EXACTLY)
+//       sku: vp.ProductInfo.sku && vp.ProductInfo.sku !== "" 
+//            ? vp.ProductInfo.sku 
+//            : vp.sku,
+
+//       store: vp.ProductInfo.stores?.store_name,
+//       store_code: vp.ProductInfo.stores?.store_code,
+//       warehouse: vp.ProductInfo.warehouses?.warehouse_name,
+//       category: vp.ProductInfo.Category?.category_name,
+//       subcategory: vp.ProductInfo.SubCategory?.subcategory_name,
+//       brand: vp.ProductInfo.Brand?.brand_name,
+//       unit: vp.ProductInfo.Unit?.unit_name,
+
+//       attribute_name: vp.attribute_name,
+//       attribute_value: vp.attribute_value,
+
+//       quantity: vp.quantity,
+//       quantity_alert: vp.quantity_alert,
+//     }));
+
+//     // ============================================================
+//     // 🚀 MERGE BOTH RESULTS
+//     // ============================================================
+//     const finalResponse = [...singleMapped, ...variantMapped];
+
+//     return res.status(200).json({
+//       message: "Low stock products fetched successfully",
+//       count: finalResponse.length,
+//       data: finalResponse,
+//     });
+//   } catch (error) {
+//     return res.status(500).json({ message: error.message });
+//   }
+// },
+
+

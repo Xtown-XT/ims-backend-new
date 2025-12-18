@@ -38,6 +38,7 @@
     "puppeteer-core": "^24.26.0",
     "razorpay": "^2.9.6",
     "sequelize": "^6.37.7",
+    "slugify": "^1.6.6",
     "twilio": "^5.10.3",
     "uuid": "^13.0.0",
     "validator": "^13.15.15",
